@@ -93,7 +93,41 @@ router.delete("/:name", function (request, response) {
 	});
 });
 
+router.post("/updateQuestionStep/:name",function(request, response){
+	user.updateQuestionStep(request.params.name,request.body.step,function(err, object){
+		if(err){
+			logger.error(err);
+			response.status(400).send(err);
+		}else{
+			logger.info(object);
+			response.send(object);
+		}
+	});
+});
 
+router.post("/updatePhotoPath/:name",function(request, response){
+	user.updatePhotoPath(request.params.name,request.body.photo,function(err, object){
+		if(err){
+			logger.error(err);
+			response.status(400).send(err);
+		}else{
+			logger.info(object);
+			response.send(object);
+		}
+	});
+});
+
+router.post("/updateCurrentChance/:name",function(request, response){
+	user.updateCurrentChance(request.params.name,request.body.chance,function(err, object){
+		if(err){
+			logger.error(err);
+			response.status(400).send(err);
+		}else{
+			logger.info(object);
+			response.send(object);
+		}
+	});
+});
 
 router.init = function init(callback) {
 	user.init(function (err) {

@@ -532,3 +532,72 @@
 {"level":"info","message":"got database.","timestamp":"1:04:37 PM"}
 {"level":"info","message":"user found.","timestamp":"1:04:37 PM"}
 {"_id":"yanzhengain","name":"yanzhengain","password":"1111","first_create_time":"2016-12-23T22:09:35.439Z","last_modified_time":"2016-12-23T22:09:35.439Z","question_step":"1","photo_path":"/backend/img/user/default.jpg","current_chance":5,"level":"info","message":"","timestamp":"1:04:37 PM"}
+{"level":"info","message":"exiting...","timestamp":"1:26:16 PM"}
+{"level":"info","message":"Connected to mongodb.","timestamp":"1:26:21 PM"}
+{"level":"info","message":"users initialized","timestamp":"1:26:21 PM"}
+{"level":"info","message":"router initialized","timestamp":"1:26:21 PM"}
+{"level":"info","message":"listening to 8080","timestamp":"1:26:21 PM"}
+{"level":"info","message":"POST /updateQuestionStep/test/4","timestamp":"1:26:38 PM"}
+{"level":"info","message":"got database.","timestamp":"1:26:38 PM"}
+{"level":"info","message":"update question step success.","timestamp":"1:26:38 PM"}
+{"lastErrorObject":{"updatedExisting":true,"n":1},"value":{"_id":"test","name":"test","password":"test","first_create_time":"2016-12-23T22:39:04.905Z","last_modified_time":"2016-12-23T22:39:04.905Z","question_step":"1","photo_path":"/backend/img/user/default.jpg","current_chance":5},"ok":1,"level":"info","message":"","timestamp":"1:26:38 PM"}
+{"level":"info","message":"exiting...","timestamp":"1:30:37 PM"}
+{"level":"info","message":"Connected to mongodb.","timestamp":"1:30:38 PM"}
+{"level":"info","message":"users initialized","timestamp":"1:30:38 PM"}
+{"level":"info","message":"router initialized","timestamp":"1:30:38 PM"}
+{"level":"info","message":"listening to 8080","timestamp":"1:30:38 PM"}
+{"level":"info","message":"POST /updatePhotoPath/test/ding","timestamp":"1:31:12 PM"}
+{"level":"info","message":"got database.","timestamp":"1:31:12 PM"}
+{"level":"info","message":"update photo path success.","timestamp":"1:31:12 PM"}
+{"lastErrorObject":{"updatedExisting":true,"n":1},"value":{"_id":"test","name":"test","password":"test","first_create_time":"2016-12-23T22:39:04.905Z","last_modified_time":"2016-12-24T12:26:38.221Z","question_step":"4","photo_path":"/backend/img/user/default.jpg","current_chance":5},"ok":1,"level":"info","message":"","timestamp":"1:31:12 PM"}
+{"level":"info","message":"POST /updateCurrentChance/test/3","timestamp":"1:35:24 PM"}
+{"level":"info","message":"got database.","timestamp":"1:35:24 PM"}
+{"level":"info","message":"update current chance success.","timestamp":"1:35:24 PM"}
+{"lastErrorObject":{"updatedExisting":true,"n":1},"value":{"_id":"test","name":"test","password":"test","first_create_time":"2016-12-23T22:39:04.905Z","last_modified_time":"2016-12-24T12:31:12.755Z","question_step":"4","photo_path":"/backend/img/user/ding.jpg","current_chance":5},"ok":1,"level":"info","message":"","timestamp":"1:35:24 PM"}
+{"level":"info","message":"exiting...","timestamp":"1:39:53 PM"}
+{"level":"info","message":"Connected to mongodb.","timestamp":"1:39:55 PM"}
+{"level":"info","message":"users initialized","timestamp":"1:39:55 PM"}
+{"level":"info","message":"router initialized","timestamp":"1:39:55 PM"}
+{"level":"info","message":"listening to 8080","timestamp":"1:39:55 PM"}
+{"level":"info","message":"POST /updateCurrentChance/test/3","timestamp":"1:40:11 PM"}
+{"level":"info","message":"got database.","timestamp":"1:40:11 PM"}
+{"level":"info","message":"update current chance success.","timestamp":"1:40:11 PM"}
+{"lastErrorObject":{"updatedExisting":true,"n":1},"value":{"_id":"test","name":"test","password":"test","first_create_time":"2016-12-23T22:39:04.905Z","last_modified_time":"2016-12-24T12:35:24.560Z","question_step":"4","photo_path":"/backend/img/user/ding.jpg","current_chance":"3"},"ok":1,"level":"info","message":"","timestamp":"1:40:11 PM"}
+{"level":"info","message":"exiting...","timestamp":"1:43:47 PM"}
+{"level":"info","message":"Connected to mongodb.","timestamp":"1:43:49 PM"}
+{"level":"info","message":"users initialized","timestamp":"1:43:49 PM"}
+{"level":"info","message":"router initialized","timestamp":"1:43:49 PM"}
+{"level":"info","message":"listening to 8080","timestamp":"1:43:49 PM"}
+{"level":"info","message":"POST /updateCurrentChance/test/3","timestamp":"1:43:56 PM"}
+{"level":"info","message":"got database.","timestamp":"1:43:56 PM"}
+{"level":"info","message":"update current chance success.","timestamp":"1:43:56 PM"}
+{"lastErrorObject":{"updatedExisting":true,"n":1},"value":{"_id":"test","name":"test","password":"test","first_create_time":"2016-12-23T22:39:04.905Z","last_modified_time":"2016-12-24T12:40:11.766Z","question_step":"4","photo_path":"/backend/img/user/ding.jpg","current_chance":3},"ok":1,"level":"info","message":"","timestamp":"1:43:56 PM"}
+{"level":"info","message":"exiting...","timestamp":"1:46:03 PM"}
+{"level":"info","message":"Connected to mongodb.","timestamp":"1:46:05 PM"}
+{"level":"info","message":"users initialized","timestamp":"1:46:05 PM"}
+{"level":"info","message":"router initialized","timestamp":"1:46:05 PM"}
+{"level":"info","message":"listening to 8080","timestamp":"1:46:05 PM"}
+{"level":"info","message":"POST /updateCurrentChance/test","timestamp":"1:46:20 PM"}
+{"level":"info","message":"got database.","timestamp":"1:46:20 PM"}
+{"level":"info","message":"update current chance success.","timestamp":"1:46:20 PM"}
+{"lastErrorObject":{"updatedExisting":true,"n":1},"value":{"_id":"test","name":"test","password":"test","first_create_time":"2016-12-23T22:39:04.905Z","last_modified_time":"2016-12-24T12:43:56.517Z","question_step":"4","photo_path":"/backend/img/user/ding.jpg","current_chance":"3"},"ok":1,"level":"info","message":"","timestamp":"1:46:20 PM"}
+{"level":"info","message":"POST /updateCurrentChance/test","timestamp":"1:47:23 PM"}
+{"level":"info","message":"got database.","timestamp":"1:47:23 PM"}
+{"level":"info","message":"update current chance success.","timestamp":"1:47:23 PM"}
+{"lastErrorObject":{"updatedExisting":true,"n":1},"value":{"_id":"test","name":"test","password":"test","first_create_time":"2016-12-23T22:39:04.905Z","last_modified_time":"2016-12-24T12:46:20.155Z","question_step":"4","photo_path":"/backend/img/user/ding.jpg","current_chance":null},"ok":1,"level":"info","message":"","timestamp":"1:47:23 PM"}
+{"level":"info","message":"POST /updateCurrentChance/test","timestamp":"1:48:25 PM"}
+{"level":"info","message":"got database.","timestamp":"1:48:25 PM"}
+{"level":"info","message":"update current chance success.","timestamp":"1:48:25 PM"}
+{"lastErrorObject":{"updatedExisting":true,"n":1},"value":{"_id":"test","name":"test","password":"test","first_create_time":"2016-12-23T22:39:04.905Z","last_modified_time":"2016-12-24T12:47:23.688Z","question_step":"4","photo_path":"/backend/img/user/ding.jpg","current_chance":"10"},"ok":1,"level":"info","message":"","timestamp":"1:48:25 PM"}
+{"level":"info","message":"POST /updatePhotoPath/test","timestamp":"1:49:02 PM"}
+{"level":"info","message":"got database.","timestamp":"1:49:02 PM"}
+{"level":"info","message":"update photo path success.","timestamp":"1:49:02 PM"}
+{"lastErrorObject":{"updatedExisting":true,"n":1},"value":{"_id":"test","name":"test","password":"test","first_create_time":"2016-12-23T22:39:04.905Z","last_modified_time":"2016-12-24T12:48:25.387Z","question_step":"4","photo_path":"/backend/img/user/ding.jpg","current_chance":null},"ok":1,"level":"info","message":"","timestamp":"1:49:02 PM"}
+{"level":"info","message":"POST /updatePhotoPath/test","timestamp":"1:49:14 PM"}
+{"level":"info","message":"got database.","timestamp":"1:49:14 PM"}
+{"level":"info","message":"update photo path success.","timestamp":"1:49:14 PM"}
+{"lastErrorObject":{"updatedExisting":true,"n":1},"value":{"_id":"test","name":"test","password":"test","first_create_time":"2016-12-23T22:39:04.905Z","last_modified_time":"2016-12-24T12:49:02.308Z","question_step":"4","photo_path":"/backend/img/user/sdvs.jpg","current_chance":null},"ok":1,"level":"info","message":"","timestamp":"1:49:14 PM"}
+{"level":"info","message":"POST /updateQuestionStep/test","timestamp":"1:49:47 PM"}
+{"level":"info","message":"got database.","timestamp":"1:49:47 PM"}
+{"level":"info","message":"update question step success.","timestamp":"1:49:47 PM"}
+{"lastErrorObject":{"updatedExisting":true,"n":1},"value":{"_id":"test","name":"test","password":"test","first_create_time":"2016-12-23T22:39:04.905Z","last_modified_time":"2016-12-24T12:49:14.499Z","question_step":"4","photo_path":"/backend/img/user/sdvsssc.jpg","current_chance":null},"ok":1,"level":"info","message":"","timestamp":"1:49:47 PM"}

@@ -111,7 +111,7 @@ function updatePhotoPath(uid, photoPath,callback){
 	mongoConnection.getDatabase().collection(USERS_COLLECTION).findAndModify(
 		{_id : uid},
 		[['_id','asc']],
-		{$set: {photo_path:photoPath, last_modified_time:new Date()}},
+		{$set: {photo_path:"/backend/img/user/" + photoPath + ".jpg", last_modified_time:new Date()}},
 		{},
 		function(err, object) {
 			if (err){
