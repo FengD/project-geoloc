@@ -12,34 +12,34 @@ router.use(function(request, response, next) {
   	next();
 });
 
-router.get("/", function(request, response){
-	user.getUser(null, null, function(err, documents){
-		if(err){
-			logger.error(err);
-			response.status(500).send(err);
-		}else{
-			logger.info(documents);
-			response.send(documents);
-		}
-	});
-});
+// router.get("/", function(request, response){
+// 	user.getUser(request.body.name, request.body.password, function(err, documents){
+// 		if(err){
+// 			logger.error(err);
+// 			response.status(500).send(err);
+// 		}else{
+// 			logger.info(documents);
+// 			response.send(documents);
+// 		}
+// 	});
+// });
 
-router.get("/:name", function(request, response){
-	user.getUser(request.params.name, null, function(err, documents){
-		if(err){
-			logger.error(err);
-			if (err.nonexistentUser) {
-				response.status(400).send(err);
-			}
-			else {
-				response.status(500).send(err);
-			}
-		}else{
-			logger.info(documents);
-			response.send(documents);
-		}
-	});
-});
+// router.get("/:name", function(request, response){
+// 	user.getUser(request.params.name, null, function(err, documents){
+// 		if(err){
+// 			logger.error(err);
+// 			if (err.nonexistentUser) {
+// 				response.status(400).send(err);
+// 			}
+// 			else {
+// 				response.status(500).send(err);
+// 			}
+// 		}else{
+// 			logger.info(documents);
+// 			response.send(documents);
+// 		}
+// 	});
+// });
 
 router.post("/", function(request,response){
 	user.createUser(request.body, function(err, result){
@@ -57,8 +57,8 @@ router.post("/", function(request,response){
 	});
 });
 
-router.post("/:name", function login (request, response) {
-	users.getUser(request.params.name, request.body.password, function (err, result) {
+router.post("/:name", function (request, response) {
+	user.getUser(request.params.name, request.body.password, function (err, result) {
 		if (err) {
 			logger.error(err);
 			if (err.nonexistentUser) {
@@ -76,7 +76,7 @@ router.post("/:name", function login (request, response) {
 });
 
 router.delete("/:name", function (request, response) {
-	users.removeUser(request.params.name, function (err, result) {
+	user.removeUser(request.params.name, function (err, result) {
 		if (err) {
 			logger.error(err);
 			if (err.nonexistentUser) {
@@ -92,6 +92,8 @@ router.delete("/:name", function (request, response) {
 		}
 	});
 });
+
+
 
 router.init = function init(callback) {
 	user.init(function (err) {

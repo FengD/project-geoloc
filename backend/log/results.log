@@ -266,3 +266,269 @@
 {"level":"info","message":"got database.","timestamp":"17:28:17"}
 {"level":"warn","message":"user not exists.","timestamp":"17:28:17"}
 {"message":"nonexistent user","stack":"Error: nonexistent user\n    at C:\\Users\\I335999\\Desktop\\project_programmatuion_web\\backend\\user.js:52:11\n    at handleCallback (C:\\Users\\I335999\\Desktop\\project_programmatuion_web\\backend\\node_modules\\mongodb\\lib\\utils.js:95:56)\n    at C:\\Users\\I335999\\Desktop\\project_programmatuion_web\\backend\\node_modules\\mongodb\\lib\\cursor.js:852:16\n    at handleCallback (C:\\Users\\I335999\\Desktop\\project_programmatuion_web\\backend\\node_modules\\mongodb-core\\lib\\cursor.js:171:5)\n    at setCursorNotified (C:\\Users\\I335999\\Desktop\\project_programmatuion_web\\backend\\node_modules\\mongodb-core\\lib\\cursor.js:516:3)\n    at C:\\Users\\I335999\\Desktop\\project_programmatuion_web\\backend\\node_modules\\mongodb-core\\lib\\cursor.js:591:16\n    at queryCallback (C:\\Users\\I335999\\Desktop\\project_programmatuion_web\\backend\\node_modules\\mongodb-core\\lib\\cursor.js:232:18)\n    at C:\\Users\\I335999\\Desktop\\project_programmatuion_web\\backend\\node_modules\\mongodb-core\\lib\\connection\\pool.js:455:18\n    at _combinedTickCallback (internal/process/next_tick.js:67:7)\n    at process._tickCallback (internal/process/next_tick.js:98:9)","nonexistentUser":true,"level":"error","timestamp":"17:28:17"}
+{"level":"info","message":"Connected to mongodb.","timestamp":"10:46:03 PM"}
+{"level":"info","message":"users initialized","timestamp":"10:46:03 PM"}
+{"level":"info","message":"router initialized","timestamp":"10:46:03 PM"}
+{"level":"info","message":"listening to 8080","timestamp":"10:46:03 PM"}
+{"level":"info","message":"POST /","timestamp":"10:47:16 PM"}
+{"level":"info","message":"got database.","timestamp":"10:47:16 PM"}
+{"level":"info","message":"user created.","timestamp":"10:47:17 PM"}
+{"level":"info","message":"Create user success.","timestamp":"10:47:17 PM"}
+{"level":"info","message":"POST /dingfeng","timestamp":"10:55:49 PM"}
+{"level":"info","message":"POST /dingfeng","timestamp":"10:55:58 PM"}
+{"level":"info","message":"POST /dingfeng","timestamp":"10:56:20 PM"}
+{"level":"info","message":"POST /dingfeng","timestamp":"10:56:24 PM"}
+{"level":"info","message":"GET /dingfeng&password=19901111","timestamp":"10:56:45 PM"}
+{"level":"info","message":"got database.","timestamp":"10:56:45 PM"}
+{"level":"warn","message":"user not exists.","timestamp":"10:56:45 PM"}
+{"message":"nonexistent user","stack":"Error: nonexistent user\n    at /home/ding/Documents/programmation-web/project/backend/user.js:52:11\n    at handleCallback (/home/ding/Documents/programmation-web/project/backend/node_modules/mongodb/lib/utils.js:95:56)\n    at /home/ding/Documents/programmation-web/project/backend/node_modules/mongodb/lib/cursor.js:852:16\n    at handleCallback (/home/ding/Documents/programmation-web/project/backend/node_modules/mongodb-core/lib/cursor.js:171:5)\n    at setCursorNotified (/home/ding/Documents/programmation-web/project/backend/node_modules/mongodb-core/lib/cursor.js:516:3)\n    at /home/ding/Documents/programmation-web/project/backend/node_modules/mongodb-core/lib/cursor.js:591:16\n    at queryCallback (/home/ding/Documents/programmation-web/project/backend/node_modules/mongodb-core/lib/cursor.js:232:18)\n    at /home/ding/Documents/programmation-web/project/backend/node_modules/mongodb-core/lib/connection/pool.js:455:18\n    at _combinedTickCallback (internal/process/next_tick.js:67:7)\n    at process._tickCallback (internal/process/next_tick.js:98:9)","nonexistentUser":true,"level":"error","timestamp":"10:56:45 PM"}
+{"level":"info","message":"OPTIONS /dingfeng","timestamp":"11:05:11 PM"}
+{"level":"info","message":"POST /dingfeng","timestamp":"11:05:11 PM"}
+{"level":"info","message":"OPTIONS /dingfeng","timestamp":"11:05:26 PM"}
+{"level":"info","message":"POST /dingfeng","timestamp":"11:05:26 PM"}
+{"level":"info","message":"OPTIONS /","timestamp":"11:05:39 PM"}
+{"level":"info","message":"POST /","timestamp":"11:05:39 PM"}
+{"level":"info","message":"got database.","timestamp":"11:05:39 PM"}
+{"level":"info","message":"user created.","timestamp":"11:05:39 PM"}
+{"level":"info","message":"Create user success.","timestamp":"11:05:39 PM"}
+{"level":"info","message":"OPTIONS /","timestamp":"11:06:10 PM"}
+{"level":"info","message":"POST /","timestamp":"11:06:10 PM"}
+{"level":"info","message":"got database.","timestamp":"11:06:10 PM"}
+{"level":"info","message":"user created.","timestamp":"11:06:10 PM"}
+{"level":"info","message":"Create user success.","timestamp":"11:06:10 PM"}
+{"level":"info","message":"OPTIONS /yanzhengain","timestamp":"11:06:23 PM"}
+{"level":"info","message":"POST /yanzhengain","timestamp":"11:06:23 PM"}
+{"level":"info","message":"OPTIONS /dingfeng","timestamp":"11:06:46 PM"}
+{"level":"info","message":"POST /dingfeng","timestamp":"11:06:46 PM"}
+{"level":"info","message":"OPTIONS /dingfeng","timestamp":"11:06:54 PM"}
+{"level":"info","message":"POST /dingfeng","timestamp":"11:06:54 PM"}
+{"level":"info","message":"OPTIONS /","timestamp":"11:09:35 PM"}
+{"level":"info","message":"POST /","timestamp":"11:09:35 PM"}
+{"level":"info","message":"got database.","timestamp":"11:09:35 PM"}
+{"level":"info","message":"user created.","timestamp":"11:09:35 PM"}
+{"level":"info","message":"Create user success.","timestamp":"11:09:35 PM"}
+{"level":"info","message":"OPTIONS /yanzhengain","timestamp":"11:09:55 PM"}
+{"level":"info","message":"POST /yanzhengain","timestamp":"11:09:55 PM"}
+{"level":"info","message":"OPTIONS /yanzhengain","timestamp":"11:11:58 PM"}
+{"level":"info","message":"POST /yanzhengain","timestamp":"11:11:58 PM"}
+{"level":"info","message":"OPTIONS /","timestamp":"11:25:18 PM"}
+{"level":"info","message":"POST /","timestamp":"11:25:18 PM"}
+{"level":"info","message":"got database.","timestamp":"11:25:18 PM"}
+{"level":"info","message":"user created.","timestamp":"11:25:18 PM"}
+{"level":"info","message":"Create user success.","timestamp":"11:25:18 PM"}
+{"level":"info","message":"GET /","timestamp":"11:28:24 PM"}
+{"level":"info","message":"got database.","timestamp":"11:28:24 PM"}
+{"level":"info","message":"user found.","timestamp":"11:28:24 PM"}
+{"0":{"_id":{"_bsontype":"ObjectID","id":{"0":88,"1":93,"2":159,"3":179,"4":21,"5":74,"6":238,"7":93,"8":178,"9":107,"10":122,"11":226}},"name":null,"password":null,"first_create_time":"2016-12-23T22:05:39.256Z","last_modified_time":"2016-12-23T22:05:39.256Z","question_step":"1","photo_path":"/backend/img/user/default.jpg","current_chance":5},"1":{"_id":{"_bsontype":"ObjectID","id":{"0":88,"1":93,"2":159,"3":210,"4":21,"5":74,"6":238,"7":93,"8":178,"9":107,"10":122,"11":227}},"name":null,"password":null,"first_create_time":"2016-12-23T22:06:10.099Z","last_modified_time":"2016-12-23T22:06:10.099Z","question_step":"1","photo_path":"/backend/img/user/default.jpg","current_chance":5},"level":"info","message":"","timestamp":"11:28:24 PM"}
+{"level":"info","message":"GET /","timestamp":"11:31:38 PM"}
+{"level":"info","message":"got database.","timestamp":"11:31:38 PM"}
+{"level":"info","message":"user found.","timestamp":"11:31:38 PM"}
+{"level":"info","message":"","timestamp":"11:31:38 PM"}
+{"level":"info","message":"GET /","timestamp":"11:36:44 PM"}
+{"level":"info","message":"got database.","timestamp":"11:36:44 PM"}
+{"level":"info","message":"user found.","timestamp":"11:36:44 PM"}
+{"level":"info","message":"","timestamp":"11:36:44 PM"}
+{"level":"info","message":"GET /","timestamp":"11:37:40 PM"}
+{"level":"info","message":"got database.","timestamp":"11:37:40 PM"}
+{"level":"info","message":"user found.","timestamp":"11:37:40 PM"}
+{"level":"info","message":"","timestamp":"11:37:40 PM"}
+{"level":"info","message":"GET /","timestamp":"11:38:07 PM"}
+{"level":"info","message":"got database.","timestamp":"11:38:07 PM"}
+{"level":"info","message":"user found.","timestamp":"11:38:07 PM"}
+{"level":"info","message":"","timestamp":"11:38:07 PM"}
+{"level":"info","message":"OPTIONS /","timestamp":"11:39:04 PM"}
+{"level":"info","message":"POST /","timestamp":"11:39:04 PM"}
+{"level":"info","message":"got database.","timestamp":"11:39:04 PM"}
+{"level":"info","message":"user created.","timestamp":"11:39:04 PM"}
+{"level":"info","message":"Create user success.","timestamp":"11:39:04 PM"}
+{"level":"info","message":"exiting...","timestamp":"11:39:25 PM"}
+{"level":"info","message":"Connected to mongodb.","timestamp":"11:39:27 PM"}
+{"level":"info","message":"users initialized","timestamp":"11:39:27 PM"}
+{"level":"info","message":"router initialized","timestamp":"11:39:27 PM"}
+{"level":"info","message":"listening to 8080","timestamp":"11:39:27 PM"}
+{"level":"info","message":"GET /","timestamp":"11:39:32 PM"}
+{"level":"info","message":"GET /","timestamp":"11:39:33 PM"}
+{"level":"info","message":"OPTIONS /","timestamp":"11:39:35 PM"}
+{"level":"info","message":"OPTIONS /","timestamp":"11:39:36 PM"}
+{"level":"info","message":"OPTIONS /","timestamp":"11:39:36 PM"}
+{"level":"info","message":"exiting...","timestamp":"11:39:49 PM"}
+{"level":"info","message":"Connected to mongodb.","timestamp":"11:39:51 PM"}
+{"level":"info","message":"users initialized","timestamp":"11:39:51 PM"}
+{"level":"info","message":"router initialized","timestamp":"11:39:51 PM"}
+{"level":"info","message":"listening to 8080","timestamp":"11:39:51 PM"}
+{"level":"info","message":"OPTIONS /","timestamp":"11:39:58 PM"}
+{"level":"info","message":"POST /","timestamp":"11:39:58 PM"}
+{"level":"info","message":"got database.","timestamp":"11:39:58 PM"}
+{"message":"E11000 duplicate key error collection: geoloc.users index: _id_ dup key: { : \"test\" }","name":"MongoError","stack":"MongoError: E11000 duplicate key error collection: geoloc.users index: _id_ dup key: { : \"test\" }\n    at Function.MongoError.create (/home/ding/Documents/programmation-web/project/backend/node_modules/mongodb-core/lib/error.js:31:11)\n    at toError (/home/ding/Documents/programmation-web/project/backend/node_modules/mongodb/lib/utils.js:114:22)\n    at /home/ding/Documents/programmation-web/project/backend/node_modules/mongodb/lib/collection.js:737:67\n    at /home/ding/Documents/programmation-web/project/backend/node_modules/mongodb-core/lib/connection/pool.js:455:18\n    at _combinedTickCallback (internal/process/next_tick.js:67:7)\n    at process._tickCallback (internal/process/next_tick.js:98:9)","driver":true,"index":0,"code":11000,"errmsg":"E11000 duplicate key error collection: geoloc.users index: _id_ dup key: { : \"test\" }","level":"warn","timestamp":"11:39:58 PM"}
+{"level":"info","message":"GET /","timestamp":"11:40:22 PM"}
+{"level":"info","message":"got database.","timestamp":"11:40:22 PM"}
+{"level":"info","message":"user found.","timestamp":"11:40:23 PM"}
+{"level":"info","message":"","timestamp":"11:40:23 PM"}
+{"level":"info","message":"OPTIONS /","timestamp":"11:40:39 PM"}
+{"level":"info","message":"POST /","timestamp":"11:40:39 PM"}
+{"level":"info","message":"got database.","timestamp":"11:40:39 PM"}
+{"message":"E11000 duplicate key error collection: geoloc.users index: _id_ dup key: { : \"yanzhengain\" }","name":"MongoError","stack":"MongoError: E11000 duplicate key error collection: geoloc.users index: _id_ dup key: { : \"yanzhengain\" }\n    at Function.MongoError.create (/home/ding/Documents/programmation-web/project/backend/node_modules/mongodb-core/lib/error.js:31:11)\n    at toError (/home/ding/Documents/programmation-web/project/backend/node_modules/mongodb/lib/utils.js:114:22)\n    at /home/ding/Documents/programmation-web/project/backend/node_modules/mongodb/lib/collection.js:737:67\n    at /home/ding/Documents/programmation-web/project/backend/node_modules/mongodb-core/lib/connection/pool.js:455:18\n    at _combinedTickCallback (internal/process/next_tick.js:67:7)\n    at process._tickCallback (internal/process/next_tick.js:98:9)","driver":true,"index":0,"code":11000,"errmsg":"E11000 duplicate key error collection: geoloc.users index: _id_ dup key: { : \"yanzhengain\" }","level":"warn","timestamp":"11:40:39 PM"}
+{"level":"info","message":"POST /","timestamp":"11:40:40 PM"}
+{"level":"info","message":"got database.","timestamp":"11:40:40 PM"}
+{"message":"E11000 duplicate key error collection: geoloc.users index: _id_ dup key: { : \"yanzhengain\" }","name":"MongoError","stack":"MongoError: E11000 duplicate key error collection: geoloc.users index: _id_ dup key: { : \"yanzhengain\" }\n    at Function.MongoError.create (/home/ding/Documents/programmation-web/project/backend/node_modules/mongodb-core/lib/error.js:31:11)\n    at toError (/home/ding/Documents/programmation-web/project/backend/node_modules/mongodb/lib/utils.js:114:22)\n    at /home/ding/Documents/programmation-web/project/backend/node_modules/mongodb/lib/collection.js:737:67\n    at /home/ding/Documents/programmation-web/project/backend/node_modules/mongodb-core/lib/connection/pool.js:455:18\n    at _combinedTickCallback (internal/process/next_tick.js:67:7)\n    at process._tickCallback (internal/process/next_tick.js:98:9)","driver":true,"index":0,"code":11000,"errmsg":"E11000 duplicate key error collection: geoloc.users index: _id_ dup key: { : \"yanzhengain\" }","level":"warn","timestamp":"11:40:40 PM"}
+{"level":"info","message":"POST /","timestamp":"11:40:40 PM"}
+{"level":"info","message":"got database.","timestamp":"11:40:40 PM"}
+{"message":"E11000 duplicate key error collection: geoloc.users index: _id_ dup key: { : \"yanzhengain\" }","name":"MongoError","stack":"MongoError: E11000 duplicate key error collection: geoloc.users index: _id_ dup key: { : \"yanzhengain\" }\n    at Function.MongoError.create (/home/ding/Documents/programmation-web/project/backend/node_modules/mongodb-core/lib/error.js:31:11)\n    at toError (/home/ding/Documents/programmation-web/project/backend/node_modules/mongodb/lib/utils.js:114:22)\n    at /home/ding/Documents/programmation-web/project/backend/node_modules/mongodb/lib/collection.js:737:67\n    at /home/ding/Documents/programmation-web/project/backend/node_modules/mongodb-core/lib/connection/pool.js:455:18\n    at _combinedTickCallback (internal/process/next_tick.js:67:7)\n    at process._tickCallback (internal/process/next_tick.js:98:9)","driver":true,"index":0,"code":11000,"errmsg":"E11000 duplicate key error collection: geoloc.users index: _id_ dup key: { : \"yanzhengain\" }","level":"warn","timestamp":"11:40:40 PM"}
+{"level":"info","message":"GET /","timestamp":"11:40:49 PM"}
+{"level":"info","message":"got database.","timestamp":"11:40:49 PM"}
+{"level":"info","message":"user found.","timestamp":"11:40:49 PM"}
+{"level":"info","message":"","timestamp":"11:40:49 PM"}
+{"level":"info","message":"GET /","timestamp":"11:41:02 PM"}
+{"level":"info","message":"got database.","timestamp":"11:41:02 PM"}
+{"level":"info","message":"user found.","timestamp":"11:41:02 PM"}
+{"level":"info","message":"","timestamp":"11:41:02 PM"}
+{"level":"info","message":"POST /","timestamp":"11:41:58 PM"}
+{"level":"info","message":"got database.","timestamp":"11:41:58 PM"}
+{"message":"E11000 duplicate key error collection: geoloc.users index: _id_ dup key: { : \"test\" }","name":"MongoError","stack":"MongoError: E11000 duplicate key error collection: geoloc.users index: _id_ dup key: { : \"test\" }\n    at Function.MongoError.create (/home/ding/Documents/programmation-web/project/backend/node_modules/mongodb-core/lib/error.js:31:11)\n    at toError (/home/ding/Documents/programmation-web/project/backend/node_modules/mongodb/lib/utils.js:114:22)\n    at /home/ding/Documents/programmation-web/project/backend/node_modules/mongodb/lib/collection.js:737:67\n    at /home/ding/Documents/programmation-web/project/backend/node_modules/mongodb-core/lib/connection/pool.js:455:18\n    at _combinedTickCallback (internal/process/next_tick.js:67:7)\n    at process._tickCallback (internal/process/next_tick.js:98:9)","driver":true,"index":0,"code":11000,"errmsg":"E11000 duplicate key error collection: geoloc.users index: _id_ dup key: { : \"test\" }","level":"warn","timestamp":"11:41:58 PM"}
+{"level":"info","message":"POST /","timestamp":"11:42:39 PM"}
+{"level":"info","message":"got database.","timestamp":"11:42:39 PM"}
+{"message":"E11000 duplicate key error collection: geoloc.users index: _id_ dup key: { : \"yanzhengain\" }","name":"MongoError","stack":"MongoError: E11000 duplicate key error collection: geoloc.users index: _id_ dup key: { : \"yanzhengain\" }\n    at Function.MongoError.create (/home/ding/Documents/programmation-web/project/backend/node_modules/mongodb-core/lib/error.js:31:11)\n    at toError (/home/ding/Documents/programmation-web/project/backend/node_modules/mongodb/lib/utils.js:114:22)\n    at /home/ding/Documents/programmation-web/project/backend/node_modules/mongodb/lib/collection.js:737:67\n    at /home/ding/Documents/programmation-web/project/backend/node_modules/mongodb-core/lib/connection/pool.js:455:18\n    at _combinedTickCallback (internal/process/next_tick.js:67:7)\n    at process._tickCallback (internal/process/next_tick.js:98:9)","driver":true,"index":0,"code":11000,"errmsg":"E11000 duplicate key error collection: geoloc.users index: _id_ dup key: { : \"yanzhengain\" }","level":"warn","timestamp":"11:42:39 PM"}
+{"level":"info","message":"GET /?name=sd&password=sdq","timestamp":"11:43:32 PM"}
+{"level":"info","message":"got database.","timestamp":"11:43:32 PM"}
+{"level":"info","message":"user found.","timestamp":"11:43:32 PM"}
+{"level":"info","message":"","timestamp":"11:43:32 PM"}
+{"level":"info","message":"GET /?name=dingfeng&password=19901111","timestamp":"11:43:44 PM"}
+{"level":"info","message":"got database.","timestamp":"11:43:44 PM"}
+{"level":"info","message":"user found.","timestamp":"11:43:44 PM"}
+{"level":"info","message":"","timestamp":"11:43:44 PM"}
+{"level":"info","message":"POST /","timestamp":"11:43:58 PM"}
+{"level":"info","message":"got database.","timestamp":"11:43:58 PM"}
+{"message":"E11000 duplicate key error collection: geoloc.users index: _id_ dup key: { : \"test\" }","name":"MongoError","stack":"MongoError: E11000 duplicate key error collection: geoloc.users index: _id_ dup key: { : \"test\" }\n    at Function.MongoError.create (/home/ding/Documents/programmation-web/project/backend/node_modules/mongodb-core/lib/error.js:31:11)\n    at toError (/home/ding/Documents/programmation-web/project/backend/node_modules/mongodb/lib/utils.js:114:22)\n    at /home/ding/Documents/programmation-web/project/backend/node_modules/mongodb/lib/collection.js:737:67\n    at /home/ding/Documents/programmation-web/project/backend/node_modules/mongodb-core/lib/connection/pool.js:455:18\n    at _combinedTickCallback (internal/process/next_tick.js:67:7)\n    at process._tickCallback (internal/process/next_tick.js:98:9)","driver":true,"index":0,"code":11000,"errmsg":"E11000 duplicate key error collection: geoloc.users index: _id_ dup key: { : \"test\" }","level":"warn","timestamp":"11:43:58 PM"}
+{"level":"info","message":"GET /?name=test&password=test","timestamp":"11:44:28 PM"}
+{"level":"info","message":"got database.","timestamp":"11:44:28 PM"}
+{"level":"info","message":"user found.","timestamp":"11:44:28 PM"}
+{"level":"info","message":"","timestamp":"11:44:28 PM"}
+{"level":"info","message":"GET /?name=testdf&password=test","timestamp":"11:44:33 PM"}
+{"level":"info","message":"got database.","timestamp":"11:44:33 PM"}
+{"level":"info","message":"user found.","timestamp":"11:44:33 PM"}
+{"level":"info","message":"","timestamp":"11:44:33 PM"}
+{"level":"info","message":"exiting...","timestamp":"11:45:08 PM"}
+{"level":"info","message":"Connected to mongodb.","timestamp":"11:45:09 PM"}
+{"level":"info","message":"users initialized","timestamp":"11:45:09 PM"}
+{"level":"info","message":"router initialized","timestamp":"11:45:09 PM"}
+{"level":"info","message":"listening to 8080","timestamp":"11:45:09 PM"}
+{"level":"info","message":"GET /?name=testdf&password=test","timestamp":"11:45:13 PM"}
+{"level":"info","message":"GET /?name=testdf&password=test","timestamp":"11:45:16 PM"}
+{"level":"info","message":"GET /","timestamp":"11:45:23 PM"}
+{"level":"info","message":"GET /","timestamp":"11:45:23 PM"}
+{"level":"info","message":"GET /","timestamp":"11:45:23 PM"}
+{"level":"info","message":"GET /","timestamp":"11:45:23 PM"}
+{"level":"info","message":"GET /","timestamp":"11:45:24 PM"}
+{"level":"info","message":"GET /","timestamp":"11:45:24 PM"}
+{"level":"info","message":"GET /?name=testdf&password=test","timestamp":"11:47:04 PM"}
+{"level":"info","message":"OPTIONS /yanzhengaindd","timestamp":"11:49:48 PM"}
+{"level":"info","message":"POST /yanzhengaindd","timestamp":"11:49:48 PM"}
+{"level":"info","message":"OPTIONS /yanzhengain","timestamp":"11:50:02 PM"}
+{"level":"info","message":"POST /yanzhengain","timestamp":"11:50:02 PM"}
+{"level":"info","message":"OPTIONS /test","timestamp":"11:50:13 PM"}
+{"level":"info","message":"POST /test","timestamp":"11:50:13 PM"}
+{"level":"info","message":"exiting...","timestamp":"11:51:33 PM"}
+{"level":"info","message":"Connected to mongodb.","timestamp":"11:51:34 PM"}
+{"level":"info","message":"users initialized","timestamp":"11:51:34 PM"}
+{"level":"info","message":"router initialized","timestamp":"11:51:34 PM"}
+{"level":"info","message":"listening to 8080","timestamp":"11:51:34 PM"}
+{"level":"info","message":"OPTIONS /test","timestamp":"11:51:38 PM"}
+{"level":"info","message":"POST /test","timestamp":"11:51:38 PM"}
+{"level":"info","message":"test","timestamp":"11:51:38 PM"}
+{"level":"info","message":"test","timestamp":"11:51:38 PM"}
+{"level":"info","message":"exiting...","timestamp":"11:57:03 PM"}
+{"level":"info","message":"Connected to mongodb.","timestamp":"11:57:04 PM"}
+{"level":"info","message":"users initialized","timestamp":"11:57:04 PM"}
+{"level":"info","message":"router initialized","timestamp":"11:57:04 PM"}
+{"level":"info","message":"listening to 8080","timestamp":"11:57:04 PM"}
+{"level":"info","message":"OPTIONS /test","timestamp":"11:57:09 PM"}
+{"level":"info","message":"POST /test","timestamp":"11:57:09 PM"}
+{"level":"info","message":"test","timestamp":"11:57:09 PM"}
+{"level":"info","message":"test","timestamp":"11:57:09 PM"}
+{"level":"info","message":"POST /test","timestamp":"11:59:05 PM"}
+{"level":"info","message":"test","timestamp":"11:59:05 PM"}
+{"level":"info","message":"test","timestamp":"11:59:05 PM"}
+{"level":"info","message":"POST /test","timestamp":"11:59:09 PM"}
+{"level":"info","message":"test","timestamp":"11:59:09 PM"}
+{"level":"info","message":"tes","timestamp":"11:59:09 PM"}
+{"level":"info","message":"POST /test","timestamp":"12:01:07 AM"}
+{"level":"info","message":"test","timestamp":"12:01:07 AM"}
+{"level":"info","message":"19901111","timestamp":"12:01:07 AM"}
+{"level":"info","message":"POST /test","timestamp":"12:02:55 AM"}
+{"level":"info","message":"test","timestamp":"12:02:55 AM"}
+{"level":"info","message":"19901111","timestamp":"12:02:55 AM"}
+{"level":"info","message":"exiting...","timestamp":"12:03:01 AM"}
+{"level":"info","message":"Connected to mongodb.","timestamp":"12:03:02 AM"}
+{"level":"info","message":"users initialized","timestamp":"12:03:02 AM"}
+{"level":"info","message":"router initialized","timestamp":"12:03:02 AM"}
+{"level":"info","message":"listening to 8080","timestamp":"12:03:02 AM"}
+{"level":"info","message":"POST /test","timestamp":"12:03:05 AM"}
+{"level":"info","message":"test","timestamp":"12:03:05 AM"}
+{"level":"info","message":"19901111","timestamp":"12:03:05 AM"}
+{"level":"info","message":"got database.","timestamp":"12:03:05 AM"}
+{"level":"info","message":"exiting...","timestamp":"12:03:18 AM"}
+{"level":"info","message":"Connected to mongodb.","timestamp":"12:03:19 AM"}
+{"level":"info","message":"users initialized","timestamp":"12:03:19 AM"}
+{"level":"info","message":"router initialized","timestamp":"12:03:19 AM"}
+{"level":"info","message":"listening to 8080","timestamp":"12:03:19 AM"}
+{"level":"info","message":"POST /test","timestamp":"12:03:23 AM"}
+{"level":"info","message":"test","timestamp":"12:03:23 AM"}
+{"level":"info","message":"19901111","timestamp":"12:03:23 AM"}
+{"level":"info","message":"got database.","timestamp":"12:03:23 AM"}
+{"level":"warn","message":"user not exists.","timestamp":"12:03:23 AM"}
+{"message":"nonexistent user","stack":"Error: nonexistent user\n    at /home/ding/Documents/programmation-web/project/backend/user.js:52:11\n    at handleCallback (/home/ding/Documents/programmation-web/project/backend/node_modules/mongodb/lib/utils.js:95:56)\n    at /home/ding/Documents/programmation-web/project/backend/node_modules/mongodb/lib/cursor.js:852:16\n    at handleCallback (/home/ding/Documents/programmation-web/project/backend/node_modules/mongodb-core/lib/cursor.js:171:5)\n    at setCursorNotified (/home/ding/Documents/programmation-web/project/backend/node_modules/mongodb-core/lib/cursor.js:516:3)\n    at /home/ding/Documents/programmation-web/project/backend/node_modules/mongodb-core/lib/cursor.js:591:16\n    at queryCallback (/home/ding/Documents/programmation-web/project/backend/node_modules/mongodb-core/lib/cursor.js:232:18)\n    at /home/ding/Documents/programmation-web/project/backend/node_modules/mongodb-core/lib/connection/pool.js:455:18\n    at _combinedTickCallback (internal/process/next_tick.js:67:7)\n    at process._tickCallback (internal/process/next_tick.js:98:9)","nonexistentUser":true,"level":"error","timestamp":"12:03:23 AM"}
+{"level":"info","message":"exiting...","timestamp":"12:04:19 AM"}
+{"level":"info","message":"Connected to mongodb.","timestamp":"12:04:20 AM"}
+{"level":"info","message":"users initialized","timestamp":"12:04:20 AM"}
+{"level":"info","message":"router initialized","timestamp":"12:04:20 AM"}
+{"level":"info","message":"listening to 8080","timestamp":"12:04:20 AM"}
+{"level":"info","message":"POST /test","timestamp":"12:04:26 AM"}
+{"level":"info","message":"got database.","timestamp":"12:04:26 AM"}
+{"level":"info","message":"user found.","timestamp":"12:04:26 AM"}
+{"_id":"test","name":"test","password":"test","first_create_time":"2016-12-23T22:39:04.905Z","last_modified_time":"2016-12-23T22:39:04.905Z","question_step":"1","photo_path":"/backend/img/user/default.jpg","current_chance":5,"level":"info","message":"","timestamp":"12:04:26 AM"}
+{"level":"info","message":"OPTIONS /test","timestamp":"12:04:34 AM"}
+{"level":"info","message":"POST /test","timestamp":"12:04:34 AM"}
+{"level":"info","message":"got database.","timestamp":"12:04:34 AM"}
+{"level":"info","message":"user found.","timestamp":"12:04:34 AM"}
+{"_id":"test","name":"test","password":"test","first_create_time":"2016-12-23T22:39:04.905Z","last_modified_time":"2016-12-23T22:39:04.905Z","question_step":"1","photo_path":"/backend/img/user/default.jpg","current_chance":5,"level":"info","message":"","timestamp":"12:04:34 AM"}
+{"level":"info","message":"OPTIONS /yanzhengain","timestamp":"12:04:39 AM"}
+{"level":"info","message":"POST /yanzhengain","timestamp":"12:04:39 AM"}
+{"level":"info","message":"got database.","timestamp":"12:04:39 AM"}
+{"level":"info","message":"user found.","timestamp":"12:04:39 AM"}
+{"_id":"yanzhengain","name":"yanzhengain","password":"1111","first_create_time":"2016-12-23T22:09:35.439Z","last_modified_time":"2016-12-23T22:09:35.439Z","question_step":"1","photo_path":"/backend/img/user/default.jpg","current_chance":5,"level":"info","message":"","timestamp":"12:04:39 AM"}
+{"level":"info","message":"OPTIONS /yanzhengaindd","timestamp":"12:04:47 AM"}
+{"level":"info","message":"POST /yanzhengaindd","timestamp":"12:04:47 AM"}
+{"level":"info","message":"got database.","timestamp":"12:04:47 AM"}
+{"level":"warn","message":"user not exists.","timestamp":"12:04:47 AM"}
+{"message":"nonexistent user","stack":"Error: nonexistent user\n    at /home/ding/Documents/programmation-web/project/backend/user.js:52:11\n    at handleCallback (/home/ding/Documents/programmation-web/project/backend/node_modules/mongodb/lib/utils.js:95:56)\n    at /home/ding/Documents/programmation-web/project/backend/node_modules/mongodb/lib/cursor.js:852:16\n    at handleCallback (/home/ding/Documents/programmation-web/project/backend/node_modules/mongodb-core/lib/cursor.js:171:5)\n    at setCursorNotified (/home/ding/Documents/programmation-web/project/backend/node_modules/mongodb-core/lib/cursor.js:516:3)\n    at /home/ding/Documents/programmation-web/project/backend/node_modules/mongodb-core/lib/cursor.js:591:16\n    at queryCallback (/home/ding/Documents/programmation-web/project/backend/node_modules/mongodb-core/lib/cursor.js:232:18)\n    at /home/ding/Documents/programmation-web/project/backend/node_modules/mongodb-core/lib/connection/pool.js:455:18\n    at _combinedTickCallback (internal/process/next_tick.js:67:7)\n    at process._tickCallback (internal/process/next_tick.js:98:9)","nonexistentUser":true,"level":"error","timestamp":"12:04:47 AM"}
+{"level":"info","message":"POST /yanzhengaindd","timestamp":"12:04:47 AM"}
+{"level":"info","message":"got database.","timestamp":"12:04:47 AM"}
+{"level":"warn","message":"user not exists.","timestamp":"12:04:47 AM"}
+{"message":"nonexistent user","stack":"Error: nonexistent user\n    at /home/ding/Documents/programmation-web/project/backend/user.js:52:11\n    at handleCallback (/home/ding/Documents/programmation-web/project/backend/node_modules/mongodb/lib/utils.js:95:56)\n    at /home/ding/Documents/programmation-web/project/backend/node_modules/mongodb/lib/cursor.js:852:16\n    at handleCallback (/home/ding/Documents/programmation-web/project/backend/node_modules/mongodb-core/lib/cursor.js:171:5)\n    at setCursorNotified (/home/ding/Documents/programmation-web/project/backend/node_modules/mongodb-core/lib/cursor.js:516:3)\n    at /home/ding/Documents/programmation-web/project/backend/node_modules/mongodb-core/lib/cursor.js:591:16\n    at queryCallback (/home/ding/Documents/programmation-web/project/backend/node_modules/mongodb-core/lib/cursor.js:232:18)\n    at /home/ding/Documents/programmation-web/project/backend/node_modules/mongodb-core/lib/connection/pool.js:455:18\n    at _combinedTickCallback (internal/process/next_tick.js:67:7)\n    at process._tickCallback (internal/process/next_tick.js:98:9)","nonexistentUser":true,"level":"error","timestamp":"12:04:47 AM"}
+{"level":"info","message":"POST /yanzhengaindd","timestamp":"12:04:47 AM"}
+{"level":"info","message":"got database.","timestamp":"12:04:47 AM"}
+{"level":"warn","message":"user not exists.","timestamp":"12:04:47 AM"}
+{"message":"nonexistent user","stack":"Error: nonexistent user\n    at /home/ding/Documents/programmation-web/project/backend/user.js:52:11\n    at handleCallback (/home/ding/Documents/programmation-web/project/backend/node_modules/mongodb/lib/utils.js:95:56)\n    at /home/ding/Documents/programmation-web/project/backend/node_modules/mongodb/lib/cursor.js:852:16\n    at handleCallback (/home/ding/Documents/programmation-web/project/backend/node_modules/mongodb-core/lib/cursor.js:171:5)\n    at setCursorNotified (/home/ding/Documents/programmation-web/project/backend/node_modules/mongodb-core/lib/cursor.js:516:3)\n    at /home/ding/Documents/programmation-web/project/backend/node_modules/mongodb-core/lib/cursor.js:591:16\n    at queryCallback (/home/ding/Documents/programmation-web/project/backend/node_modules/mongodb-core/lib/cursor.js:232:18)\n    at /home/ding/Documents/programmation-web/project/backend/node_modules/mongodb-core/lib/connection/pool.js:455:18\n    at _combinedTickCallback (internal/process/next_tick.js:67:7)\n    at process._tickCallback (internal/process/next_tick.js:98:9)","nonexistentUser":true,"level":"error","timestamp":"12:04:47 AM"}
+{"level":"info","message":"POST /test","timestamp":"12:18:37 AM"}
+{"level":"info","message":"got database.","timestamp":"12:18:37 AM"}
+{"level":"info","message":"user found.","timestamp":"12:18:37 AM"}
+{"_id":"test","name":"test","password":"test","first_create_time":"2016-12-23T22:39:04.905Z","last_modified_time":"2016-12-23T22:39:04.905Z","question_step":"1","photo_path":"/backend/img/user/default.jpg","current_chance":5,"level":"info","message":"","timestamp":"12:18:37 AM"}
+{"level":"info","message":"OPTIONS /yanzhengaindd","timestamp":"1:04:20 PM"}
+{"level":"info","message":"POST /yanzhengaindd","timestamp":"1:04:21 PM"}
+{"level":"info","message":"got database.","timestamp":"1:04:21 PM"}
+{"level":"warn","message":"user not exists.","timestamp":"1:04:21 PM"}
+{"message":"nonexistent user","stack":"Error: nonexistent user\n    at /home/ding/Documents/programmation-web/project/backend/user.js:52:11\n    at handleCallback (/home/ding/Documents/programmation-web/project/backend/node_modules/mongodb/lib/utils.js:95:56)\n    at /home/ding/Documents/programmation-web/project/backend/node_modules/mongodb/lib/cursor.js:852:16\n    at handleCallback (/home/ding/Documents/programmation-web/project/backend/node_modules/mongodb-core/lib/cursor.js:171:5)\n    at setCursorNotified (/home/ding/Documents/programmation-web/project/backend/node_modules/mongodb-core/lib/cursor.js:516:3)\n    at /home/ding/Documents/programmation-web/project/backend/node_modules/mongodb-core/lib/cursor.js:591:16\n    at queryCallback (/home/ding/Documents/programmation-web/project/backend/node_modules/mongodb-core/lib/cursor.js:232:18)\n    at /home/ding/Documents/programmation-web/project/backend/node_modules/mongodb-core/lib/connection/pool.js:455:18\n    at _combinedTickCallback (internal/process/next_tick.js:67:7)\n    at process._tickCallback (internal/process/next_tick.js:98:9)","nonexistentUser":true,"level":"error","timestamp":"1:04:21 PM"}
+{"level":"info","message":"POST /yanzhengaindd","timestamp":"1:04:24 PM"}
+{"level":"info","message":"got database.","timestamp":"1:04:24 PM"}
+{"level":"warn","message":"user not exists.","timestamp":"1:04:24 PM"}
+{"message":"nonexistent user","stack":"Error: nonexistent user\n    at /home/ding/Documents/programmation-web/project/backend/user.js:52:11\n    at handleCallback (/home/ding/Documents/programmation-web/project/backend/node_modules/mongodb/lib/utils.js:95:56)\n    at /home/ding/Documents/programmation-web/project/backend/node_modules/mongodb/lib/cursor.js:852:16\n    at handleCallback (/home/ding/Documents/programmation-web/project/backend/node_modules/mongodb-core/lib/cursor.js:171:5)\n    at setCursorNotified (/home/ding/Documents/programmation-web/project/backend/node_modules/mongodb-core/lib/cursor.js:516:3)\n    at /home/ding/Documents/programmation-web/project/backend/node_modules/mongodb-core/lib/cursor.js:591:16\n    at queryCallback (/home/ding/Documents/programmation-web/project/backend/node_modules/mongodb-core/lib/cursor.js:232:18)\n    at /home/ding/Documents/programmation-web/project/backend/node_modules/mongodb-core/lib/connection/pool.js:455:18\n    at _combinedTickCallback (internal/process/next_tick.js:67:7)\n    at process._tickCallback (internal/process/next_tick.js:98:9)","nonexistentUser":true,"level":"error","timestamp":"1:04:24 PM"}
+{"level":"info","message":"OPTIONS /yanzhengaindd","timestamp":"1:04:32 PM"}
+{"level":"info","message":"POST /yanzhengaindd","timestamp":"1:04:32 PM"}
+{"level":"info","message":"got database.","timestamp":"1:04:32 PM"}
+{"level":"warn","message":"user not exists.","timestamp":"1:04:32 PM"}
+{"message":"nonexistent user","stack":"Error: nonexistent user\n    at /home/ding/Documents/programmation-web/project/backend/user.js:52:11\n    at handleCallback (/home/ding/Documents/programmation-web/project/backend/node_modules/mongodb/lib/utils.js:95:56)\n    at /home/ding/Documents/programmation-web/project/backend/node_modules/mongodb/lib/cursor.js:852:16\n    at handleCallback (/home/ding/Documents/programmation-web/project/backend/node_modules/mongodb-core/lib/cursor.js:171:5)\n    at setCursorNotified (/home/ding/Documents/programmation-web/project/backend/node_modules/mongodb-core/lib/cursor.js:516:3)\n    at /home/ding/Documents/programmation-web/project/backend/node_modules/mongodb-core/lib/cursor.js:591:16\n    at queryCallback (/home/ding/Documents/programmation-web/project/backend/node_modules/mongodb-core/lib/cursor.js:232:18)\n    at /home/ding/Documents/programmation-web/project/backend/node_modules/mongodb-core/lib/connection/pool.js:455:18\n    at _combinedTickCallback (internal/process/next_tick.js:67:7)\n    at process._tickCallback (internal/process/next_tick.js:98:9)","nonexistentUser":true,"level":"error","timestamp":"1:04:32 PM"}
+{"level":"info","message":"OPTIONS /yanzhengain","timestamp":"1:04:37 PM"}
+{"level":"info","message":"POST /yanzhengain","timestamp":"1:04:37 PM"}
+{"level":"info","message":"got database.","timestamp":"1:04:37 PM"}
+{"level":"info","message":"user found.","timestamp":"1:04:37 PM"}
+{"_id":"yanzhengain","name":"yanzhengain","password":"1111","first_create_time":"2016-12-23T22:09:35.439Z","last_modified_time":"2016-12-23T22:09:35.439Z","question_step":"1","photo_path":"/backend/img/user/default.jpg","current_chance":5,"level":"info","message":"","timestamp":"1:04:37 PM"}
