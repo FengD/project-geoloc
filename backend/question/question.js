@@ -1,0 +1,150 @@
+/**
+ * @author Feng DING
+ */
+
+"use strict";
+
+var mongoConnection = require("./mongoDB_connection"),
+	logger = require("./winstonLogger"),
+	ObjectId = require('mongodb').ObjectID,
+	QUESTIONS_COLLECTION = "questions";
+
+function createQuestion(data, callback) {
+	try {
+		mongoConnection.getDatabase().collection(QUESTIONS_COLLECTION).insertOne({
+			_id : data.id,
+			position : {
+				latitude : data.latitude, 
+				longitude : data.longitude
+			},
+			question : data.question,
+			type : data.type,
+			answers : data.answers,
+			choices : data.choices,
+			first_create_time:new Date(),
+			last_modified_time:new Date(),
+			comments : [],
+			photo_path : "/backend/img/question/default.jpg",
+			next_question : data.nextQuestion
+		}, function(err, result) {
+			if (err) {
+				logger.warn(err);
+				if (err.code == 11000)
+					err.duplicate = true;
+			}else{
+				logger.info("question created.");
+				callback(err, result);
+			}
+			
+		});
+	}
+	catch(err) {
+		logger.warn(err);
+		callback(err, null);
+	}
+}
+
+function getQuestion(qid, callback) {
+	mongoConnection.getDatabase().collection(QUESTIONS_COLLECTION).find({
+		_id : qid,
+	})
+		.toArray(function(err, documents) {
+		if (err) {
+			logger.warn(err);
+			callback(err, documents);
+		}
+		else {
+			if (documents.length === 0 && qid) {
+				err = new Error("nonexistent question");
+				err.nonexistentQuestion = true;
+				logger.warn("question not exists.");
+				callback(err, null);
+			}
+			else {
+				logger.info("question found.");
+				documents = documents.map(function(element) {
+					return element;
+				});
+				callback(err, documents);
+			}
+		}
+	});
+}
+
+function removeQuestion(qid, callback) {
+	mongoConnection.getDatabase().collection(QUESTIONS_COLLECTION).deleteOne({
+		_id: qid
+	}, null, function(err, result) {
+		if (err) {
+			logger.warn(err);
+			callback(err, result);
+		}
+		else {
+			result = JSON.parse(result);
+			if (result.n == 0) {
+				err = new Error("nonexistent question");
+				err.nonexistentQuestion = true;
+				logger.warn("question not exists.");
+				callback(err, null);
+			}else{
+				logger.info("question removed.");
+				callback(err, result);	
+			} 
+		}
+	});
+}
+
+function addCommentToQuestion(qid, text, userId, callback){
+	mongoConnection.getDatabase().collection(QUESTIONS_COLLECTION).findAndModify(
+		{_id : qid},
+		[['_id','asc']],
+		{
+			$set : {last_modified_time:new Date()},
+			$push : {comments : {
+				_id : new ObjectId(),
+				text : text,
+				user_id : userId,
+				votes : []
+			}}
+		},
+		{},
+		function(err, object) {
+			if (err){
+        		logger.warn(err.message); // returns error if no matching object found
+        		callback(err,null);
+      		}else{
+      			logger.info("Comment success.");
+          		callback(err,object);
+      		}
+  		}
+	);
+}
+
+function voteToComment(qid,text,userId,callback){
+
+}
+
+function init(callback) {
+	mongoConnection.connect(function(err) {
+		if (err) {
+			logger.warn(err);
+		}
+		else {
+			logger.info("questions initialized");
+		}
+		callback(err);
+	});
+}
+
+function clean() {
+	mongoConnection.disconnect();
+}
+
+// // Exports
+
+exports.createQuestion = createQuestion;
+exports.getQuestion = getQuestion;
+exports.removeQuestion = removeQuestion;
+exports.addCommentToQuestion = addCommentToQuestion;
+exports.init = init;
+exports.clean = clean;

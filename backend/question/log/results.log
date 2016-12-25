@@ -1,0 +1,244 @@
+{"level":"info","message":"Connected to mongodb.","timestamp":"2:35:49 PM"}
+{"level":"info","message":"questions initialized","timestamp":"2:35:49 PM"}
+{"level":"info","message":"question router initialized","timestamp":"2:35:49 PM"}
+{"level":"info","message":"listening to 8081","timestamp":"2:35:49 PM"}
+{"level":"info","message":"POST /","timestamp":"2:39:32 PM"}
+{"level":"info","message":"got database.","timestamp":"2:39:32 PM"}
+{"level":"info","message":"question created.","timestamp":"2:39:33 PM"}
+{"level":"info","message":"Create question success.","timestamp":"2:39:33 PM"}
+{"level":"info","message":"POST /","timestamp":"2:40:52 PM"}
+{"level":"info","message":"got database.","timestamp":"2:40:52 PM"}
+{"level":"info","message":"question created.","timestamp":"2:40:52 PM"}
+{"level":"info","message":"Create question success.","timestamp":"2:40:52 PM"}
+{"level":"info","message":"POST /1","timestamp":"2:42:02 PM"}
+{"level":"info","message":"got database.","timestamp":"2:42:02 PM"}
+{"level":"info","message":"question found.","timestamp":"2:42:02 PM"}
+{"_id":"1","position":{"latitude":"12.222","longitude":"15.999"},"question":"what is your name?","type":"essay","answers":"my name is lilei","choices":"","comments":[],"photo_path":"/backend/img/question/default.jpg","next_question":"2","level":"info","message":"","timestamp":"2:42:02 PM"}
+{"level":"info","message":"POST /3","timestamp":"2:42:26 PM"}
+{"level":"info","message":"got database.","timestamp":"2:42:26 PM"}
+{"level":"info","message":"question found.","timestamp":"2:42:26 PM"}
+{"_id":"1","position":{"latitude":"12.222","longitude":"15.999"},"question":"what is your name?","type":"essay","answers":"my name is lilei","choices":"","comments":[],"photo_path":"/backend/img/question/default.jpg","next_question":"2","level":"info","message":"","timestamp":"2:42:26 PM"}
+{"level":"info","message":"exiting...","timestamp":"2:42:34 PM"}
+{"level":"info","message":"Connected to mongodb.","timestamp":"2:42:36 PM"}
+{"level":"info","message":"questions initialized","timestamp":"2:42:36 PM"}
+{"level":"info","message":"question router initialized","timestamp":"2:42:36 PM"}
+{"level":"info","message":"listening to 8081","timestamp":"2:42:36 PM"}
+{"level":"info","message":"POST /3","timestamp":"2:42:40 PM"}
+{"level":"info","message":"got database.","timestamp":"2:42:40 PM"}
+{"level":"info","message":"Connected to mongodb.","timestamp":"2:43:42 PM"}
+{"level":"info","message":"questions initialized","timestamp":"2:43:42 PM"}
+{"level":"info","message":"question router initialized","timestamp":"2:43:42 PM"}
+{"level":"info","message":"listening to 8081","timestamp":"2:43:42 PM"}
+{"level":"info","message":"POST /2","timestamp":"2:43:48 PM"}
+{"level":"info","message":"got database.","timestamp":"2:43:48 PM"}
+{"level":"info","message":"question found.","timestamp":"2:43:48 PM"}
+{"_id":"2","position":{"latitude":"12.222","longitude":"15.999"},"question":"what is your name?","type":"essay","answers":"my name is lilei","choices":"","comments":[],"photo_path":"/backend/img/question/default.jpg","next_question":"3","level":"info","message":"","timestamp":"2:43:48 PM"}
+{"level":"info","message":"POST /2","timestamp":"2:44:05 PM"}
+{"level":"info","message":"got database.","timestamp":"2:44:05 PM"}
+{"level":"info","message":"question found.","timestamp":"2:44:05 PM"}
+{"_id":"2","position":{"latitude":"12.222","longitude":"15.999"},"question":"what is your name?","type":"essay","answers":"my name is lilei","choices":"","comments":[],"photo_path":"/backend/img/question/default.jpg","next_question":"3","level":"info","message":"","timestamp":"2:44:05 PM"}
+{"level":"info","message":"POST /3","timestamp":"2:44:07 PM"}
+{"level":"info","message":"got database.","timestamp":"2:44:07 PM"}
+{"level":"info","message":"Connected to mongodb.","timestamp":"2:46:12 PM"}
+{"level":"info","message":"questions initialized","timestamp":"2:46:12 PM"}
+{"level":"info","message":"question router initialized","timestamp":"2:46:12 PM"}
+{"level":"info","message":"listening to 8081","timestamp":"2:46:12 PM"}
+{"level":"info","message":"GET /2","timestamp":"2:46:16 PM"}
+{"level":"info","message":"GET /3","timestamp":"2:46:19 PM"}
+{"level":"info","message":"POST /3","timestamp":"2:46:21 PM"}
+{"level":"info","message":"got database.","timestamp":"2:46:21 PM"}
+{"level":"warn","message":"question not exists.","timestamp":"2:46:21 PM"}
+{"message":"nonexistent question","stack":"Error: nonexistent question\n    at /home/ding/Documents/programmation-web/project/backend/question/question.js:55:11\n    at handleCallback (/home/ding/Documents/programmation-web/project/backend/question/node_modules/mongodb/lib/utils.js:95:56)\n    at /home/ding/Documents/programmation-web/project/backend/question/node_modules/mongodb/lib/cursor.js:852:16\n    at handleCallback (/home/ding/Documents/programmation-web/project/backend/question/node_modules/mongodb-core/lib/cursor.js:171:5)\n    at setCursorNotified (/home/ding/Documents/programmation-web/project/backend/question/node_modules/mongodb-core/lib/cursor.js:516:3)\n    at /home/ding/Documents/programmation-web/project/backend/question/node_modules/mongodb-core/lib/cursor.js:591:16\n    at queryCallback (/home/ding/Documents/programmation-web/project/backend/question/node_modules/mongodb-core/lib/cursor.js:232:18)\n    at /home/ding/Documents/programmation-web/project/backend/question/node_modules/mongodb-core/lib/connection/pool.js:455:18\n    at _combinedTickCallback (internal/process/next_tick.js:67:7)\n    at process._tickCallback (internal/process/next_tick.js:98:9)","nonexistentQuestion":true,"level":"error","timestamp":"2:46:21 PM"}
+{"level":"info","message":"POST /3","timestamp":"2:46:49 PM"}
+{"level":"info","message":"got database.","timestamp":"2:46:49 PM"}
+{"level":"warn","message":"question not exists.","timestamp":"2:46:49 PM"}
+{"message":"nonexistent question","stack":"Error: nonexistent question\n    at /home/ding/Documents/programmation-web/project/backend/question/question.js:55:11\n    at handleCallback (/home/ding/Documents/programmation-web/project/backend/question/node_modules/mongodb/lib/utils.js:95:56)\n    at /home/ding/Documents/programmation-web/project/backend/question/node_modules/mongodb/lib/cursor.js:852:16\n    at handleCallback (/home/ding/Documents/programmation-web/project/backend/question/node_modules/mongodb-core/lib/cursor.js:171:5)\n    at setCursorNotified (/home/ding/Documents/programmation-web/project/backend/question/node_modules/mongodb-core/lib/cursor.js:516:3)\n    at /home/ding/Documents/programmation-web/project/backend/question/node_modules/mongodb-core/lib/cursor.js:591:16\n    at queryCallback (/home/ding/Documents/programmation-web/project/backend/question/node_modules/mongodb-core/lib/cursor.js:232:18)\n    at /home/ding/Documents/programmation-web/project/backend/question/node_modules/mongodb-core/lib/connection/pool.js:455:18\n    at _combinedTickCallback (internal/process/next_tick.js:67:7)\n    at process._tickCallback (internal/process/next_tick.js:98:9)","nonexistentQuestion":true,"level":"error","timestamp":"2:46:49 PM"}
+{"level":"info","message":"POST /2","timestamp":"2:46:52 PM"}
+{"level":"info","message":"got database.","timestamp":"2:46:52 PM"}
+{"level":"info","message":"question found.","timestamp":"2:46:52 PM"}
+{"_id":"2","position":{"latitude":"12.222","longitude":"15.999"},"question":"what is your name?","type":"essay","answers":"my name is lilei","choices":"","comments":[],"photo_path":"/backend/img/question/default.jpg","next_question":"3","level":"info","message":"","timestamp":"2:46:52 PM"}
+{"level":"info","message":"GET /2?","timestamp":"2:47:16 PM"}
+{"level":"info","message":"GET /2?","timestamp":"2:47:18 PM"}
+{"level":"info","message":"exiting...","timestamp":"8:42:19 PM"}
+{"level":"info","message":"Connected to mongodb.","timestamp":"8:42:24 PM"}
+{"level":"info","message":"questions initialized","timestamp":"8:42:24 PM"}
+{"level":"info","message":"question router initialized","timestamp":"8:42:24 PM"}
+{"level":"info","message":"listening to 8081","timestamp":"8:42:24 PM"}
+{"level":"info","message":"POST /comment/1","timestamp":"8:42:39 PM"}
+{"level":"info","message":"got database.","timestamp":"8:42:39 PM"}
+{"level":"info","message":"exiting...","timestamp":"8:45:30 PM"}
+{"level":"info","message":"Connected to mongodb.","timestamp":"8:45:34 PM"}
+{"level":"info","message":"questions initialized","timestamp":"8:45:34 PM"}
+{"level":"info","message":"question router initialized","timestamp":"8:45:34 PM"}
+{"level":"info","message":"listening to 8081","timestamp":"8:45:34 PM"}
+{"level":"info","message":"POST /comment/1","timestamp":"8:45:48 PM"}
+{"level":"info","message":"got database.","timestamp":"8:45:48 PM"}
+{"level":"info","message":"exiting...","timestamp":"8:54:00 PM"}
+{"level":"info","message":"Connected to mongodb.","timestamp":"8:54:01 PM"}
+{"level":"info","message":"questions initialized","timestamp":"8:54:01 PM"}
+{"level":"info","message":"question router initialized","timestamp":"8:54:01 PM"}
+{"level":"info","message":"listening to 8081","timestamp":"8:54:01 PM"}
+{"level":"info","message":"POST /comment/1","timestamp":"8:54:08 PM"}
+{"level":"info","message":"got database.","timestamp":"8:54:08 PM"}
+{"level":"info","message":"Comment success.","timestamp":"8:54:08 PM"}
+{"lastErrorObject":{"updatedExisting":true,"n":1},"value":{"_id":"1","position":{"latitude":"12.222","longitude":"15.999"},"question":"what is your name?","type":"essay","answers":"my name is lilei","choices":"","comments":[],"photo_path":"/backend/img/question/default.jpg","next_question":"2"},"ok":1,"level":"info","message":"","timestamp":"8:54:08 PM"}
+{"level":"info","message":"POST /comment/1","timestamp":"8:54:27 PM"}
+{"level":"info","message":"got database.","timestamp":"8:54:27 PM"}
+{"level":"info","message":"Comment success.","timestamp":"8:54:27 PM"}
+{"lastErrorObject":{"updatedExisting":true,"n":1},"value":{"_id":"1","position":{"latitude":"12.222","longitude":"15.999"},"question":"what is your name?","type":"essay","answers":"my name is lilei","choices":"","comments":[{"text":"this question is good","user_id":"123456","votes":[]}],"photo_path":"/backend/img/question/default.jpg","next_question":"2","last_modified_time":"2016-12-24T19:54:08.728Z"},"ok":1,"level":"info","message":"","timestamp":"8:54:27 PM"}
+{"level":"info","message":"exiting...","timestamp":"8:56:55 PM"}
+{"level":"info","message":"Connected to mongodb.","timestamp":"8:56:56 PM"}
+{"level":"info","message":"questions initialized","timestamp":"8:56:56 PM"}
+{"level":"info","message":"question router initialized","timestamp":"8:56:56 PM"}
+{"level":"info","message":"listening to 8081","timestamp":"8:56:56 PM"}
+{"level":"info","message":"POST /comment/1","timestamp":"8:57:02 PM"}
+{"level":"info","message":"got database.","timestamp":"8:57:02 PM"}
+{"level":"info","message":"exiting...","timestamp":"9:09:55 PM"}
+{"level":"info","message":"Connected to mongodb.","timestamp":"9:09:55 PM"}
+{"level":"info","message":"questions initialized","timestamp":"9:09:55 PM"}
+{"level":"info","message":"question router initialized","timestamp":"9:09:55 PM"}
+{"level":"info","message":"listening to 8081","timestamp":"9:09:55 PM"}
+{"level":"info","message":"exiting...","timestamp":"9:10:04 PM"}
+{"level":"info","message":"Connected to mongodb.","timestamp":"9:10:05 PM"}
+{"level":"info","message":"questions initialized","timestamp":"9:10:05 PM"}
+{"level":"info","message":"question router initialized","timestamp":"9:10:05 PM"}
+{"level":"info","message":"listening to 8081","timestamp":"9:10:05 PM"}
+{"level":"info","message":"POST /comment/1","timestamp":"9:10:12 PM"}
+{"level":"info","message":"got database.","timestamp":"9:10:12 PM"}
+{"level":"info","message":"exiting...","timestamp":"9:12:30 PM"}
+{"level":"info","message":"Connected to mongodb.","timestamp":"9:12:31 PM"}
+{"level":"info","message":"questions initialized","timestamp":"9:12:31 PM"}
+{"level":"info","message":"question router initialized","timestamp":"9:12:31 PM"}
+{"level":"info","message":"listening to 8081","timestamp":"9:12:31 PM"}
+{"level":"info","message":"POST /comment/1","timestamp":"9:12:36 PM"}
+{"level":"info","message":"got database.","timestamp":"9:12:36 PM"}
+{"level":"info","message":"got database.","timestamp":"9:12:36 PM"}
+{"level":"info","message":"Comment success.","timestamp":"9:12:36 PM"}
+{"lastErrorObject":{"updatedExisting":true,"n":1},"value":{"_id":"1","position":{"latitude":"12.222","longitude":"15.999"},"question":"what is your name?","type":"essay","answers":"my name is lilei","choices":"","comments":[{"text":"this question is good","user_id":"123456","votes":[]},{"text":"this question is goodfzf","user_id":"123456zef","votes":[]}],"photo_path":"/backend/img/question/default.jpg","next_question":"2","last_modified_time":"2016-12-24T19:54:27.249Z"},"ok":1,"level":"info","message":"","timestamp":"9:12:36 PM"}
+{"level":"info","message":"exiting...","timestamp":"9:13:32 PM"}
+{"level":"info","message":"Connected to mongodb.","timestamp":"9:13:33 PM"}
+{"level":"info","message":"questions initialized","timestamp":"9:13:33 PM"}
+{"level":"info","message":"question router initialized","timestamp":"9:13:33 PM"}
+{"level":"info","message":"listening to 8081","timestamp":"9:13:33 PM"}
+{"level":"info","message":"POST /comment/1","timestamp":"9:13:38 PM"}
+{"level":"info","message":"got database.","timestamp":"9:13:38 PM"}
+{"level":"info","message":"got database.","timestamp":"9:13:38 PM"}
+{"level":"info","message":"Comment success.","timestamp":"9:13:38 PM"}
+{"lastErrorObject":{"updatedExisting":true,"n":1},"value":{"_id":"1","position":{"latitude":"12.222","longitude":"15.999"},"question":"what is your name?","type":"essay","answers":"my name is lilei","choices":"","comments":[{"text":"this question is good","user_id":"123456","votes":[]},{"text":"this question is goodfzf","user_id":"123456zef","votes":[]},{"text":"this question is goodfzf","user_id":"123456zef","votes":[]}],"photo_path":"/backend/img/question/default.jpg","next_question":"2","last_modified_time":"2016-12-24T20:12:36.363Z"},"ok":1,"level":"info","message":"","timestamp":"9:13:38 PM"}
+{"level":"info","message":"exiting...","timestamp":"9:19:53 PM"}
+{"level":"info","message":"Connected to mongodb.","timestamp":"9:19:54 PM"}
+{"level":"info","message":"questions initialized","timestamp":"9:19:54 PM"}
+{"level":"info","message":"question router initialized","timestamp":"9:19:54 PM"}
+{"level":"info","message":"listening to 8081","timestamp":"9:19:54 PM"}
+{"level":"info","message":"POST /comment/1","timestamp":"9:19:59 PM"}
+{"level":"info","message":"got database.","timestamp":"9:19:59 PM"}
+{"level":"info","message":"got database.","timestamp":"9:19:59 PM"}
+{"level":"info","message":"Comment success.","timestamp":"9:19:59 PM"}
+{"lastErrorObject":{"updatedExisting":true,"n":1},"value":{"_id":"1","position":{"latitude":"12.222","longitude":"15.999"},"question":"what is your name?","type":"essay","answers":"my name is lilei","choices":"","comments":[{"text":"this question is good","user_id":"123456","votes":[]},{"text":"this question is goodfzf","user_id":"123456zef","votes":[]},{"text":"this question is goodfzf","user_id":"123456zef","votes":[]},{"_id":null,"text":"this question is goodfzf","user_id":"123456zef","votes":[]}],"photo_path":"/backend/img/question/default.jpg","next_question":"2","last_modified_time":"2016-12-24T20:13:38.981Z"},"ok":1,"level":"info","message":"","timestamp":"9:19:59 PM"}
+{"level":"info","message":"exiting...","timestamp":"9:20:18 PM"}
+{"level":"info","message":"Connected to mongodb.","timestamp":"9:20:19 PM"}
+{"level":"info","message":"questions initialized","timestamp":"9:20:19 PM"}
+{"level":"info","message":"question router initialized","timestamp":"9:20:19 PM"}
+{"level":"info","message":"listening to 8081","timestamp":"9:20:19 PM"}
+{"level":"info","message":"POST /comment/1","timestamp":"9:20:23 PM"}
+{"level":"info","message":"got database.","timestamp":"9:20:23 PM"}
+{"level":"info","message":"got database.","timestamp":"9:20:23 PM"}
+{"level":"info","message":"Comment success.","timestamp":"9:20:23 PM"}
+{"lastErrorObject":{"updatedExisting":true,"n":1},"value":{"_id":"1","position":{"latitude":"12.222","longitude":"15.999"},"question":"what is your name?","type":"essay","answers":"my name is lilei","choices":"","comments":[{"text":"this question is good","user_id":"123456","votes":[]},{"text":"this question is goodfzf","user_id":"123456zef","votes":[]},{"text":"this question is goodfzf","user_id":"123456zef","votes":[]},{"_id":null,"text":"this question is goodfzf","user_id":"123456zef","votes":[]},{"text":"this question is goodfzf","user_id":"123456zef","votes":[]}],"photo_path":"/backend/img/question/default.jpg","next_question":"2","last_modified_time":"2016-12-24T20:19:59.185Z"},"ok":1,"level":"info","message":"","timestamp":"9:20:23 PM"}
+{"level":"info","message":"exiting...","timestamp":"9:22:17 PM"}
+{"level":"info","message":"Connected to mongodb.","timestamp":"9:22:18 PM"}
+{"level":"info","message":"questions initialized","timestamp":"9:22:18 PM"}
+{"level":"info","message":"question router initialized","timestamp":"9:22:18 PM"}
+{"level":"info","message":"listening to 8081","timestamp":"9:22:18 PM"}
+{"level":"info","message":"POST /comment/1","timestamp":"9:22:28 PM"}
+{"level":"info","message":"got database.","timestamp":"9:22:28 PM"}
+{"level":"info","message":"got database.","timestamp":"9:22:28 PM"}
+{"level":"info","message":"Comment success.","timestamp":"9:22:28 PM"}
+{"lastErrorObject":{"updatedExisting":true,"n":1},"value":{"_id":"1","position":{"latitude":"12.222","longitude":"15.999"},"question":"what is your name?","type":"essay","answers":"my name is lilei","choices":"","comments":[{"text":"this question is good","user_id":"123456","votes":[]},{"text":"this question is goodfzf","user_id":"123456zef","votes":[]},{"text":"this question is goodfzf","user_id":"123456zef","votes":[]},{"_id":null,"text":"this question is goodfzf","user_id":"123456zef","votes":[]},{"text":"this question is goodfzf","user_id":"123456zef","votes":[]},{"text":"this question is goodfzf","user_id":"123456zef","votes":[]}],"photo_path":"/backend/img/question/default.jpg","next_question":"2","last_modified_time":"2016-12-24T20:20:23.207Z"},"ok":1,"level":"info","message":"","timestamp":"9:22:28 PM"}
+{"level":"info","message":"exiting...","timestamp":"9:22:46 PM"}
+{"level":"info","message":"Connected to mongodb.","timestamp":"9:22:47 PM"}
+{"level":"info","message":"questions initialized","timestamp":"9:22:47 PM"}
+{"level":"info","message":"question router initialized","timestamp":"9:22:47 PM"}
+{"level":"info","message":"listening to 8081","timestamp":"9:22:47 PM"}
+{"level":"info","message":"POST /comment/1","timestamp":"9:22:51 PM"}
+{"level":"info","message":"got database.","timestamp":"9:22:51 PM"}
+{"level":"info","message":"got database.","timestamp":"9:22:51 PM"}
+{"level":"info","message":"Comment success.","timestamp":"9:22:51 PM"}
+{"lastErrorObject":{"updatedExisting":true,"n":1},"value":{"_id":"1","position":{"latitude":"12.222","longitude":"15.999"},"question":"what is your name?","type":"essay","answers":"my name is lilei","choices":"","comments":[{"text":"this question is good","user_id":"123456","votes":[]},{"text":"this question is goodfzf","user_id":"123456zef","votes":[]},{"text":"this question is goodfzf","user_id":"123456zef","votes":[]},{"_id":null,"text":"this question is goodfzf","user_id":"123456zef","votes":[]},{"text":"this question is goodfzf","user_id":"123456zef","votes":[]},{"text":"this question is goodfzf","user_id":"123456zef","votes":[]},{"text":"qsf","user_id":"133","votes":[]}],"photo_path":"/backend/img/question/default.jpg","next_question":"2","last_modified_time":"2016-12-24T20:22:28.909Z"},"ok":1,"level":"info","message":"","timestamp":"9:22:51 PM"}
+{"level":"info","message":"exiting...","timestamp":"9:23:58 PM"}
+{"level":"info","message":"Connected to mongodb.","timestamp":"9:24:00 PM"}
+{"level":"info","message":"questions initialized","timestamp":"9:24:00 PM"}
+{"level":"info","message":"question router initialized","timestamp":"9:24:00 PM"}
+{"level":"info","message":"listening to 8081","timestamp":"9:24:00 PM"}
+{"level":"info","message":"POST /comment/2","timestamp":"9:24:18 PM"}
+{"level":"info","message":"got database.","timestamp":"9:24:18 PM"}
+{"level":"info","message":"got database.","timestamp":"9:24:18 PM"}
+{"level":"info","message":"Comment success.","timestamp":"9:24:18 PM"}
+{"lastErrorObject":{"updatedExisting":true,"n":1},"value":{"_id":"2","position":{"latitude":"12.222","longitude":"15.999"},"question":"what is your name?","type":"essay","answers":"my name is lilei","choices":"","comments":[],"photo_path":"/backend/img/question/default.jpg","next_question":"3"},"ok":1,"level":"info","message":"","timestamp":"9:24:18 PM"}
+{"level":"info","message":"exiting...","timestamp":"9:25:32 PM"}
+{"level":"info","message":"Connected to mongodb.","timestamp":"9:25:33 PM"}
+{"level":"info","message":"questions initialized","timestamp":"9:25:33 PM"}
+{"level":"info","message":"question router initialized","timestamp":"9:25:33 PM"}
+{"level":"info","message":"listening to 8081","timestamp":"9:25:33 PM"}
+{"level":"info","message":"POST /comment/2","timestamp":"9:25:36 PM"}
+{"level":"info","message":"got database.","timestamp":"9:25:36 PM"}
+{"level":"info","message":"got database.","timestamp":"9:25:36 PM"}
+{"level":"info","message":"got database.","timestamp":"9:25:36 PM"}
+{"level":"info","message":"Comment success.","timestamp":"9:25:36 PM"}
+{"lastErrorObject":{"updatedExisting":true,"n":1},"value":{"_id":"2","position":{"latitude":"12.222","longitude":"15.999"},"question":"what is your name?","type":"essay","answers":"my name is lilei","choices":"","comments":[{"_id":null,"text":"qzsdfqzfzaqf","user_id":"123","votes":[]}],"photo_path":"/backend/img/question/default.jpg","next_question":"3","last_modified_time":"2016-12-24T20:24:18.131Z"},"ok":1,"level":"info","message":"","timestamp":"9:25:36 PM"}
+{"level":"info","message":"exiting...","timestamp":"9:26:40 PM"}
+{"level":"info","message":"Connected to mongodb.","timestamp":"9:26:42 PM"}
+{"level":"info","message":"questions initialized","timestamp":"9:26:42 PM"}
+{"level":"info","message":"question router initialized","timestamp":"9:26:42 PM"}
+{"level":"info","message":"listening to 8081","timestamp":"9:26:42 PM"}
+{"level":"info","message":"POST /comment/2","timestamp":"9:26:48 PM"}
+{"level":"info","message":"got database.","timestamp":"9:26:48 PM"}
+{"level":"info","message":"got database.","timestamp":"9:26:48 PM"}
+{"level":"info","message":"got database.","timestamp":"9:26:48 PM"}
+{"level":"info","message":"Comment success.","timestamp":"9:26:48 PM"}
+{"lastErrorObject":{"updatedExisting":true,"n":1},"value":{"_id":"2","position":{"latitude":"12.222","longitude":"15.999"},"question":"what is your name?","type":"essay","answers":"my name is lilei","choices":"","comments":[{"_id":null,"text":"qzsdfqzfzaqf","user_id":"123","votes":[]},{"_id":null,"text":"qzsdfqzfzaqf","user_id":"123","votes":[]}],"photo_path":"/backend/img/question/default.jpg","next_question":"3","last_modified_time":"2016-12-24T20:25:36.959Z"},"ok":1,"level":"info","message":"","timestamp":"9:26:48 PM"}
+{"level":"info","message":"exiting...","timestamp":"9:27:51 PM"}
+{"level":"info","message":"Connected to mongodb.","timestamp":"9:27:52 PM"}
+{"level":"info","message":"questions initialized","timestamp":"9:27:52 PM"}
+{"level":"info","message":"question router initialized","timestamp":"9:27:52 PM"}
+{"level":"info","message":"listening to 8081","timestamp":"9:27:52 PM"}
+{"level":"info","message":"exiting...","timestamp":"9:28:09 PM"}
+{"level":"info","message":"Connected to mongodb.","timestamp":"9:28:11 PM"}
+{"level":"info","message":"questions initialized","timestamp":"9:28:11 PM"}
+{"level":"info","message":"question router initialized","timestamp":"9:28:11 PM"}
+{"level":"info","message":"listening to 8081","timestamp":"9:28:11 PM"}
+{"level":"info","message":"POST /comment/2","timestamp":"9:28:17 PM"}
+{"level":"info","message":"got database.","timestamp":"9:28:17 PM"}
+{"level":"info","message":"exiting...","timestamp":"9:32:51 PM"}
+{"level":"info","message":"Connected to mongodb.","timestamp":"9:32:53 PM"}
+{"level":"info","message":"questions initialized","timestamp":"9:32:53 PM"}
+{"level":"info","message":"question router initialized","timestamp":"9:32:53 PM"}
+{"level":"info","message":"listening to 8081","timestamp":"9:32:53 PM"}
+{"level":"info","message":"POST /comment/2","timestamp":"9:32:59 PM"}
+{"level":"info","message":"got database.","timestamp":"9:32:59 PM"}
+{"level":"info","message":"exiting...","timestamp":"9:33:16 PM"}
+{"level":"info","message":"Connected to mongodb.","timestamp":"9:33:17 PM"}
+{"level":"info","message":"questions initialized","timestamp":"9:33:17 PM"}
+{"level":"info","message":"question router initialized","timestamp":"9:33:17 PM"}
+{"level":"info","message":"listening to 8081","timestamp":"9:33:17 PM"}
+{"level":"info","message":"POST /comment/2","timestamp":"9:33:21 PM"}
+{"level":"info","message":"got database.","timestamp":"9:33:21 PM"}
+{"level":"info","message":"got database.","timestamp":"9:33:21 PM"}
+{"level":"info","message":"Comment success.","timestamp":"9:33:21 PM"}
+{"lastErrorObject":{"updatedExisting":true,"n":1},"value":{"_id":"2","position":{"latitude":"12.222","longitude":"15.999"},"question":"what is your name?","type":"essay","answers":"my name is lilei","choices":"","comments":[{"_id":null,"text":"qzsdfqzfzaqf","user_id":"123","votes":[]},{"_id":null,"text":"qzsdfqzfzaqf","user_id":"123","votes":[]},{"_id":null,"text":"qzsdfqzfzaqf","user_id":"123","votes":[]}],"photo_path":"/backend/img/question/default.jpg","next_question":"3","last_modified_time":"2016-12-24T20:26:48.144Z"},"ok":1,"level":"info","message":"","timestamp":"9:33:21 PM"}
+{"level":"info","message":"exiting...","timestamp":"9:36:26 PM"}
+{"level":"info","message":"Connected to mongodb.","timestamp":"9:36:27 PM"}
+{"level":"info","message":"questions initialized","timestamp":"9:36:27 PM"}
+{"level":"info","message":"question router initialized","timestamp":"9:36:27 PM"}
+{"level":"info","message":"listening to 8081","timestamp":"9:36:27 PM"}
+{"level":"info","message":"POST /comment/2","timestamp":"9:36:36 PM"}
+{"level":"info","message":"got database.","timestamp":"9:36:36 PM"}
+{"level":"info","message":"exiting...","timestamp":"10:45:53 PM"}
+{"level":"info","message":"Connected to mongodb.","timestamp":"10:45:55 PM"}
+{"level":"info","message":"questions initialized","timestamp":"10:45:55 PM"}
+{"level":"info","message":"question router initialized","timestamp":"10:45:55 PM"}
+{"level":"info","message":"listening to 8081","timestamp":"10:45:55 PM"}
+{"level":"info","message":"POST /comment/2","timestamp":"10:46:03 PM"}
+{"level":"info","message":"got database.","timestamp":"10:46:03 PM"}
+{"level":"info","message":"Comment success.","timestamp":"10:46:03 PM"}
+{"lastErrorObject":{"updatedExisting":true,"n":1},"value":{"_id":"2","position":{"latitude":"12.222","longitude":"15.999"},"question":"what is your name?","type":"essay","answers":"my name is lilei","choices":"","comments":[{"_id":null,"text":"qzsdfqzfzaqf","user_id":"123","votes":[]},{"_id":null,"text":"qzsdfqzfzaqf","user_id":"123","votes":[]},{"_id":null,"text":"qzsdfqzfzaqf","user_id":"123","votes":[]},{"_id":null,"text":"qzsdfqzfzaqf","user_id":"123","votes":[]}],"photo_path":"/backend/img/question/default.jpg","next_question":"3","last_modified_time":"2016-12-24T20:33:21.980Z"},"ok":1,"level":"info","message":"","timestamp":"10:46:03 PM"}
