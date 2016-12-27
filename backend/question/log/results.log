@@ -373,3 +373,8 @@
 {"level":"info","message":"question router initialized","timestamp":"14:05:37"}
 {"level":"info","message":"listening to 8081","timestamp":"14:05:37"}
 {"level":"info","message":"exiting...","timestamp":"14:05:42"}
+{"level":"info","message":"Connected to mongodb.","timestamp":"10:23:32 PM"}
+{"level":"info","message":"questions initialized","timestamp":"10:23:32 PM"}
+{"level":"info","message":"question router initialized","timestamp":"10:23:32 PM"}
+{"level":"info","message":"listening to 8081","timestamp":"10:23:32 PM"}
+{"level":"info","message":"exiting...","timestamp":"10:23:33 PM"}

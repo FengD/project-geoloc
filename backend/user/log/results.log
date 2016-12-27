@@ -631,3 +631,8 @@
 {"level":"info","message":"router initialized","timestamp":"14:02:39"}
 {"level":"info","message":"listening to 8080","timestamp":"14:02:39"}
 {"level":"info","message":"exiting...","timestamp":"14:02:42"}
+{"level":"info","message":"Connected to mongodb.","timestamp":"10:23:04 PM"}
+{"level":"info","message":"users initialized","timestamp":"10:23:04 PM"}
+{"level":"info","message":"router initialized","timestamp":"10:23:04 PM"}
+{"level":"info","message":"listening to 8080","timestamp":"10:23:04 PM"}
+{"level":"info","message":"exiting...","timestamp":"10:23:06 PM"}

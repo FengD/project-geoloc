@@ -5,6 +5,7 @@
 var express = require("express");
 var fs = require("fs");
 var multer = require("multer");
+var logger = require("./winstonLogger")
 
 var app = express();
 
@@ -27,21 +28,21 @@ app.use(function (req, res, next) {
 });
 
 var storageUser = multer.diskStorage({
-  destination: function (req, file, callback) {
-    callback(null, './uploads/img/user/');
-  },
-  filename: function (req, file, callback) {
-    callback(null,  file.originalname);
-  }
+  	destination: function (req, file, callback) {
+    	callback(null, './uploads/img/user/');
+  	},
+  	filename: function (req, file, callback) {
+    	callback(null,  file.originalname);
+  	}
 });
 
 var storageQuestion = multer.diskStorage({
-  destination: function (req, file, callback) {
-    callback(null, './uploads/img/question/');
-  },
-  filename: function (req, file, callback) {
-    callback(null,  file.originalname);
-  }
+  	destination: function (req, file, callback) {
+    	callback(null, './uploads/img/question/');
+  	},
+  	filename: function (req, file, callback) {
+    	callback(null,  file.originalname);
+  	}
 });
 
 var uploadUser = multer({ storage : storageUser }).single('userPhoto');
@@ -49,26 +50,32 @@ var uploadUser = multer({ storage : storageUser }).single('userPhoto');
 var uploadQuestion = multer({ storage : storageQuestion }).single('questionPhoto');
 
 app.get('/user',function(req,res){
-      res.sendFile(__dirname + "/indexUser.html");
+	logger.info("user upload window sent.");
+    res.sendFile(__dirname + "/indexUser.html");
 });
 
 app.get('/question',function(req,res){
-      res.sendFile(__dirname + "/indexQuestion.html");
+	logger.info("question upload window sent.");
+    res.sendFile(__dirname + "/indexQuestion.html");
 });
 
 app.get('/img/user/:uphoto',function(req,res){
-      res.sendFile(__dirname + "/uploads/img/user/" + req.params.uphoto);
+	logger.info("user image sent");
+    res.sendFile(__dirname + "/uploads/img/user/" + req.params.uphoto);
 });
 
 app.get('/img/question/:qphoto',function(req,res){
-      res.sendFile(__dirname + "/uploads/img/question/" + req.params.qphoto);
+	logger.info("question image sent");
+    res.sendFile(__dirname + "/uploads/img/question/" + req.params.qphoto);
 });
 
 app.post('/img/user',function(req,res){
     uploadUser(req,res,function(err) {
         if(err) {
+        	logger.error("Error uploading file");
             return res.end("Error uploading file.");
         }
+        logger.info("User image is uploaded");
         res.end("File is uploaded");
     });
 });
@@ -76,14 +83,16 @@ app.post('/img/user',function(req,res){
 app.post('/img/question',function(req,res){
     uploadQuestion(req,res,function(err) {
         if(err) {
+        	logger.error("Error uploading file");
             return res.end("Error uploading file.");
         }
+        logger.info("Question image is uploaded");
         res.end("File is uploaded");
     });
 });
 
 app.listen(8082,function(){
-    console.log("Upload image ready on port 8082");
+    logger.info("Upload image ready on port 8082");
 });
 
 module.exports = exports = app;
