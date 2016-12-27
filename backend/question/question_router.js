@@ -13,7 +13,7 @@ router.use(function(request, response, next) {
 });
 
 
-router.post("/", function(request,response){
+router.post("/", function(request, response){
 	question.createQuestion(request.body, function(err, result){
 		if(err){
 			logger.error(err);
@@ -67,6 +67,24 @@ router.delete("/:qid", function (request, response) {
 
 router.post("/comment/:qid", function (request, response) {
 	question.addCommentToQuestion(request.params.qid, request.body.text, request.body.userId, function (err, result) {
+		if (err) {
+			logger.error(err);
+			if (err.nonexistentQuestion) {
+				response.status(400).send(err);
+			}
+			else {
+				response.status(500).send(err);
+			}
+		}
+		else {
+			logger.info(result);
+			response.send(result);
+		}
+	});
+});
+
+router.post("/vote/:qid", function (request, response) {
+	question.voteToComment(request.params.qid, request.body.commentid, request.body.userId, function (err, result) {
 		if (err) {
 			logger.error(err);
 			if (err.nonexistentQuestion) {

@@ -626,3 +626,8 @@
 {"level":"info","message":"update question step success.","timestamp":"2:11:52 PM"}
 {"lastErrorObject":{"updatedExisting":true,"n":1},"value":{"_id":"test","name":"test","password":"test","first_create_time":"2016-12-23T22:39:04.905Z","last_modified_time":"2016-12-24T12:49:47.589Z","question_step":"10","photo_path":"/backend/img/user/sdvsssc.jpg","current_chance":null},"ok":1,"level":"info","message":"","timestamp":"2:11:52 PM"}
 {"level":"info","message":"exiting...","timestamp":"2:11:59 PM"}
+{"level":"info","message":"Connected to mongodb.","timestamp":"14:02:39"}
+{"level":"info","message":"users initialized","timestamp":"14:02:39"}
+{"level":"info","message":"router initialized","timestamp":"14:02:39"}
+{"level":"info","message":"listening to 8080","timestamp":"14:02:39"}
+{"level":"info","message":"exiting...","timestamp":"14:02:42"}

@@ -24,7 +24,7 @@ function createQuestion(data, callback) {
 			first_create_time:new Date(),
 			last_modified_time:new Date(),
 			comments : [],
-			photo_path : "/backend/img/question/default.jpg",
+			photo_path : data.id + ".jpg",
 			next_question : data.nextQuestion
 		}, function(err, result) {
 			if (err) {
@@ -120,9 +120,43 @@ function addCommentToQuestion(qid, text, userId, callback){
 	);
 }
 
-function voteToComment(qid,text,userId,callback){
-
+function voteToComment(qid,commentid,userid,callback){
+	mongoConnection.getDatabase().collection(QUESTIONS_COLLECTION).findAndModify(
+		{	
+			_id : qid,
+			"comments._id" : ObjectId(commentid)
+		},
+		[['_id','asc']],
+		{
+			$set : {last_modified_time:new Date()},
+			$addToSet : {
+				"comments.$.votes" : userid
+			}
+		},
+		{},
+		function(err, object) {
+			if (err){
+        		logger.warn(err.message); // returns error if no matching object found
+        		callback(err,null);
+      		}else{
+      			logger.info("Vote success.");
+          		callback(err,object);
+      		}
+  		}
+	);
 }
+
+// function getNextSequence(name) {
+//    var ret = mongoConnection.getDatabase().collection(QUESTIONS_COLLECTION).findAndModify(
+//           {
+//             query: { _id: name },
+//             update: { $inc: { seq: 1 } },
+//             new: true
+//           }
+//    );
+
+//    return ret.seq;
+// }
 
 function init(callback) {
 	mongoConnection.connect(function(err) {
@@ -146,5 +180,6 @@ exports.createQuestion = createQuestion;
 exports.getQuestion = getQuestion;
 exports.removeQuestion = removeQuestion;
 exports.addCommentToQuestion = addCommentToQuestion;
+exports.voteToComment = voteToComment;
 exports.init = init;
 exports.clean = clean;

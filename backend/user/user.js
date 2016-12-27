@@ -17,7 +17,7 @@ function createUser(data, callback) {
 			first_create_time:new Date(),
 			last_modified_time:new Date(),
 			question_step: "1",
-			photo_path:"/backend/img/user/default.jpg",
+			photo_path:"default.jpg",
 			current_chance:5
 		}, function(err, result) {
 			if (err) {
@@ -111,7 +111,7 @@ function updatePhotoPath(uid, photoPath,callback){
 	mongoConnection.getDatabase().collection(USERS_COLLECTION).findAndModify(
 		{_id : uid},
 		[['_id','asc']],
-		{$set: {photo_path:"/backend/img/user/" + photoPath + ".jpg", last_modified_time:new Date()}},
+		{$set: {photo_path : photoPath, last_modified_time:new Date()}},
 		{},
 		function(err, object) {
 			if (err){
