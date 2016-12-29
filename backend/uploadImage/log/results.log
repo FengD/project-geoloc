@@ -1,1 +1,5 @@
 {"level":"info","message":"Upload image ready on port 8082","timestamp":"10:28:37 PM"}
+{"level":"info","message":"Upload image ready on port 8082","timestamp":"10:05:34 PM"}
+{"level":"info","message":"received [object Object]","timestamp":"10:08:19 PM"}
+{"level":"info","message":"The URL for the file is:localhost:3000\\uploads/img/question/3.jpg","timestamp":"10:08:19 PM"}
+{"level":"info","message":"question image sent","timestamp":"10:09:14 PM"}

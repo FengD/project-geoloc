@@ -14,8 +14,8 @@ function createQuestion(data, callback) {
 		mongoConnection.getDatabase().collection(QUESTIONS_COLLECTION).insertOne({
 			_id : data.id,
 			position : {
-				latitude : data.latitude, 
-				longitude : data.longitude
+				latitude : data.position.latitude, 
+				longitude : data.position.longitude
 			},
 			question : data.question,
 			type : data.type,
@@ -24,7 +24,7 @@ function createQuestion(data, callback) {
 			first_create_time:new Date(),
 			last_modified_time:new Date(),
 			comments : [],
-			photo_path : data.id + ".jpg",
+			photo_path : data.photoPath,
 			next_question : data.nextQuestion
 		}, function(err, result) {
 			if (err) {

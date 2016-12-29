@@ -1,0 +1,109 @@
+<div id="add-questions" ng-controller="addQuestionController">
+	<h1>Add a question</h1>
+	<form class="addQuestionForm" ng-show="true">
+		<h2>id</h2>
+        <input type="text" class="id" ng-model="id" placeholder="please input id of this question" ng-change="inputId()">
+        <h2>Position</h2>
+        <input type="text" class="latitude" ng-model="latitude" placeholder="latitude" ng-change="inputLatitude()">
+        <input type="text" class="longitude" ng-model="longitude" placeholder="longitude" ng-change="inputLongitude()">
+        <h2>Question</h2>
+        <input type="text" class="question" ng-model="question" placeholder="input a question" ng-change="inputQuestion()">
+        <h2>Question Type</h2>
+        <select ng-model="type" ng-options="y.type for (x, y) in types" ng-change="inputType()"></select>
+
+        <div ng-switch="type.type">
+        	<h2 ng-hide="isEssay">{{type.choicetitle}}</h2>
+		    <button ng-hide="isEssay" ng-click="addChoice()">Add Choice</button>
+		    <div class="addcontend" ng-hide="isEssay">
+		    	<div ng-repeat="choice in choicesInput">
+		       		<input id="choice-{{$index}}" class="input-{{$index}}" ng-model="choice.value" ng-change="inputChoice($index)"\>
+		       		<button ng-click="deleteChoice($index)">Delete</button>
+		    	</div>
+		    	<!-- <pre>{{choicesInput | json}}</pre> -->
+		    </div>
+		  	<div ng-switch-when="multi-choice">
+		    	
+
+		      	<h2>{{type.answertitle}}</h2>
+		        <table>
+		    		<tr ng-repeat="answer in choicesInput">
+		      			<td>
+		        			<input type="checkbox" ng-model="multianswersBoolean[$index]" ng-change="inputMultiAnswers($index)"/>
+		      			</td>
+		      			<td>
+		        			{{answer.value}}
+		      			</td>
+		    		</tr>
+		  		</table>
+		  		<!-- <pre>{{multianswersBoolean | json}}</pre> -->
+		  	</div>
+		  	<div ng-switch-when="single-choice">
+		  		<!-- <h2>{{type.choicetitle}}</h2>
+		        <button ng-click="addChoice()">Add Choice</button>
+		        <div class="addcontend">
+		       		<div ng-repeat="choice in choicesInput">
+		         		<input id="choice-{{$index}}" class="input-{{$index}}" ng-model="choice.value"\>
+		         		<button ng-click="deleteChoice($index)">Delete</button>
+		       		</div> -->
+		       		<!-- <pre>{{choicesInput | json}}</pre> -->
+		      	<!-- </div> -->
+
+		    	<h2>{{type.answertitle}}</h2>
+		        <table>
+		    		<tr ng-repeat="answer in choicesInput">
+		      			<td>
+		        			<input type="checkbox" ng-model="singleanswersBoolean[$index]" ng-click="updateSelection($index,singleanswersBoolean)" />
+		      			</td>
+		      			<td>
+		        			{{answer.value}}
+		      			</td>
+		    		</tr>
+		  		</table>
+		  		<!-- <pre>{{singleanswersBoolean | json}}</pre> -->
+		  	</div>
+		  	<div ng-switch-when="essay">
+		    	<h2>{{type.answertitle}}</h2>
+		        <button ng-click="addEssayAnswer()">Add Answer</button>
+		        <div class="addcontend">
+		       		<div ng-repeat="answer in essayanswersInput">
+		         		<input id="answer-{{$index}}" class="input-{{$index}}" ng-model="answer.value" ng-change="inputEssayAnswer($index)"\>
+		         		<button ng-click="deleteEssayAnswer($index)">Delete</button>
+		       		</div>
+		       		<!-- <pre>{{essayanswersInput | json}}</pre> -->
+		      	</div>
+		  	</div>
+		  	<div ng-switch-default>
+		  	</div>
+		</div>
+
+
+		<h2>Next Question</h2>
+		<input type="text" class="next_question" ng-model="next_question" placeholder="input id of the next question" ng-change="inputNextQuestion()">
+        
+        <h2>Question photo</h2>
+        <div class="row">
+	        <!-- <label for="questionPhoto">Select a File to Upload</label><br /> -->
+	        <input type="file" ng-model-instant id="questionPhoto" onchange="angular.element(this).scope().uploadFile(this)" />
+	    </div>
+	    <!-- <div id="dropbox" class="dropbox" ng-class="dropClass"><span>{{dropText}}</span></div> -->
+	    <div ng-show="files.length">
+	        <!-- <div ng-repeat="file in files.slice(0)">
+	            <span>{{file.webkitRelativePath || file.name}}</span>
+	            (<span ng-switch="file.size > 1024*1024">
+	                <span ng-switch-when="true">{{file.size / 1024 / 1024 | number:2}} MB</span>
+	                <span ng-switch-default>{{file.size / 1024 | number:2}} kB</span>
+	            </span>)
+	        </div> -->
+	        <!-- <input type="button" ng-click="uploadFile()" value="Upload" /> -->
+	        <div>
+	            <div class="percent">{{progress}}%</div>
+	            <div class="progress-bar">
+	                <div class="uploaded" ng-style="{'width': progress+'%'}"></div>
+	            </div>
+	        </div>
+	    </div>
+	    <pre>{{questionInfo | json}}</pre>
+		<br/>
+        <input type="submit" value="Valide Question" ng-click="addQuestion()">
+    </form>
+</div>

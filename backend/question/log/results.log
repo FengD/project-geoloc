@@ -378,3 +378,20 @@
 {"level":"info","message":"question router initialized","timestamp":"10:23:32 PM"}
 {"level":"info","message":"listening to 8081","timestamp":"10:23:32 PM"}
 {"level":"info","message":"exiting...","timestamp":"10:23:33 PM"}
+{"level":"info","message":"Connected to mongodb.","timestamp":"10:06:01 PM"}
+{"level":"info","message":"questions initialized","timestamp":"10:06:01 PM"}
+{"level":"info","message":"question router initialized","timestamp":"10:06:01 PM"}
+{"level":"info","message":"listening to 8081","timestamp":"10:06:01 PM"}
+{"level":"info","message":"OPTIONS /","timestamp":"10:08:26 PM"}
+{"level":"info","message":"POST /","timestamp":"10:08:26 PM"}
+{"level":"info","message":"got database.","timestamp":"10:08:26 PM"}
+{"level":"info","message":"question created.","timestamp":"10:08:26 PM"}
+{"level":"info","message":"Create question success.","timestamp":"10:08:26 PM"}
+{"level":"info","message":"OPTIONS /","timestamp":"10:09:23 PM"}
+{"level":"info","message":"POST /","timestamp":"10:09:23 PM"}
+{"level":"info","message":"got database.","timestamp":"10:09:23 PM"}
+{"message":"E11000 duplicate key error collection: geoloc.questions index: _id_ dup key: { : \"323\" }","name":"MongoError","stack":"MongoError: E11000 duplicate key error collection: geoloc.questions index: _id_ dup key: { : \"323\" }\n    at Function.MongoError.create (/home/ding/Documents/programmation-web/project/backend/question/node_modules/mongodb-core/lib/error.js:31:11)\n    at toError (/home/ding/Documents/programmation-web/project/backend/question/node_modules/mongodb/lib/utils.js:114:22)\n    at /home/ding/Documents/programmation-web/project/backend/question/node_modules/mongodb/lib/collection.js:737:67\n    at /home/ding/Documents/programmation-web/project/backend/question/node_modules/mongodb-core/lib/connection/pool.js:455:18\n    at _combinedTickCallback (internal/process/next_tick.js:67:7)\n    at process._tickCallback (internal/process/next_tick.js:98:9)","driver":true,"index":0,"code":11000,"errmsg":"E11000 duplicate key error collection: geoloc.questions index: _id_ dup key: { : \"323\" }","level":"warn","timestamp":"10:09:24 PM"}
+{"level":"info","message":"POST /","timestamp":"10:11:24 PM"}
+{"level":"info","message":"got database.","timestamp":"10:11:24 PM"}
+{"message":"E11000 duplicate key error collection: geoloc.questions index: _id_ dup key: { : \"323\" }","name":"MongoError","stack":"MongoError: E11000 duplicate key error collection: geoloc.questions index: _id_ dup key: { : \"323\" }\n    at Function.MongoError.create (/home/ding/Documents/programmation-web/project/backend/question/node_modules/mongodb-core/lib/error.js:31:11)\n    at toError (/home/ding/Documents/programmation-web/project/backend/question/node_modules/mongodb/lib/utils.js:114:22)\n    at /home/ding/Documents/programmation-web/project/backend/question/node_modules/mongodb/lib/collection.js:737:67\n    at /home/ding/Documents/programmation-web/project/backend/question/node_modules/mongodb-core/lib/connection/pool.js:455:18\n    at _combinedTickCallback (internal/process/next_tick.js:67:7)\n    at process._tickCallback (internal/process/next_tick.js:98:9)","driver":true,"index":0,"code":11000,"errmsg":"E11000 duplicate key error collection: geoloc.questions index: _id_ dup key: { : \"323\" }","level":"warn","timestamp":"10:11:24 PM"}
+{"level":"info","message":"exiting...","timestamp":"10:23:42 PM"}

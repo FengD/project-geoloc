@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" href="app/components/addQuestion/addQuestion.css"/>
+    <!-- load Angular into our HTML Page -->
+    <script src="../bower_components/angular/angular.js"></script>
+    <!-- load our Angular App in -->
+    <!-- <script src="../public/app/app.js"></script> -->
+  </head>
+  <body ng-app="geolocApp" ng-controller="HomeController">
+    <p><a href="/#!/login">login</a></p>
+
+    <a href="/#!/addQuestion">addQuestion</a>
+    <div ng-view></div>
+  </body>
+  <script src="../bower_components/angular-route/angular-route.min.js"></script>
+  <script src="../bower_components/jquery/dist/jquery.min.js"></script>
+  <script src="../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+  <script src="../bower_components/angular-cookies/angular-cookies.js"></script>
+  <script src="../bower_components/angular-loading-bar/src/loading-bar.js"></script>
+  <script src="../bower_components/angular-xeditable/dist/js/xeditable.js"></script>
+
+  <script src="app/geolocModule.js"></script>
+  <script src="app/homeRouter.js"></script>
+  <script src="app/homeController.js"></script>
+  <script src="app/components/addQuestion/addQuestionController.js"></script>
+  <script src="app/components/login/loginController.js"></script>
+</html>

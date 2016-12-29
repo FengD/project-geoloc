@@ -69,26 +69,18 @@ app.get('/img/question/:qphoto',function(req,res){
     res.sendFile(__dirname + "/uploads/img/question/" + req.params.qphoto);
 });
 
-app.post('/img/user',function(req,res){
-    uploadUser(req,res,function(err) {
-        if(err) {
-        	logger.error("Error uploading file");
-            return res.end("Error uploading file.");
-        }
-        logger.info("User image is uploaded");
-        res.end("File is uploaded");
-    });
+app.post('/img/user',uploadUser,function(req,res){
+  logger.info("received " + req.file);
+  logger.info("The URL for the file is:" + "localhost:3000\\"+req.file.path);
+  res.send(req.file);
+  res.status(200).end();
 });
 
-app.post('/img/question',function(req,res){
-    uploadQuestion(req,res,function(err) {
-        if(err) {
-        	logger.error("Error uploading file");
-            return res.end("Error uploading file.");
-        }
-        logger.info("Question image is uploaded");
-        res.end("File is uploaded");
-    });
+app.post('/img/question',uploadQuestion,function(req,res){
+  logger.info("received " + req.file);
+  logger.info("The URL for the file is:" + "localhost:3000\\"+req.file.path);
+  res.send(req.file);
+  res.status(200).end();
 });
 
 app.listen(8082,function(){

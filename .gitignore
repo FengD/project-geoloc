@@ -1,1 +1,5 @@
-backend/log/results.log
+*.log
+
+backend/question/node_modules
+backend/uploadImage/node_modules
+backend/user/node_modules
