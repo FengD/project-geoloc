@@ -65,6 +65,31 @@ function getUser(name, password, callback) {
 	});
 }
 
+function getAllUser(callback) {
+	mongoConnection.getDatabase().collection(USERS_COLLECTION).find()
+		.toArray(function(err, documents) {
+		if (err) {
+			logger.warn(err);
+			callback(err, documents);
+		}
+		else {
+			if (documents.length === 0) {
+				err = new Error("user list empty.");
+				err.noUser = true;
+				logger.warn("user list empty.");
+				callback(err, null);
+			}
+			else {
+				logger.info("all users.");
+				documents = documents.map(function(element) {
+					return element;
+				});
+				callback(err, documents);
+			}
+		}
+	});
+}
+
 function removeUser(uid, callback) {
 	mongoConnection.getDatabase().collection(USERS_COLLECTION).deleteOne({
 		_id: uid
@@ -166,6 +191,7 @@ function clean() {
 
 exports.createUser = createUser;
 exports.getUser = getUser;
+exports.getAllUser = getAllUser;
 exports.removeUser = removeUser;
 exports.updateQuestionStep = updateQuestionStep;
 exports.updatePhotoPath = updatePhotoPath;

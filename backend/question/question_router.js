@@ -47,6 +47,24 @@ router.post("/:qid", function (request, response) {
 	});
 });
 
+router.get("/allQuestion", function (request, response) {
+	question.getAllQuestion(function (err, result) {
+		if (err) {
+			logger.error(err);
+			if (err.noQuestion) {
+				response.status(400).send(err);
+			}
+			else {
+				response.status(500).send(err);
+			}
+		}
+		else {
+			logger.info(result);
+			response.send(result);
+		}
+	});
+});
+
 router.delete("/:qid", function (request, response) {
 	question.removeQuestion(request.params.qid, function (err, result) {
 		if (err) {

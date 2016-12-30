@@ -636,3 +636,56 @@
 {"level":"info","message":"router initialized","timestamp":"10:23:04 PM"}
 {"level":"info","message":"listening to 8080","timestamp":"10:23:04 PM"}
 {"level":"info","message":"exiting...","timestamp":"10:23:06 PM"}
+{"level":"info","message":"Connected to mongodb.","timestamp":"11:36:55"}
+{"level":"info","message":"users initialized","timestamp":"11:36:55"}
+{"level":"info","message":"router initialized","timestamp":"11:36:55"}
+{"level":"info","message":"listening to 8080","timestamp":"11:36:55"}
+{"level":"info","message":"exiting...","timestamp":"12:18:29"}
+{"level":"info","message":"Connected to mongodb.","timestamp":"12:18:31"}
+{"level":"info","message":"users initialized","timestamp":"12:18:31"}
+{"level":"info","message":"router initialized","timestamp":"12:18:31"}
+{"level":"info","message":"listening to 8080","timestamp":"12:18:31"}
+{"level":"info","message":"GET /allUser","timestamp":"12:19:34"}
+{"level":"info","message":"GET /allUser","timestamp":"12:20:30"}
+{"level":"info","message":"exiting...","timestamp":"12:20:52"}
+{"level":"info","message":"Connected to mongodb.","timestamp":"12:20:54"}
+{"level":"info","message":"users initialized","timestamp":"12:20:54"}
+{"level":"info","message":"router initialized","timestamp":"12:20:54"}
+{"level":"info","message":"listening to 8080","timestamp":"12:20:54"}
+{"level":"info","message":"GET /allUser","timestamp":"12:20:59"}
+{"level":"info","message":"GET /allUser","timestamp":"12:21:59"}
+{"level":"info","message":"exiting...","timestamp":"12:22:29"}
+{"level":"info","message":"Connected to mongodb.","timestamp":"12:22:30"}
+{"level":"info","message":"users initialized","timestamp":"12:22:30"}
+{"level":"info","message":"router initialized","timestamp":"12:22:30"}
+{"level":"info","message":"listening to 8080","timestamp":"12:22:30"}
+{"level":"info","message":"POST /allUser","timestamp":"12:22:34"}
+{"level":"info","message":"got database.","timestamp":"12:22:34"}
+{"level":"warn","message":"user not exists.","timestamp":"12:22:34"}
+{"message":"nonexistent user","stack":"Error: nonexistent user\n    at C:\\Users\\I335999\\Desktop\\project-geoloc-master\\backend\\user\\user.js:52:11\n    at handleCallback (C:\\Users\\I335999\\Desktop\\project-geoloc-master\\backend\\user\\node_modules\\mongodb\\lib\\utils.js:95:56)\n    at C:\\Users\\I335999\\Desktop\\project-geoloc-master\\backend\\user\\node_modules\\mongodb\\lib\\cursor.js:852:16\n    at handleCallback (C:\\Users\\I335999\\Desktop\\project-geoloc-master\\backend\\user\\node_modules\\mongodb-core\\lib\\cursor.js:171:5)\n    at setCursorNotified (C:\\Users\\I335999\\Desktop\\project-geoloc-master\\backend\\user\\node_modules\\mongodb-core\\lib\\cursor.js:516:3)\n    at C:\\Users\\I335999\\Desktop\\project-geoloc-master\\backend\\user\\node_modules\\mongodb-core\\lib\\cursor.js:591:16\n    at queryCallback (C:\\Users\\I335999\\Desktop\\project-geoloc-master\\backend\\user\\node_modules\\mongodb-core\\lib\\cursor.js:232:18)\n    at C:\\Users\\I335999\\Desktop\\project-geoloc-master\\backend\\user\\node_modules\\mongodb-core\\lib\\connection\\pool.js:455:18\n    at _combinedTickCallback (internal/process/next_tick.js:67:7)\n    at process._tickCallback (internal/process/next_tick.js:98:9)","nonexistentUser":true,"level":"error","timestamp":"12:22:34"}
+{"level":"info","message":"GET /allUser","timestamp":"12:23:16"}
+{"level":"info","message":"exiting...","timestamp":"12:23:23"}
+{"level":"info","message":"Connected to mongodb.","timestamp":"12:23:25"}
+{"level":"info","message":"users initialized","timestamp":"12:23:25"}
+{"level":"info","message":"router initialized","timestamp":"12:23:25"}
+{"level":"info","message":"listening to 8080","timestamp":"12:23:25"}
+{"level":"info","message":"GET /allUser","timestamp":"12:23:27"}
+{"level":"info","message":"GET /allUser","timestamp":"12:23:27"}
+{"level":"info","message":"exiting...","timestamp":"12:23:54"}
+{"level":"info","message":"Connected to mongodb.","timestamp":"12:23:55"}
+{"level":"info","message":"users initialized","timestamp":"12:23:55"}
+{"level":"info","message":"router initialized","timestamp":"12:23:55"}
+{"level":"info","message":"listening to 8080","timestamp":"12:23:55"}
+{"level":"info","message":"GET /allUser","timestamp":"12:23:58"}
+{"level":"info","message":"got database.","timestamp":"12:23:58"}
+{"level":"info","message":"all users.","timestamp":"12:23:58"}
+{"0":{"_id":"ABee","name":"ABee","password":"123456dd","first_create_time":"2016-12-23T13:31:18.296Z","last_modified_time":"2016-12-23T13:46:32.852Z","question_step":"Quwwwus","photo_path":"sadfsafsssssafasfsaf","current_chance":3},"1":{"_id":"sadfsdf","name":"sadfsdf","password":"sadfas","first_create_time":"2016-12-23T16:03:52.678Z","last_modified_time":"2016-12-23T16:03:52.678Z","question_step":"1","photo_path":"/img/user/default.jpg","current_chance":5},"2":{"_id":"dingfeng","name":"dingfeng","password":"19901111","first_create_time":"2016-12-23T16:13:30.705Z","last_modified_time":"2016-12-23T16:13:30.705Z","question_step":"1","photo_path":"/backend/img/user/default.jpg","current_chance":5},"level":"info","message":"","timestamp":"12:23:58"}
+{"level":"info","message":"exiting...","timestamp":"12:24:49"}
+{"level":"info","message":"Connected to mongodb.","timestamp":"12:24:50"}
+{"level":"info","message":"users initialized","timestamp":"12:24:50"}
+{"level":"info","message":"router initialized","timestamp":"12:24:50"}
+{"level":"info","message":"listening to 8080","timestamp":"12:24:50"}
+{"level":"info","message":"GET /allUser","timestamp":"12:24:58"}
+{"level":"info","message":"got database.","timestamp":"12:24:58"}
+{"level":"info","message":"all users.","timestamp":"12:24:58"}
+{"0":{"_id":"ABee","name":"ABee","password":"123456dd","first_create_time":"2016-12-23T13:31:18.296Z","last_modified_time":"2016-12-23T13:46:32.852Z","question_step":"Quwwwus","photo_path":"sadfsafsssssafasfsaf","current_chance":3},"1":{"_id":"sadfsdf","name":"sadfsdf","password":"sadfas","first_create_time":"2016-12-23T16:03:52.678Z","last_modified_time":"2016-12-23T16:03:52.678Z","question_step":"1","photo_path":"/img/user/default.jpg","current_chance":5},"2":{"_id":"dingfeng","name":"dingfeng","password":"19901111","first_create_time":"2016-12-23T16:13:30.705Z","last_modified_time":"2016-12-23T16:13:30.705Z","question_step":"1","photo_path":"/backend/img/user/default.jpg","current_chance":5},"level":"info","message":"","timestamp":"12:24:58"}

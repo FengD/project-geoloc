@@ -75,6 +75,24 @@ router.post("/:name", function (request, response) {
 	});
 });
 
+router.get("/allUser", function (request, response) {
+	user.getAllUser(function (err, result) {
+		if (err) {
+			logger.error(err);
+			if (err.noUser) {
+				response.status(400).send(err);
+			}
+			else {
+				response.status(500).send(err);
+			}
+		}
+		else {
+			logger.info(result);
+			response.send(result);
+		}
+	});
+});
+
 router.delete("/:name", function (request, response) {
 	user.removeUser(request.params.name, function (err, result) {
 		if (err) {

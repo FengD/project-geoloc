@@ -1,0 +1,39 @@
+<div id="manageQuestion" ng-controller="manageQuestionController" ng-init="getAllQuestion()">
+	<h1>Manage Question</h1>
+	<table>
+		<tr>
+			<th></th>
+			<th>id</th>
+			<th>position.latitude</th>
+			<th>position.longitude</th>
+			<th>question</th>
+			<th>type</th>
+			<th>answers</th>
+			<th>choices</th>
+			<th>photoPath</th>
+			<th>photo</th>
+			<th>nextQuestion</th>
+			<th>Create Date</th>
+			<th>Last modification Date</th>
+			<th>Comments</th>
+		</tr>
+		<tr ng-repeat="questions in allQuestion">
+			<td><button ng-click="deleteQuestion(questions._id)">Delete</button></td>
+			<td>{{questions._id}}</td>
+			<td>{{questions.position.latitude}}</td>
+			<td>{{questions.position.longitude}}</td>
+			<td>{{questions.question}}</td>
+			<td>{{questions.type}}</td>
+			<td>{{questions.answers}}</td>
+			<td>{{questions.choices}}</td>
+			<td>{{questions.photo_path}}</td>
+			<td><img ng-src="http://localhost:8082/img/question/{{questions.photo_path}}"/></td>
+			<td>{{questions.next_question}}</td>
+			<td>{{questions.first_create_time}}</td>
+			<td>{{questions.last_modified_time}}</td>
+			<td>{{questions.comments}}</td>
+		</tr>
+	</table>
+
+
+</div>

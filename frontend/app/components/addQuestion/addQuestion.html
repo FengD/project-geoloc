@@ -83,7 +83,7 @@
         <h2>Question photo</h2>
         <div class="row">
 	        <!-- <label for="questionPhoto">Select a File to Upload</label><br /> -->
-	        <input type="file" ng-model-instant id="questionPhoto" onchange="angular.element(this).scope().uploadFile(this)" />
+	        <input type="file" accept="image/*" ng-model-instant id="questionPhoto" onchange="angular.element(this).scope().uploadFile(this)" />
 	    </div>
 	    <!-- <div id="dropbox" class="dropbox" ng-class="dropClass"><span>{{dropText}}</span></div> -->
 	    <div ng-show="files.length">
@@ -102,6 +102,7 @@
 	            </div>
 	        </div>
 	    </div>
+	    <h2>Question Info Display</h2>
 	    <pre>{{questionInfo | json}}</pre>
 		<br/>
         <input type="submit" value="Valide Question" ng-click="addQuestion()">

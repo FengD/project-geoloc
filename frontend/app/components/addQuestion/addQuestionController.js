@@ -13,7 +13,7 @@ angular.module('geolocApp')
     	$scope.multianswersBoolean = [];
     	$scope.essayanswersInput = [];
     	$scope.essayanswersValue = [];
-    	$scope.isEssay = false;
+    	$scope.isEssay = true;
     	$scope.files = [];
     	$scope.questionInfo = {id:'',
 			position : {
@@ -164,7 +164,7 @@ angular.module('geolocApp')
      //            }
             }).then(function successCallback(success) {
                 console.log(success);
-
+                $location.path("/manageQuestion");
             }, function errorCallback(error) {
                 console.log("error");
                 console.log(error);

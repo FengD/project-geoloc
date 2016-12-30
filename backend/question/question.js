@@ -71,6 +71,31 @@ function getQuestion(qid, callback) {
 	});
 }
 
+function getAllQuestion(callback) {
+	mongoConnection.getDatabase().collection(QUESTIONS_COLLECTION).find()
+		.toArray(function(err, documents) {
+		if (err) {
+			logger.warn(err);
+			callback(err, documents);
+		}
+		else {
+			if (documents.length === 0) {
+				err = new Error("question list empty.");
+				err.noQuestion = true;
+				logger.warn("question list empty.");
+				callback(err, null);
+			}
+			else {
+				logger.info("all questions.");
+				documents = documents.map(function(element) {
+					return element;
+				});
+				callback(err, documents);
+			}
+		}
+	});
+}
+
 function removeQuestion(qid, callback) {
 	mongoConnection.getDatabase().collection(QUESTIONS_COLLECTION).deleteOne({
 		_id: qid
@@ -178,6 +203,7 @@ function clean() {
 
 exports.createQuestion = createQuestion;
 exports.getQuestion = getQuestion;
+exports.getAllQuestion = getAllQuestion;
 exports.removeQuestion = removeQuestion;
 exports.addCommentToQuestion = addCommentToQuestion;
 exports.voteToComment = voteToComment;
