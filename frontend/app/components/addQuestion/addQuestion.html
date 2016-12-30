@@ -1,6 +1,9 @@
 <div id="add-questions" ng-controller="addQuestionController">
 	<h1>Add a question</h1>
 	<form class="addQuestionForm" ng-show="true">
+	
+		<!-- <div id="dropbox" class="dropbox" ng-class="dropClass"><span>{{dropText}}</span></div> -->
+
 		<h2>id</h2>
         <input type="text" class="id" ng-model="id" placeholder="please input id of this question" ng-change="inputId()">
         <h2>Position</h2>
@@ -85,7 +88,7 @@
 	        <!-- <label for="questionPhoto">Select a File to Upload</label><br /> -->
 	        <input type="file" accept="image/*" ng-model-instant id="questionPhoto" onchange="angular.element(this).scope().uploadFile(this)" />
 	    </div>
-	    <!-- <div id="dropbox" class="dropbox" ng-class="dropClass"><span>{{dropText}}</span></div> -->
+	    
 	    <div ng-show="files.length">
 	        <!-- <div ng-repeat="file in files.slice(0)">
 	            <span>{{file.webkitRelativePath || file.name}}</span>
@@ -102,6 +105,8 @@
 	            </div>
 	        </div>
 	    </div>
+
+
 	    <h2>Question Info Display</h2>
 	    <pre>{{questionInfo | json}}</pre>
 		<br/>

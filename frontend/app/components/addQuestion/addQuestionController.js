@@ -196,22 +196,23 @@ angular.module('geolocApp')
 	    //     })
 	    // }, false)
 	    // dropbox.addEventListener("drop", function(evt) {
-	    //     console.log('drop evt:', JSON.parse(JSON.stringify(evt.dataTransfer)))
+	    //     // console.log('drop evt:', JSON.parse(JSON.stringify(evt.dataTransfer)))
 	    //     evt.stopPropagation()
 	    //     evt.preventDefault()
 	    //     $scope.$apply(function(){
 	    //         $scope.dropText = 'Drop files here...'
 	    //         $scope.dropClass = ''
 	    //     })
-	    //     var files = evt.dataTransfer.files
-	    //     if (files.length > 0) {
-	    //         $scope.$apply(function(){
-	    //             $scope.files = []
-	    //             for (var i = 0; i < files.length; i++) {
-	    //                 $scope.files.push(files[i])
-	    //             }
-	    //         })
-	    //     }
+	    //     var files = evt.dataTransfer.files[0];
+	    //     console.log(files);
+	        // if (files.length > 0) {
+	        //     $scope.$apply(function(){
+	        //         $scope.files = []
+	        //         for (var i = 0; i < files.length; i++) {
+	        //             $scope.files.push(files[i])
+	        //         }
+	        //     })
+	        // }
 	    // }, false)
 	    //============== DRAG & DROP =============
 

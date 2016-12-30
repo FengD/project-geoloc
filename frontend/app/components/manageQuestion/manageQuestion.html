@@ -27,7 +27,7 @@
 			<td>{{questions.answers}}</td>
 			<td>{{questions.choices}}</td>
 			<td>{{questions.photo_path}}</td>
-			<td><img ng-src="http://localhost:8082/img/question/{{questions.photo_path}}"/></td>
+			<td><img ng-if="questions.photo_path" ng-src="http://localhost:8082/img/question/{{questions.photo_path}}"/></td>
 			<td>{{questions.next_question}}</td>
 			<td>{{questions.first_create_time}}</td>
 			<td>{{questions.last_modified_time}}</td>
