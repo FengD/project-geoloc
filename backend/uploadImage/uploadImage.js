@@ -45,9 +45,20 @@ var storageQuestion = multer.diskStorage({
   	}
 });
 
+var storageComment = multer.diskStorage({
+  	destination: function (req, file, callback) {
+    	callback(null, './uploads/img/comment/');
+  	},
+  	filename: function (req, file, callback) {
+    	callback(null,  file.originalname);
+  	}
+});
+
 var uploadUser = multer({ storage : storageUser }).single('userPhoto');
 
 var uploadQuestion = multer({ storage : storageQuestion }).single('questionPhoto');
+
+var uploadComment = multer({ storage : storageComment }).single('commentPhoto');
 
 app.get('/user',function(req,res){
 	logger.info("user upload window sent.");
@@ -69,6 +80,11 @@ app.get('/img/question/:qphoto',function(req,res){
     res.sendFile(__dirname + "/uploads/img/question/" + req.params.qphoto);
 });
 
+app.get('/img/comment/:cphoto',function(req,res){
+	logger.info("comment image sent");
+    res.sendFile(__dirname + "/uploads/img/comment/" + req.params.cphoto);
+});
+
 app.post('/img/user',uploadUser,function(req,res){
   logger.info("received " + req.file);
   logger.info("The URL for the file is:" + "localhost:3000\\"+req.file.path);
@@ -77,6 +93,13 @@ app.post('/img/user',uploadUser,function(req,res){
 });
 
 app.post('/img/question',uploadQuestion,function(req,res){
+  logger.info("received " + req.file);
+  logger.info("The URL for the file is:" + "localhost:3000\\"+req.file.path);
+  res.send(req.file);
+  res.status(200).end();
+});
+
+app.post('/img/comment',uploadComment,function(req,res){
   logger.info("received " + req.file);
   logger.info("The URL for the file is:" + "localhost:3000\\"+req.file.path);
   res.send(req.file);

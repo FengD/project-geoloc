@@ -3,16 +3,18 @@
   <head>
     <meta charset="UTF-8">
     <title>Questions</title>
+    <link rel="stylesheet" href="app/css/style.css"/>
+    <link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap-theme.min.css"/>
+    <link rel="stylesheet" href="../bower_components/font-awesome/css/font-awesome.min.css"/>
     <link rel="stylesheet" href="app/components/addQuestion/addQuestion.css"/>
     <link rel="stylesheet" href="app/components/manageQuestion/manageQuestion.css"/>
   </head>
   <body ng-app="geolocApp" ng-controller="HomeController">
-    <p>
-      <!-- <a href="/#!/login">login</a> -->
-      <a href="/#!/addQuestion">addQuestion</a>
-      <a href="/#!/manageQuestion">manageQuestion</a>
-    </p>
+    <header ng-include="'app/components/header/header.html'"></header>
+
     <div ng-view></div>
+    <div ng-include="'app/components/footer/footer.html'"></div>
   </body>
   <script src="../bower_components/angular/angular.js"></script>
   <script src="../bower_components/angular-route/angular-route.min.js"></script>

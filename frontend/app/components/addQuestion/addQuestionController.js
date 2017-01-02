@@ -2,9 +2,9 @@
 angular.module('geolocApp')
     .controller('addQuestionController',  function ($scope, $cookies, $http, $window, $location, $rootScope) {
     	$scope.types = {
-    		type01 : {type : "multi-choice", answertitle:"Select more than one answer below", choicetitle:"Input your choices"},
-    		type02 : {type : "single-choice", answertitle:"Select one answer below", choicetitle:"Input your choice(s)"},
-    		type03 : {type : "essay", answertitle:"Input answer(s) below", choicetitle:""}
+    		type01 : {type : "multi-choice", answertitle:"Select more than one answer below", choicetitle:"Input your choice"},
+    		type02 : {type : "single-choice", answertitle:"Select one answer below", choicetitle:"Input your choice"},
+    		type03 : {type : "essay", answertitle:"Input answer", choicetitle:""}
     	};
 
     	$scope.choicesInput = [];

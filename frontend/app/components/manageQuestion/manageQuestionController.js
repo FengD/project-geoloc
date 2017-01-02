@@ -3,6 +3,7 @@ angular.module('geolocApp')
     .controller('manageQuestionController',  function ($scope, $cookies, $http, $window, $location, $rootScope) {
     	$scope.allQuestion=[];
     	$scope.questionImage=[];
+        $scope.isModify = [];
     	$scope.getAllQuestion = function(){
             $http({
                 method: 'GET',
@@ -10,6 +11,9 @@ angular.module('geolocApp')
             }).then(function successCallback(success) {
                 // console.log(success);
                 $scope.allQuestion = success.data;
+                for(var i = 0; i < success.data.length; i++){
+                    $scope.isModify[i] = false;
+                }
             }, function errorCallback(error) {
             	$location.path("/addQuestion");
                 console.log("error");
@@ -29,5 +33,9 @@ angular.module('geolocApp')
                 console.log(error);
             });
         };
+
+        $scope.wantDeleteQuestion = function(index,bool){
+            $scope.isModify[index] = bool;
+        }
 
     });
