@@ -101,7 +101,7 @@ body, input, button {
   font-size: 1em;
   color: rgba(255, 255, 255, 0.2);
 }
-#add-questions form input.form-control {
+/*#add-questions form input.form-control {
   display: block;
   width: auto;
   height: auto;
@@ -110,6 +110,7 @@ body, input, button {
   box-shadow: none;
   background: none;
   border-radius: 0px;
+  border: 1px solid blue;
   padding: 10px;
   font-size: 1em;
   width: 100%;
@@ -118,7 +119,10 @@ body, input, button {
 }
 #add-questions form input.form-control:focus {
   border: none;
-}
+}*/
+/*#add-questions form .input-group-addon{
+  width: 200px;
+}*/
 #add-questions form button {
   margin-top: 20px;
   background: #27AE60;

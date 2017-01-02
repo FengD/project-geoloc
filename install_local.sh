@@ -26,4 +26,6 @@ cd ../uploadImage
 npm install
 
 # installing frontend
-
+cd ../../frontend
+bower install
+npm install

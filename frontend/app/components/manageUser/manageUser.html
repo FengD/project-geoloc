@@ -1,0 +1,41 @@
+<div id="manageUser" class="row" ng-controller="manageUserController" ng-init="getAllUser()">
+	<table>
+		<thead>
+			<tr>
+				<th>Action</th>
+				<th>id</th>
+				<th>name</th>
+				<th>password</th>
+				<th>photoPath</th>
+				<th>photo</th>
+				<th>question<br />step</th>
+				<th>Create<br />Date</th>
+				<th>Last<br />modification<br />Date</th>
+				<th>current<br />chance</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="users in allUser">
+				<td>
+					<a><i id="delete-user" class="fa fa-trash-o icon-user fa-lg" aria-hidden="true" ng-click="wantDeleteUser($index,true)"></i></a>
+					<a><i id="overview-user" class="fa fa-eye icon-user fa-lg" aria-hidden="true"></i></a>
+					<a><i id="modify-user" class="fa fa-pencil icon-user fa-lg" aria-hidden="true"></i></a>
+					<br />
+					<a><i id="modify-cancel" class="fa fa-times fa-lg" aria-hidden="true" ng-show="isModify[$index]" ng-click="wantDeleteUser($index,false)"></i></i></a>
+					<a><i id="modify-confirm" class="fa fa-check fa-lg" aria-hidden="true" ng-show="isModify[$index]" ng-click="deleteUser(users._id)"></i></i></a>
+				</td>
+				<td>{{users._id}}</td>
+				<td>{{users.name}}</td>
+				<td>{{users.password}}</td>
+				<td>{{users.photo_path}}</td>
+				<td><img ng-if="users.photo_path" ng-src="http://localhost:8082/img/user/{{users.photo_path}}"/></td>
+				<td>{{users.question_step}}</td>
+				<td>{{users.first_create_time}}</td>
+				<td>{{users.last_modified_time}}</td>
+				<td>{{users.current_chance}}</td>
+			</tr>
+		</tbody>
+	</table>
+
+
+</div>

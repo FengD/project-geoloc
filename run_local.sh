@@ -13,5 +13,7 @@ echo "starting question service..."
 forever start backend/question/question_app.js
 echo "starting uploadImage service..."
 forever start backend/uploadImage/uploadImage.js
+echo "front end startup"
+forever start frontend/server.js
 
 echo "startup complete"

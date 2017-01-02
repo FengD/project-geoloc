@@ -1,6 +1,6 @@
 <div id="add-questions" class="container" ng-controller="addQuestionController">
 	<div class="heading">
-	<h2>Add a Question</h2>
+	<!-- <h2>Add a Question</h2> -->
 	<form class="addQuestionForm" ng-show="true">
 	
 		<!-- <div id="dropbox" class="dropbox" ng-class="dropClass"><span>{{dropText}}</span></div> -->
@@ -53,7 +53,7 @@
 				        <table>
 				    		<tr ng-repeat="answer in choicesInput">
 				      			<td>
-				        			<input type="checkbox" ng-model="singleanswersBoolean[$index]" ng-click="updateSelection($index,singleanswersBoolean)" />
+				        			<input type="radio" ng-model="singleanswersBoolean[$index]" ng-click="updateSelection($index,singleanswersBoolean)" />
 				      			</td>
 				      			<td>
 				        			<span class="form-control">{{answer.value}}</span>
