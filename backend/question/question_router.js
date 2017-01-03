@@ -84,7 +84,7 @@ router.delete("/:qid", function (request, response) {
 });
 
 router.post("/comment/:qid", function (request, response) {
-	question.addCommentToQuestion(request.params.qid, request.body.text, request.body.userId, function (err, result) {
+	question.addCommentToQuestion(request.params.qid, request.body.text, request.body.userId, request.body.photoPath, function (err, result) {
 		if (err) {
 			logger.error(err);
 			if (err.nonexistentQuestion) {

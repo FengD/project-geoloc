@@ -1,3 +1,69 @@
-<div id="add-questions" ng-controller="loginController">
-	<h1>{{login}}</h1>
+<div id="add-questions" ng-controller="loginController" ng-init = "init();">
+
+	<!--WRAPPER-->
+	<div id="wrapper">
+
+		<!--SLIDE-IN ICONS-->
+	    <div class="user-icon animate-hide" ng-hide="usericonhide"></div>
+	    <div class="pass-icon animate-hide" ng-hide="passiconhide"></div>
+	    <!--END SLIDE-IN ICONS-->
+
+	<!--LOGIN FORM-->
+	<form class="login-form" ng-submit="login()" ng-show="isLogin">
+
+		<!--HEADER-->
+	    <div class="header">
+	    <!--TITLE--><h1>Login Form</h1><!--END TITLE-->
+	    </div>
+	    <!--END HEADER-->
+		
+		<!--CONTENT-->
+	    <div class="content">
+		<!--USERNAME--><input ng-model="name" type="text" class="input username" placeholder="username" ng-focus="userIconChange(false)" ng-blur="userIconChange(true)" /><!--END USERNAME-->
+	    <!--PASSWORD--><input ng-model="password" type="password" class="input password" placeholder="password" ng-focus="passIconChange(false)" ng-blur="passIconChange(true)" /><!--END PASSWORD-->
+	    </div>
+
+	    <!--END CONTENT-->
+	    
+	    <!--FOOTER-->
+	    <div class="footer">
+	    <a class="register" ng-click="isLogin=false" >Register</a>
+	    <!--LOGIN BUTTON--><input type="submit" value="Login" class="button" /><!--END LOGIN BUTTON-->
+	    </div>
+	    <!--END FOOTER-->
+
+	</form>
+	<!--END LOGIN FORM-->
+
+	<!--LOGIN FORM-->
+	<form class="login-form" ng-submit="signUp()" ng-hide="isLogin">
+
+		<!--HEADER-->
+	    <div class="header">
+	    <!--TITLE--><h1>Register Form</h1><!--END TITLE-->
+	    </div>
+	    <!--END HEADER-->
+		
+		<!--CONTENT-->
+	    <div class="content">
+		<!--USERNAME--><input ng-model="name" type="text" class="input username" placeholder="username" ng-focus="userIconChange(false)" ng-blur="userIconChange(true)" /><!--END USERNAME-->
+	    <!--PASSWORD--><input ng-model="password" type="password" class="input password" placeholder="password" ng-focus="passIconChange(false)" ng-blur="passIconChange(true)" /><!--END PASSWORD-->
+	    </div>
+
+	    <!--END CONTENT-->
+	    
+	    <!--FOOTER-->
+	    <div class="footer">
+	    <a class="register" ng-click="isLogin=true" >Login</a>
+	    <!--REGISTER BUTTON--><input type="submit" value="Register" class="button"/><!--END REGISTER BUTTON-->
+	    </div>
+	    <!--END FOOTER-->
+
+	</form>
+	<!--END LOGIN FORM-->
+	</div>
+	<!--END WRAPPER-->
+
+	<!--GRADIENT--><div class="gradient"></div><!--END GRADIENT-->
 </div>
+

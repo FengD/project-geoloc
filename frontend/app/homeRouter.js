@@ -1,6 +1,10 @@
 angular.module('geolocApp')
 	.config(['$routeProvider',  function($routeProvider) {
         $routeProvider
+            .when('/', {
+                templateUrl: 'app/homepage.html',
+                controller: 'HomeController'
+            })
         	.when('/login', {
                 templateUrl: 'app/components/login/login.html',
                 controller: 'loginController'

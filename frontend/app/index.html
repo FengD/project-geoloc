@@ -9,7 +9,9 @@
     <link rel="stylesheet" href="../bower_components/font-awesome/css/font-awesome.min.css"/>
     <link rel="stylesheet" href="app/components/addQuestion/addQuestion.css"/>
     <link rel="stylesheet" href="app/components/manageQuestion/manageQuestion.css"/>
-     <link rel="stylesheet" href="app/components/manageUser/manageUser.css"/>
+    <link rel="stylesheet" href="app/components/manageUser/manageUser.css"/>
+    <link rel="stylesheet" href="app/components/login/login.css"/>
+
   </head>
   <body ng-app="geolocApp" ng-controller="HomeController">
     <header ng-include="'app/components/header/header.html'"></header>
@@ -17,13 +19,14 @@
     <div ng-view></div>
     <div ng-include="'app/components/footer/footer.html'"></div>
   </body>
-  <script src="../bower_components/angular/angular.js"></script>
+  <script src="../bower_components/angular/angular.min.js"></script>
   <script src="../bower_components/angular-route/angular-route.min.js"></script>
   <script src="../bower_components/jquery/dist/jquery.min.js"></script>
   <script src="../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
   <script src="../bower_components/angular-cookies/angular-cookies.js"></script>
   <script src="../bower_components/angular-loading-bar/src/loading-bar.js"></script>
   <script src="../bower_components/angular-xeditable/dist/js/xeditable.js"></script>
+
 
   <script src="app/geolocModule.js"></script>
   <script src="app/homeRouter.js"></script>

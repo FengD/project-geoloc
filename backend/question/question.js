@@ -119,7 +119,7 @@ function removeQuestion(qid, callback) {
 	});
 }
 
-function addCommentToQuestion(qid, text, userId, callback){
+function addCommentToQuestion(qid, text, userId, photoPath, callback){
 	mongoConnection.getDatabase().collection(QUESTIONS_COLLECTION).findAndModify(
 		{_id : qid},
 		[['_id','asc']],
@@ -129,6 +129,7 @@ function addCommentToQuestion(qid, text, userId, callback){
 				_id : new ObjectId(),
 				text : text,
 				user_id : userId,
+				photo_path : photoPath,
 				votes : []
 			}}
 		},
