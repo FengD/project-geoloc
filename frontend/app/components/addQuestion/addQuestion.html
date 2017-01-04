@@ -1,25 +1,25 @@
 <div id="add-questions" class="container" ng-controller="addQuestionController">
 	<div class="heading">
 	<!-- <h2>Add a Question</h2> -->
-	<form class="addQuestionForm" ng-show="true">
+	<form name="addQuestion" class="addQuestionForm" ng-show="true" ng-submit="signUp()">
 	
 		<!-- <div id="dropbox" class="dropbox" ng-class="dropClass"><span>{{dropText}}</span></div> -->
 		<div class="row input-group input-group-lg">
 			<span class="input-group-addon">id</span>
-	        <input type="text" class="form-control" ng-model="id" placeholder="please input id of this question" ng-change="inputId()">
+	        <input type="text" class="form-control" ng-model="id" placeholder="please input id of this question" ng-change="inputId()" required>
         </div>
         <div class="row input-group input-group-lg">
-	        <span class="input-group-addon">Position</span>
-	        <input type="text" class="form-control" ng-model="latitude" placeholder="latitude" ng-change="inputLatitude()">
-	        <input type="text" class="form-control" ng-model="longitude" placeholder="longitude" ng-change="inputLongitude()">
+	        <span class="input-group-addon control-label">Position</span>
+	        <input type="number" name="latitude" class="form-control" ng-model="latitude" placeholder="latitude" ng-change="inputLatitude()" required>
+	        <input type="number" name="longitude" class="form-control" ng-model="longitude" placeholder="longitude" ng-change="inputLongitude()" required>
         </div>
         <div class="row input-group input-group-lg">
 	        <span class="input-group-addon">Question</span>
-	        <input type="text" class="form-control" ng-model="question" placeholder="input a question" ng-change="inputQuestion()">
+	        <input type="text" class="form-control" ng-model="question" placeholder="input a question" ng-change="inputQuestion()" required>
         </div>
         <div class="row input-group input-group-lg">
 	        <span class="input-group-addon">Question Type</span>
-	        <select class="form-control" ng-model="type" ng-options="y.type for (x, y) in types" ng-change="inputType()"></select>
+	        <select class="form-control" ng-model="type" ng-options="y.type for (x, y) in types" ng-change="inputType()" required></select>
 	    </div>
 	        <div ng-switch="type.type">
 	        	<div class="row">
@@ -30,7 +30,7 @@
 				    		<table>
 					    		<tr>
 						    		<td><a ng-click="deleteChoice($index)"><i class="fa fa-trash-o icon-question fa-lg" aria-hidden="true"></i></a></td>
-						       		<td><input id="choice-{{$index}}" class="input-{{$index}} form-control" ng-model="choice.value" ng-change="inputChoice($index)" placeholder="{{type.choicetitle}}" /></td>
+						       		<td><input id="choice-{{$index}}" class="input-{{$index}} form-control" ng-model="choice.value" ng-change="inputChoice($index)" placeholder="{{type.choicetitle}}" required/></td>
 					       		</tr>
 				       		</table>
 				    	</div>
@@ -83,7 +83,7 @@
 
 		<div class="row input-group input-group-lg">
 			<span class="input-group-addon">Next Question</span>
-			<input type="text" class="form-control" ng-model="next_question" placeholder="input id of the next question" ng-change="inputNextQuestion()">
+			<input type="text" class="form-control" ng-model="next_question" placeholder="input id of the next question" ng-change="inputNextQuestion()" required>
         </div>
         <div class="row input-group input-group-lg">
 	        <span class="input-group-addon">Question photo</span>
@@ -104,7 +104,7 @@
 		    <pre>{{questionInfo | json}}</pre>
 			<br/>
 		</div>
-        <button ng-click="addQuestion()" class="float">Valide Question Input</button>
+        <input type="submit" value="Valide Question Input" class="float button">
     </form>
     </div>
 </div>

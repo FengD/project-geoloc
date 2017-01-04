@@ -10,37 +10,6 @@ FONTS
 
 @import url(http://fonts.googleapis.com/css?family=Bree+Serif);
 
-/*******************
-SELECTION STYLING
-*******************/
-
-::selection {
-	color: #fff;
-	background: #f676b2; /* Safari */
-}
-::-moz-selection {
-	color: #fff;
-	background: #f676b2; /* Firefox */
-}
-
-/*******************
-BODY STYLING
-*******************/
-
-/** {
-	margin: 0;
-	padding: 0;
-	border: 0;
-}
-
-body {
-	background: url(../../resources/images/bg.png) repeat;
-	font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
-	font-weight:300;
-	text-align: left;
-	text-decoration: none;
-}*/
-
 #wrapper {
 	/* Center wrapper perfectly */
 	width: 300px;

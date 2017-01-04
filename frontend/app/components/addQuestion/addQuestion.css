@@ -123,7 +123,7 @@ body, input, button {
 /*#add-questions form .input-group-addon{
   width: 200px;
 }*/
-#add-questions form button {
+#add-questions form .button {
   margin-top: 20px;
   background: #27AE60;
   border: none;
