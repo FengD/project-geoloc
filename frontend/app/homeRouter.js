@@ -1,5 +1,13 @@
-angular.module('geolocApp')
-	.config(['$routeProvider',  function($routeProvider) {
+var myApp = angular.module('geolocApp');
+
+myApp.factory('ServerURL', function() {
+    return {
+        Users: 'http://localhost:8080/users',
+        Questions: 'http://localhost:8081/questions'
+    };
+});
+
+myApp.config(['$routeProvider',  function($routeProvider) {
         $routeProvider
             .when('/', {
                 templateUrl: 'app/homepage.html',
@@ -25,7 +33,12 @@ angular.module('geolocApp')
                 templateUrl: 'app/components/questionOverview/questionOverview.html',
                 controller: 'questionOverviewController'
             })
+            .when('/map', {
+                templateUrl: 'app/components/map/map.html',
+                controller: 'mapController',
+                css: 'app/components/map/map.css'
+            })
             .otherwise({
                 redirectTo: '/'
     		});
-	}]);
+}]);
