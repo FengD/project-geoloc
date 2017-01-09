@@ -1,9 +1,11 @@
 'use strict';
 angular.module('geolocApp')
-    .controller('manageQuestionController',  function ($scope, $cookies, $http, $window, $location, $rootScope) {
+    .controller('manageQuestionController',  function (NgTableParams,$scope, $cookies, $http, $window, $location, $rootScope) {
     	$scope.allQuestion=[];
     	$scope.questionImage=[];
         $scope.isModify = [];
+        $scope.isDelete = [];
+
     	$scope.getAllQuestion = function(){
             $http({
                 method: 'GET',
@@ -13,7 +15,10 @@ angular.module('geolocApp')
                 $scope.allQuestion = success.data;
                 for(var i = 0; i < success.data.length; i++){
                     $scope.isModify[i] = false;
+                    $scope.isDelete[i] = false;
                 }
+                $scope.manageQuestionTable = new NgTableParams({count: 5 }, { data:$scope.allQuestion});
+                // console.log($scope.defaultConfigTableParams);
             }, function errorCallback(error) {
             	$location.path("/addQuestion");
                 console.log("error");
@@ -34,8 +39,16 @@ angular.module('geolocApp')
             });
         };
 
-        $scope.wantDeleteQuestion = function(index,bool){
-            $scope.isModify[index] = bool;
+        $scope.wantModify = function(index){
+            $scope.isModify[index] = true;
+        }
+
+        $scope.cancelModify = function(index){
+            $scope.isModify[index] = false;
+        }
+
+        $scope.confirmModify = function(index){
+            $scope.isModify[index] = false;
         }
 
     });

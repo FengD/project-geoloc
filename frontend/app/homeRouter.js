@@ -21,6 +21,10 @@ angular.module('geolocApp')
                 templateUrl: 'app/components/manageUser/manageUser.html',
                 controller: 'manageUserController'
             })
+            .when('/questionOverview', {
+                templateUrl: 'app/components/questionOverview/questionOverview.html',
+                controller: 'questionOverviewController'
+            })
             .otherwise({
                 redirectTo: '/'
     		});

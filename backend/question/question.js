@@ -31,6 +31,7 @@ function createQuestion(data, callback) {
 				logger.warn(err);
 				if (err.code == 11000)
 					err.duplicate = true;
+				callback(err, null);
 			}else{
 				logger.info("question created.");
 				callback(err, result);

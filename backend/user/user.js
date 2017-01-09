@@ -16,6 +16,7 @@ function createUser(data, callback) {
 			password: data.password,
 			first_create_time:new Date(),
 			last_modified_time:new Date(),
+			user_type:"user",
 			question_step: "1",
 			photo_path:"default.jpg",
 			current_chance:5
@@ -24,6 +25,7 @@ function createUser(data, callback) {
 				logger.warn(err);
 				if (err.code == 11000)
 					err.duplicate = true;
+				callback(err, null);
 			}else{
 				logger.info("user created.");
 				callback(err, result);

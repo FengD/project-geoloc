@@ -3,7 +3,6 @@
   <head>
     <meta charset="UTF-8">
     <title>Questions</title>
-    <link rel="stylesheet" href="app/css/style.css"/>
     <link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.min.css"/>
     <link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap-theme.min.css"/>
     <link rel="stylesheet" href="../bower_components/font-awesome/css/font-awesome.min.css"/>
@@ -11,6 +10,9 @@
     <link rel="stylesheet" href="app/components/manageQuestion/manageQuestion.css"/>
     <link rel="stylesheet" href="app/components/manageUser/manageUser.css"/>
     <link rel="stylesheet" href="app/components/login/login.css"/>
+    <link rel="stylesheet" href="app/components/questionOverview/questionOverview.css"/>
+    <link rel="stylesheet" href="app/css/style.css"/>
+    <link rel="stylesheet" href="app/css/ng-table.css"/>
 
   </head>
   <body ng-app="geolocApp" ng-controller="HomeController">
@@ -27,6 +29,8 @@
   <script src="../bower_components/angular-loading-bar/src/loading-bar.js"></script>
   <script src="../bower_components/angular-xeditable/dist/js/xeditable.js"></script>
 
+  <script src="app/js/ng-table.min.js"></script>
+  <!-- <script src="app/js/google-map.js"></script> -->
 
   <script src="app/geolocModule.js"></script>
   <script src="app/homeRouter.js"></script>
@@ -36,4 +40,6 @@
   <script src="app/components/manageUser/manageUserController.js"></script>
   <script src="app/components/login/loginController.js"></script>
   <script src="app/components/header/headerController.js"></script>
+  <script src="app/components/questionOverview/questionOverviewController.js"></script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBjpZh0-0Ms2541X5mIoaqySN65DYaeMlU&extension=.js" async defer></script>
 </html>

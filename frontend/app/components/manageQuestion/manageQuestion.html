@@ -1,61 +1,141 @@
-<div id="manageQuestion" class="row" ng-controller="manageQuestionController" ng-init="getAllQuestion()">
-	<table>
-		<thead>
-			<tr>
-				<th>Action</th>
-				<th>id</th>
-				<th>position<br />latitude</th>
-				<th>position<br />longitude</th>
-				<th>question</th>
-				<th>type</th>
-				<th>answers</th>
-				<th>choices</th>
-				<th>photoPath</th>
-				<th>photo</th>
-				<th>next<br />question</th>
-				<th>Create<br />Date</th>
-				<th>Last<br />modification<br />Date</th>
-				<th>Comments</th>
-			</tr>
-		</thead>
-		<tbody>
-			<tr ng-repeat="questions in allQuestion">
-				<td>
-					<a><i id="delete-question" class="fa fa-trash-o icon-question fa-lg" aria-hidden="true" ng-click="wantDeleteQuestion($index,true)"></i></a>
-					<a><i id="overview-question" class="fa fa-eye icon-question fa-lg" aria-hidden="true"></i></a>
-					<a><i id="modify-question" class="fa fa-pencil icon-question fa-lg" aria-hidden="true"></i></a>
-					<br />
-					<a><i id="modify-cancel" class="fa fa-times fa-lg" aria-hidden="true" ng-show="isModify[$index]" ng-click="wantDeleteQuestion($index,false)"></i></i></a>
-					<a><i id="modify-confirm" class="fa fa-check fa-lg" aria-hidden="true" ng-show="isModify[$index]" ng-click="deleteQuestion(questions._id)"></i></i></a>
-				</td>
-				<td>{{questions._id}}</td>
-				<td>{{questions.position.latitude}}</td>
-				<td>{{questions.position.longitude}}</td>
-				<td>{{questions.question}}</td>
-				<td>{{questions.type}}</td>
-				<td>
-					<ul>
-						<li ng-repeat="answer in questions.answers">{{answer}}</li>
-					</ul>
-				</td>
-				<td>
-					<ul>
-						<li ng-repeat="choice in questions.choices">{{choice}}</li>
-					</ul>
-				</td>
-				<td>{{questions.photo_path}}</td>
-				<td><img ng-if="questions.photo_path" ng-src="http://localhost:8082/img/question/{{questions.photo_path}}"/></td>
-				<td>{{questions.next_question}}</td>
-				<td>{{questions.first_create_time}}</td>
-				<td>{{questions.last_modified_time}}</td>
-				<td>
-					<ul>
-						<li ng-repeat="comment in questions.comments">{{comment}}</li>
-					</ul>
-				</td>
-			</tr>
-		</tbody>
-	</table>
+<div id="manageQuestion" class="container" ng-controller="manageQuestionController" ng-init="getAllQuestion()">
+<!-- 	<div class="row">
+		<div class="col-md-12 tableArray centered" >
+			<table ng-table="defaultConfigTableParams" class="table table-condensed table-bordered table-striped">
+				<thead>
+					<tr>
+						<th>Action</th>
+						<th>id</th>
+						<th>position<br />latitude</th>
+						<th>position<br />longitude</th>
+						<th>question</th>
+						<th>type</th>
+						<th>answers</th>
+						<th>choices</th>
+						<th>photoPath</th>
+						<th>photo</th>
+						<th>next<br />question</th>
+						<th>Create<br />Date</th>
+						<th>Last<br />modification<br />Date</th>
+						<th>Comments</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat="questions in allQuestion">
+						<td>
+							<a><i id="delete-question" class="fa fa-trash-o icon-question fa-lg" aria-hidden="true" ng-click="wantDeleteQuestion($index,true)"></i></a>
+							<a><i id="overview-question" class="fa fa-eye icon-question fa-lg" aria-hidden="true"></i></a>
+							<a><i id="modify-question" class="fa fa-pencil icon-question fa-lg" aria-hidden="true"></i></a>
+							<br />
+							<a><i id="modify-cancel" class="fa fa-times fa-lg" aria-hidden="true" ng-show="isModify[$index]" ng-click="wantDeleteQuestion($index,false)"></i></i></a>
+							<a><i id="modify-confirm" class="fa fa-check fa-lg" aria-hidden="true" ng-show="isModify[$index]" ng-click="deleteQuestion(questions._id)"></i></i></a>
+						</td>
+						<td sortable="'_id'">{{questions._id}}</td>
+						<td >{{questions.position.latitude}}</td>
+						<td>{{questions.position.longitude}}</td>
+						<td>{{questions.question}}</td>
+						<td>{{questions.type}}</td>
+						<td>
+							<ul>
+								<li ng-repeat="answer in questions.answers">{{answer}}</li>
+							</ul>
+						</td>
+						<td>
+							<ul>
+								<li ng-repeat="choice in questions.choices">{{choice}}</li>
+							</ul>
+						</td>
+						<td>{{questions.photo_path}}</td>
+						<td><img ng-if="questions.photo_path" ng-src="http://localhost:8082/img/question/{{questions.photo_path}}"/></td>
+						<td>{{questions.next_question}}</td>
+						<td>{{questions.first_create_time}}</td>
+						<td>{{questions.last_modified_time}}</td>
+						<td>
+							<ul>
+								<li ng-repeat="comment in questions.comments">{{comment}}</li>
+							</ul>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div> -->
+
+
+	<div class="row">
+		<div class="col-md-12 tableArray centered" >
+			<table ng-table="manageQuestionTable" class="table table-condensed table-bordered table-striped" show-filter="true">
+				
+					<tr ng-repeat="questions in $data">
+						<td data-title="'ACTION'">
+			            	<button class="btn btn-primary btn-sm" ng-click="confirmModify($index)" ng-if="isModify[$index]"><span class="glyphicon glyphicon-ok"></span></button>
+			            	<button class="btn btn-default btn-sm" ng-click="cancelModify($index)" ng-if="isModify[$index]"><span class="glyphicon glyphicon-remove"></span></button>
+			            	<button class="btn btn-primary btn-sm" ng-click="deleteQuestion(questions._id)" ng-if="isDelete[$index]"><span class="glyphicon glyphicon-ok"></span></button>
+			            	<button class="btn btn-default btn-sm" ng-click="isDelete[$index] = false" ng-if="isDelete[$index]"><span class="glyphicon glyphicon-remove"></span></button>
+			            	<button class="btn btn-default btn-sm" ng-click="wantModify($index)" ng-if="!isModify[$index] && !isDelete[$index]"><span class="glyphicon glyphicon-pencil"></span></button>
+			            	<button class="btn btn-danger btn-sm" ng-click="isDelete[$index] = true" ng-if="!isModify[$index] && !isDelete[$index]"><span class="glyphicon glyphicon-trash"></span></button>
+			          	</td>
+						
+						<td data-title="'ID'" sortable="'_id'" filter="{_id: 'number'}">
+							<span ng-if="!isModify[$index]">{{questions._id}}</span>
+							<input type="text" class="form-control" ng-model="questions._id" ng-if="isModify[$index]" ng-readonly="true" required>
+						</td>
+						<td data-title="'LATITUDE'" sortable="'position.latitude'">
+							<span ng-if="!isModify[$index]">{{questions.position.latitude}}</span>
+							<input type="text" class="form-control" ng-model="questions.position.latitude" ng-if="isModify[$index]" required>
+						</td>
+						<td data-title="'LONGITUDE'" sortable="'position.longitude'">
+							<span ng-if="!isModify[$index]">{{questions.position.longitude}}</span>
+							<input type="text" class="form-control" ng-model="questions.position.longitude" ng-if="isModify[$index]" required>
+						</td>
+						<td data-title="'QUESTION'" sortable="'question'" filter="{question: 'text'}">
+							<span ng-if="!isModify[$index]">{{questions.question}}</span>
+							<input type="text" class="form-control" ng-model="questions.question" ng-if="isModify[$index]" ng-readonly="true" required>
+						</td>
+						<td data-title="'TYPE'" sortable="'type'" filter="{type: 'text'}">
+							<span ng-if="!isModify[$index]">{{questions.type}}</span>
+							<input type="text" class="form-control" ng-model="questions.type" ng-if="isModify[$index]" ng-readonly="true" required>
+						</td>
+						<td data-title="'ANSWERS'">
+							<ul>
+								<li ng-repeat="answer in questions.answers" ng-if="!isModify[$parent.$index]">
+									<span>{{answer}}</span>
+								</li>
+								<li ng-repeat="answer in questions.answers" ng-if="isModify[$parent.$index]">
+									<input type="text" class="form-control" ng-model="answer" ng-readonly="true" required>
+								</li>
+							</ul>
+						</td>
+						<td data-title="'CHOICES'">
+							<ul>
+								<li ng-repeat="choice in questions.choices" ng-if="!isModify[$parent.$index]">
+									<span>{{choice}}</span>
+								</li>
+								<li ng-repeat="choice in questions.choices" ng-if="isModify[$parent.$index]">
+									<input type="text" class="form-control" ng-model="choice" ng-readonly="true" required>
+								</li>
+							</ul>
+						</td>
+						<td data-title="'PHOTO_PATH'" sortable="'photo_path'" filter="{photo_path: 'text'}">
+							<span ng-if="!isModify[$index]">{{questions.photo_path}}</span>
+							<input type="text" class="form-control" ng-model="questions.photo_path" ng-if="isModify[$index]" ng-readonly="true" required>
+						</td>
+						<td data-title="'PHOTO_OVERVIEW'"><img ng-if="questions.photo_path" ng-src="http://localhost:8082/img/question/{{questions.photo_path}}"/></td>
+						<td data-title="'NEXT_QUESTION'" sortable="'next_question'" filter="{next_question: 'number'}">
+							<span ng-if="!isModify[$index]">{{questions.next_question}}</span>
+							<input type="text" class="form-control" ng-model="questions.next_question" ng-if="isModify[$index]" required>
+						</td>
+						<td data-title="'CREATE_DATE'" sortable="'first_create_time'" filter="{first_create_time: 'text'}">{{questions.first_create_time}}</td>
+						<td data-title="'LAST_MODIFICATION_DATE'" sortable="'last_modified_time'" filter="{last_modified_time: 'text'}">{{questions.last_modified_time}}</td>
+						<td data-title="'COMMENTS'">
+							<ul>
+								<li ng-repeat="comment in questions.comments">{{comment}}</li>
+							</ul>
+						</td>
+					</tr>
+			</table>
+		</div>
+	</div>
 
 
 </div>

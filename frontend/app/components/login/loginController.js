@@ -51,8 +51,10 @@ angular.module('geolocApp')
                 exp = new $window.Date(now.getFullYear(), now.getMonth() + 6, now.getDate());
                 $cookies.put('name', $scope.name, {expires: exp});
                 $cookies.put('password', $scope.password, {expires: exp});
+                $cookies.put('userType', success.data.user_type, {expires: exp});
                 $rootScope.name = $scope.name;
                 $rootScope.password = $scope.password;
+                $rootScope.userType = success.data.user_type;
                 $location.path('/');
 
             }, function errorCallback(error) {
@@ -61,24 +63,24 @@ angular.module('geolocApp')
             });
         };
 
-        $scope.signOut = function(){
-            $http({
-                method: 'POST',
-                url: 'http://localhost:8080/users/' + $scope.name,
-                data: {
-                    password: $scope.password
-                }
-            }).then(function successCallback(success) {
-                console.log(success);
-                var now = new $window.Date(),
-                // this will set the expiration to 6 months
-                exp = new $window.Date(now.getFullYear(), now.getMonth() + 6, now.getDate());
-                $cookies.put('name', $scope.name, {expires: exp});
-                $cookies.put('password', $scope.password, {expires: exp});
-            }, function errorCallback(error) {
-                console.log("error");
-                console.log(error);
-            });
-        };
+        // $scope.signOut = function(){
+        //     $http({
+        //         method: 'POST',
+        //         url: 'http://localhost:8080/users/' + $scope.name,
+        //         data: {
+        //             password: $scope.password
+        //         }
+        //     }).then(function successCallback(success) {
+        //         console.log(success);
+        //         var now = new $window.Date(),
+        //         // this will set the expiration to 6 months
+        //         exp = new $window.Date(now.getFullYear(), now.getMonth() + 6, now.getDate());
+        //         $cookies.put('name', $scope.name, {expires: exp});
+        //         $cookies.put('password', $scope.password, {expires: exp});
+        //     }, function errorCallback(error) {
+        //         console.log("error");
+        //         console.log(error);
+        //     });
+        // };
        
     });

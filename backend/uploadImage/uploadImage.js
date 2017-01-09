@@ -28,27 +28,21 @@ app.use(function (req, res, next) {
 });
 
 var storageUser = multer.diskStorage({
-  	destination: function (req, file, callback) {
-    	callback(null, './uploads/img/user/');
-  	},
+  	destination: __dirname + "/uploads/img/user",
   	filename: function (req, file, callback) {
     	callback(null,  file.originalname);
   	}
 });
 
 var storageQuestion = multer.diskStorage({
-  	destination: function (req, file, callback) {
-    	callback(null, './uploads/img/question/');
-  	},
+  	destination: __dirname + "/uploads/img/question",
   	filename: function (req, file, callback) {
     	callback(null,  file.originalname);
   	}
 });
 
 var storageComment = multer.diskStorage({
-  	destination: function (req, file, callback) {
-    	callback(null, './uploads/img/comment/');
-  	},
+  	destination: __dirname + "/uploads/img/comment/",
   	filename: function (req, file, callback) {
     	callback(null,  file.originalname);
   	}

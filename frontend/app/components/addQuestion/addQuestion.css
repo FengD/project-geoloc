@@ -22,6 +22,13 @@
     text-align: center;
     vertical-align: middle;
 }
+
+#add-questions  #errorSpanForAddQuestion{
+  background-color: #ff0000;
+  color: #ffffff;
+  border: 1px solid #8B0000;
+}
+
 /*.dropbox {
     width: 15em;
     height: 3em;

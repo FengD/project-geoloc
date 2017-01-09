@@ -1,7 +1,7 @@
 <div id="add-questions" class="container" ng-controller="addQuestionController">
 	<div class="heading">
 	<!-- <h2>Add a Question</h2> -->
-	<form name="addQuestion" class="addQuestionForm" ng-show="true" ng-submit="signUp()">
+	<form name="addQuestion" class="addQuestionForm" ng-show="true" ng-submit="addQuestionToDB()">
 	
 		<!-- <div id="dropbox" class="dropbox" ng-class="dropClass"><span>{{dropText}}</span></div> -->
 		<div class="row input-group input-group-lg">
@@ -10,8 +10,8 @@
         </div>
         <div class="row input-group input-group-lg">
 	        <span class="input-group-addon control-label">Position</span>
-	        <input type="number" name="latitude" class="form-control" ng-model="latitude" placeholder="latitude" ng-change="inputLatitude()" required>
-	        <input type="number" name="longitude" class="form-control" ng-model="longitude" placeholder="longitude" ng-change="inputLongitude()" required>
+	        <input type="text" name="latitude" class="form-control" ng-model="latitude" placeholder="latitude" ng-change="inputLatitude()" required>
+	        <input type="text" name="longitude" class="form-control" ng-model="longitude" placeholder="longitude" ng-change="inputLongitude()" required>
         </div>
         <div class="row input-group input-group-lg">
 	        <span class="input-group-addon">Question</span>
@@ -105,6 +105,7 @@
 			<br/>
 		</div>
         <input type="submit" value="Valide Question Input" class="float button">
+        <pre id="errorSpanForAddQuestion" ng-if="errorSpan">{{errorSpan}}</pre>
     </form>
     </div>
 </div>

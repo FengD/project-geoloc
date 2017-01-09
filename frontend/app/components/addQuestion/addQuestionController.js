@@ -6,7 +6,7 @@ angular.module('geolocApp')
     		type02 : {type : "single-choice", answertitle:"Select one answer below", choicetitle:"Input your choice"},
     		type03 : {type : "essay", answertitle:"Input answer", choicetitle:""}
     	};
-
+    	$scope.errorSpan = null;
     	$scope.choicesInput = [];
     	$scope.choicesValue = [];
     	$scope.singleanswersBoolean = [];
@@ -27,8 +27,14 @@ angular.module('geolocApp')
 			photoPath:'',
 			nextQuestion:''
 		};
+
+		
+
+
+
     	$scope.inputId=function(){
     		$scope.questionInfo["id"]=$scope.id;
+    		$scope.errorSpan = null;
     	}
 
     	$scope.inputLatitude=function(){
@@ -144,7 +150,7 @@ angular.module('geolocApp')
     		$scope.essayanswersValue.splice(i,1);
   		}
   		
-       	$scope.addQuestion = function(){
+       	$scope.addQuestionToDB = function(){
             $http({
                 method: 'POST',
                 url: 'http://localhost:8081/questions/',
@@ -164,10 +170,12 @@ angular.module('geolocApp')
      //            }
             }).then(function successCallback(success) {
                 console.log(success);
+                $scope.errorSpan = null;
                 $location.path("/manageQuestion");
             }, function errorCallback(error) {
                 console.log("error");
                 console.log(error);
+                $scope.errorSpan = "questionId already exists.";
             });
         };
 
