@@ -102,7 +102,7 @@ router.post("/comment/:qid", function (request, response) {
 });
 
 router.post("/vote/:qid", function (request, response) {
-	question.voteToComment(request.params.qid, request.body.commentid, request.body.userId, function (err, result) {
+	question.voteToComment(request.params.qid, request.body.commentId, request.body.userId, function (err, result) {
 		if (err) {
 			logger.error(err);
 			if (err.nonexistentQuestion) {
