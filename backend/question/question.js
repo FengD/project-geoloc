@@ -45,6 +45,35 @@ function createQuestion(data, callback) {
 	}
 }
 
+// function updateQuestion(data, callback){
+// 	mongoConnection.getDatabase().collection(QUESTIONS_COLLECTION).findAndModify(
+// 		{_id : qid},
+// 		[['_id','asc']],
+// 		{
+// 			$set : {_
+// 				position : {
+// 					latitude : data.position.latitude, 
+// 					longitude : data.position.longitude
+// 				},
+// 				last_modified_time:new Date(),
+// 				photo_path : data.photoPath,
+// 				next_question : data.nextQuestion
+// 			},
+			
+// 		},
+// 		{},
+// 		function(err, object) {
+// 			if (err){
+//         		logger.warn(err.message); // returns error if no matching object found
+//         		callback(err,null);
+//       		}else{
+//       			logger.info("Comment success.");
+//           		callback(err,object);
+//       		}
+//   		}
+// 	);
+// }
+
 function getQuestion(qid, callback) {
 	mongoConnection.getDatabase().collection(QUESTIONS_COLLECTION).find({
 		_id : qid,

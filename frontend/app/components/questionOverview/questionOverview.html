@@ -1,10 +1,7 @@
-<div id="questionOverview" class="controller" ng-controller="questionOverviewController">
+<div id="questionOverview" class="container" ng-controller="questionOverviewController" ng-init="getAllQuestion()">
 	<div class="row">
-		<div class="col-md-12">
-			<div id="map"></div>
-			<div id="class" ng-repeat="marker in markers | orderBy : 'title'">
-		        <a href="#" ng-click="openInfoWindow($event, marker)">{{marker.title}}</a>
-		    </div>
+		<div class="col-md-12 centered">
+			<div my-map=""></div>
 		</div>
 	</div>
 </div>
