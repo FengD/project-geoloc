@@ -27,7 +27,8 @@ angular.module('geolocApp')
             })
             .when('/map', {
                 templateUrl: 'app/components/map/map.html',
-                controller: 'mapController'
+                controller: 'mapController',
+                css: "app/components/map/map.css"
             })
             .otherwise({
                 redirectTo: '/'

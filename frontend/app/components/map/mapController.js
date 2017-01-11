@@ -1,92 +1,169 @@
 'use strict';
 
 angular.module('geolocApp')
-    .controller('mapController',  function ($scope, $cookies, $http, $window, $location, $rootScope) {
+    .controller('mapController',  function ($scope, $cookies, $http, $window, NgMap) {
+
+        function initPage() {
+
+            $scope.map_zoom = 16;
+            $scope.showModal = false;
+
+            updateCurrentQuestion(function(data) {
+                $scope.current_question = data;
+                $scope.center_lat = $scope.current_question.position.latitude;
+                $scope.center_lon = $scope.current_question.position.longitude;
+                $scope.marker_lat = $scope.current_question.position.latitude;
+                $scope.marker_lon = $scope.current_question.position.longitude;
+                $scope.question_text = $scope.current_question.question;
+                $scope.question_type = $scope.current_question.type;
+                $scope.answers = $scope.current_question.answers;
+                $scope.choices = $scope.current_question.choices;
+            });
+
+        }
+
+        function updateCurrentQuestion(callback) {
+
+            $scope.question_step = $cookies.get('question_step');
+
+            $http({
+                method: 'POST',
+                url: 'http://localhost:8081/questions/' + $scope.question_step
+            }).then(function successCallback(success) {
+                callback(success.data);
+            }, function errorCallback(error) {
+                console.log("error");
+                console.log(error);
+            });
+
+        }
+
+        function updateCookies(cb_initPage) {
+            $http({
+                method: 'POST',
+                url: 'http://localhost:8080/users/' + $cookies.get('name'),
+                data: {
+                    password: $cookies.get('password')
+                }
+            }).then(function successCallback(success) {
+                console.log(success);
+                var now = new $window.Date(),
+                    // this will set the expiration to 6 months
+                    exp = new $window.Date(now.getFullYear(), now.getMonth() + 6, now.getDate());
+                $cookies.put('question_step', success.data.question_step, {expires: exp});
+                console.log(success.data.question_step);
+                cb_initPage();
+
+            }, function errorCallback(error) {
+                console.log("error");
+                console.log(error);
+            });
+        }
+
+        function updateQuestionStep(cb_updateCookies, cb_initPage) {
+            var num_newStep = parseInt($cookies.get('question_step')) + 1;
+            var str_newStep = num_newStep.toString();
+            $http({
+                method: 'POST',
+                url: 'http://localhost:8080/users/updateQuestionStep/' + $cookies.get('name'),
+                data: {
+                    step: str_newStep
+                }
+            }).then(function successCallback(success) {
+                console.log(success);
+                cb_updateCookies(cb_initPage);
+            }, function errorCallback(error) {
+                console.log("error");
+                console.log(error);
+            });
+        }
+
+
+        $scope.initPage = initPage();
+
+        /* Set animations and customization on the marker */
+        var marker;
+        var mctrl = this;
+        NgMap.getMap().then(function(map) {
+            mctrl.map = map;
+            marker = map.markers[0];
+            marker.setAnimation(google.maps.Animation.BOUNCE);
+        });
+        /* Set click event on the marker */
+        mctrl.click = function(event) {
+            $scope.showModal = !$scope.showModal;
+        }
+
+
+
+        /* Set click event on the Submit button */
+        mctrl.submitAnswer = function() {
+            var isCorrect = false;
+            switch($scope.question_type) {
+                case 'essay':
+                    for (var i = 0; i < $scope.answers.length; i++) {
+                        //To add, check if question step is 5!
+                        if (mctrl.userAnswer == $scope.answers[i]) {
+                            updateQuestionStep(updateCookies ,initPage);
+                            isCorrect = true;
+                            break;
+                        }
+                    }
+                    break;
+                case 'single-choice':
+
+                    break;
+                case 'multi-choices':
+
+                    break;
+                default:
+                    console.log('Error: unknown current question type');
+            }
+            if (!isCorrect) {
+                alert("Oops, not correct, please retry!");
+            }
+        }
 
     })
-    .directive('appMap', function($http) {
-
-
-        // directive link function
-        var link = function(scope, element, attrs) {
-            var map, infoWindow;
-            var markers = [];
-
-            // map config
-            var mapOptions = {
-                center: new google.maps.LatLng(43.615629, 7.071949),
-                zoom: 16,
-                mapTypeId: google.maps.MapTypeId.ROADMAP,
-                scrollwheel: false
-            };
-
-            // init the map
-            function initMap() {
-                $http({
-                    method: 'GET',
-                    url: 'http://localhost:8081/questions/allQuestion'
-                }).then(function successCallback(success) {
-                    var questions = success.data;
-                    console.log(questions);
-                    for(var i = 0; i < questions.length; i++){
-                        console.log(questions[i]);
-                        setMarker(map, new google.maps.LatLng(questions[i].position.latitude, questions[i].position.longitude), questions[i]._id, questions[i].question, questions[i].choices, questions[i].type);
-                    }
-                }, function errorCallback(error) {
-                    console.log("error");
-                    console.log(error);
-                });
-                if (map === void 0) {
-                    map = new google.maps.Map(element[0], mapOptions);
-                }
-            }
-
-            // place a marker
-            function setMarker(map, position, title, content, choices, type) {
-                var marker;
-                var markerOptions = {
-                    position: position,
-                    map: map,
-                    title: title,
-                    icon: 'app/resources/images/google-map-icon/number_' + title + ".png"
-                };
-
-                marker = new google.maps.Marker(markerOptions);
-                markers.push(marker);
-
-                var choiceHtml="";
-                if(angular.equals(type,"essay")){
-
-                }else{
-                    choiceHtml +="<h6>Choices:</h6><p>";
-                    for(var i = 0;i < choices.length;i++){
-                        choiceHtml += choices[i] + "<br />";
-                    }
-                    choiceHtml += "</p>";
-                }
-
-                google.maps.event.addListener(marker, 'click', function () {
-                    // close window if not undefined
-                    if (infoWindow !== void 0) {
-                        infoWindow.close();
-                    }
-                    // create new window
-                    var infoWindowOptions = {
-                        content: "<h5>" + content + "</h5>" + "<br />" + "<p> <h6>question type:</h6> " + type + "</p><br />" + choiceHtml
-                    };
-                    infoWindow = new google.maps.InfoWindow(infoWindowOptions);
-                    infoWindow.open(map, marker);
-                });
-            }
-
-            // show the map
-            initMap();
-        };
-
+    .directive('questionModal', function () {
         return {
+            template:
+            '<div class="modal fade">' +
+                '<div class="modal-dialog">' +
+                    '<div class="modal-content">' +
+                        '<div class="modal-header">' +
+                            '<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>' +
+                            '<h4 class="modal-title">{{ question_text }}</h4>' +
+                        '</div>' +
+                        '<div class="modal-body" ng-transclude></div>' +
+                    '</div>' +
+                '</div>' +
+            '</div>',
             restrict: 'A',
-            template: '<div id="qmaps"></div>',
-            replace: true,
-            link: link
+            transclude: true,
+            replace:true,
+            scope:true,
+            link: function postLink(scope, element, attrs) {
+                scope.title = attrs.title;
+
+                scope.$watch(attrs.visible, function(value){
+                    if(value == true)
+                        $(element).modal('show');
+                    else
+                        $(element).modal('hide');
+                });
+
+                $(element).on('shown.bs.modal', function(){
+                    scope.$apply(function(){
+                        scope.$parent[attrs.visible] = true;
+                    });
+                });
+
+                $(element).on('hidden.bs.modal', function(){
+                    scope.$apply(function(){
+                        scope.$parent[attrs.visible] = false;
+                    });
+                });
+            }
         };
     });
