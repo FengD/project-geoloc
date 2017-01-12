@@ -4,3 +4,15 @@
 #step2 {
     display: none;
 }
+
+#playMap{
+	height:100%;
+}
+
+#playMap-row{
+	height:100%;
+}
+
+#playMap-container{
+	height: 100%;
+}

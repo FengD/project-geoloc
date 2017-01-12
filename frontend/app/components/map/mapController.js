@@ -87,7 +87,7 @@ angular.module('geolocApp')
         NgMap.getMap().then(function(map) {
             mctrl.map = map;
             marker = map.markers[0];
-            marker.setAnimation(google.maps.Animation.BOUNCE);
+            // marker.setAnimation(google.maps.Animation.BOUNCE);
         });
         /* Set click event on the marker */
         mctrl.click = function(event) {
