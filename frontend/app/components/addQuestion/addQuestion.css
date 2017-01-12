@@ -51,10 +51,10 @@
     background-color: #bfb;
 }*/
 
-* {
+/** {
   margin: 0;
   padding: 0;
-}
+}*/
 
 html {
   /*background: url(https://dl.dropboxusercontent.com/u/159328383/background.jpg) no-repeat center center fixed;*/
@@ -75,14 +75,14 @@ body, input, button {
 
 
 #add-questions {
-  padding: 15px;
-  width: 60%;
+  /*padding: 15px;*/
+  /*width: 60%;*/
   min-height: 400px;
-  margin: 2% auto 0 auto;
+  /*margin: 2% auto 0 auto;*/
 }
 #add-questions .heading {
   text-align: center;
-  margin-top: 1%;
+  /*margin-top: 1%;*/
 }
 #add-questions .heading h2 {
   font-size: 2.5em;
@@ -131,7 +131,7 @@ body, input, button {
   width: 200px;
 }*/
 #add-questions form .button {
-  margin-top: 20px;
+  /*margin-top: 20px;*/
   background: #27AE60;
   border: none;
   font-size: 1.6em;
@@ -169,39 +169,40 @@ body, input, button {
 }
 
 /* Large Devices, Wide Screens */
-@media only screen and (max-width: 1200px) {
+/*@media only screen and (max-width: 1200px) {
   #add-questions {
+    margin-top: 0;
     width: 60%;
     font-size: 1.5em;
   }
 }
 @media only screen and (max-width: 1100px) {
   #add-questions {
-    margin-top: 2%;
+    margin-top: 0;
     width: 60%;
     font-size: 1.2em;
   }
-}
+}*/
 /* Medium Devices, Desktops */
-@media only screen and (max-width: 992px) {
+/*@media only screen and (max-width: 992px) {
   #add-questions {
-    margin-top: 1%;
+    margin-top: 0;
     width: 550px;
     font-size: 1.2em;
     min-height: 0;
   }
-}
+}*/
 /* Small Devices, Tablets */
-@media only screen and (max-width: 768px) {
+/*@media only screen and (max-width: 768px) {
   #add-questions {
     margin-top: 0;
     width: 80%;
     font-size: 0.8em;
     min-height: 0;
   }
-}
+}*/
 /* Extra Small Devices, Phones */
-@media only screen and (max-width: 480px) {
+/*@media only screen and (max-width: 480px) {
   #add-questions {
     margin-top: 0;
     width: 100%;
@@ -211,13 +212,13 @@ body, input, button {
   #add-questions h2 {
     margin-top: 0;
   }
-}
+}*/
 /* Custom, iPhone Retina */
-@media only screen and (max-width: 320px) {
+/*@media only screen and (max-width: 320px) {
   #add-questions {
     margin-top: 0;
     width: 100%;
     font-size: 0.2em;
     min-height: 0;
   }
-}
+}*/
