@@ -6,10 +6,12 @@ angular.module('geolocApp')
             $rootScope.password = null;
             $rootScope.userType = null;
 
-            $cookies.remove('nickname');
+            $cookies.remove('name');
             $cookies.remove('password');
             $cookies.remove('userType');
             $cookies.remove('question_step');
+            $cookies.remove('photo_path');
+            
             $location.path('/');
         };
     });

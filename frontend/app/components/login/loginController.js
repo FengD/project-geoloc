@@ -49,15 +49,18 @@ angular.module('geolocApp')
                 var now = new $window.Date(),
                 // this will set the expiration to 6 months
                 exp = new $window.Date(now.getFullYear(), now.getMonth() + 6, now.getDate());
-                $cookies.put('name', $scope.name, {expires: exp});
-                $cookies.put('password', $scope.password, {expires: exp});
+                $cookies.put('name', success.data.name, {expires: exp});
+                $cookies.put('password', success.data.password, {expires: exp});
                 $cookies.put('question_step', success.data.question_step, {expires: exp});
+                $cookies.put('photo_path', success.data.photo_path, {expires: exp});
                 console.log(success.data.question_step);
                 console.log(success.data.user_type);
                 $cookies.put('userType', success.data.user_type, {expires: exp});
-                $rootScope.name = $scope.name;
-                $rootScope.password = $scope.password;
+                $rootScope.name = success.data.name;
+                $rootScope.password = success.data.password;
                 $rootScope.userType = success.data.user_type;
+                $rootScope.question_step = success.data.question_step;
+                $rootScope.userPhoto = success.data.photo_path;
                 $location.path('/');
 
             }, function errorCallback(error) {
