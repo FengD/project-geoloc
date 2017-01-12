@@ -2,7 +2,7 @@
   "name": "project-geoloc",
   "version": "0.0.1",
   "description": "",
-  "main": "uploadImage.js",
+  "main": "question_app.js",
   "scripts": {
     "test": "mocha"
   },
@@ -23,12 +23,12 @@
   "dependencies": {
     "body-parser": "^1.15.2",
     "express": "^4.14.0",
-    "multer": "^1.2.1",
+    "mongodb": "^2.2.16",
     "winston": "^2.3.0"
   },
   "devDependencies": {
     "async": "^1.5.2",
-    "mocha": "^2.5.3",
+    "mocha": "^3.2.0",
     "supertest": "^1.2.0"
   },
   "private": true,
