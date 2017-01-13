@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+      <title>Questionnaire Template</title>
+      <!-- Bootstrap -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script><script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+      
+      <!-- AngularJS -->
+      <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+      <link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
+      <!-- /controler/app.js -->
+      <script src="questionnaireController.js"> </script>
+      <!-- Custom CSS -->
+      <link rel="stylesheet" href="questionnaire.css">
+  </head>
+  <body>
+   <div class="container-fluid" ng-app="geolocApp" ng-controller="questionnaireController" >
+  <div class="row content">
+    <div class="col-sm-8" ng-init="getAllQuestion()">
+        <div ng-repeat="questions in allQuestion">
+            <table>
+              <tr ng-repeat="questions in allQuestion">
+                <button type="button" ng-click="getOneQuestion(questions._id)">{{questions._id}}.&nbsp;&nbsp;{{questions.question}}</button>
+              </tr>
+            </table>
+        </div>
+    </div>
+      
+      
+      <div class="col-sm-4 sidenav" ng-show="questionSideBar">
+        <div >
+          <!-- QUESTIONS  -->
+          <h4><small>QUESTIONS</small></h4>
+          <hr>
+          <h2>QUESTION {{ oneQuestion._id }}</h2>
+          <h5><span class="glyphicon glyphicon-time"></span> latitude : {{ oneQuestion.position.latitude }}, longitude : {{ oneQuestion.position.longitude }}</h5>
+          <h5><span class="label label-success" id="oneQuestionType">{{ oneQuestion.type }}</span></h5><br>
+          <div>{{ oneQuestion.question }}</div>
+            <br>
+            <div id='oneQuestionBodyArea' ng-if='oneQuestion.hasChoices' ng-repeat='choices in oneQuestion.choices'>{{choices}}</div>
+            <div id='oneQuestionBodyArea' ng-if='!oneQuestion.hasChoices'>
+                <textarea id='oneQuestionAnswerArea'></textarea>
+            </div>
+          <hr>
+          
+          <!-- Comments -->
+          <div class="comments-area" ng-if='oneQuestion.hasComments'>
+              <p><span class="badge">2</span> Comments:</p>
+              <ul class="list-group">
+                <li class="list-group-item"  ng-repeat='comments in oneQuestion.comments'>
+                    <h4>{{comments._id}}</h4>
+                    <p>{{comments.text}}</p>
+                </li>
+              </ul>
+            </div>
+          <hr>
+        
+          <!-- Leave a Comment: -->
+          <h4>Leave a Comment:</h4>
+              <form role="form">
+                <div class="form-group">
+                  <textarea class="form-control" rows="3" required></textarea>
+                </div>
+                <button type="submit" class="btn btn-success">Submit</button>
+              </form>
+          <br><br>
+          
+        </div>
+    </div>
+  </div>  
+</div>
+      
+        <footer class="container-fluid">
+          <p>Footer Text</p>
+        </footer>
+  </body>
+</html>
