@@ -5,14 +5,34 @@
     display: none;
 }
 
-#playMap{
-	height:100%;
-}
-
-#playMap-row{
-	height:100%;
-}
-
-#playMap-container{
+#playMap {
 	height: 100%;
+}
+
+#playMap-row {
+	height: 100%;
+}
+
+#playMap-container {
+	height: 100%;
+}
+
+ng-map {
+	display: block;
+	height: 100%;
+}
+
+.map-fullscreen {
+	width: 100%;
+}
+
+.map-sidescreen {
+	width: 50%
+}
+
+#question-modal {
+	top: 5%;
+	left: 50%;
+	width: 45%;
+	outline: none;
 }

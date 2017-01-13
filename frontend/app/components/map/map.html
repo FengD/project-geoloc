@@ -1,7 +1,7 @@
 <div class="container" ng-controller="mapController as mctrl" ng-init="initPage" id="playMap">
     <div class="row" id="playMap-row">
         <div class="col-md-12" id="playMap-container">
-            <ng-map style="width: 100%; height: 100%" zoom="{{map_zoom}}" center="[{{center_lat}}, {{center_lon}}]">
+            <ng-map ng-class="map_style" zoom="{{map_zoom}}" center="[{{center_lat}}, {{center_lon}}]" tilt="45" map-type-id="{{mapTypeId}}">
                 <marker position="[{{marker_lat}}, {{marker_lon}}]" animation="DROP" on-click="mctrl.click()"/>
             </ng-map>
 

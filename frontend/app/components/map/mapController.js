@@ -5,8 +5,11 @@ angular.module('geolocApp')
 
         function initPage() {
 
-            $scope.map_zoom = 16;
+            $scope.map_style = 'map-fullscreen';
+            $scope.map_zoom = 15;
             $scope.showModal = false;
+            $scope.tilt = 45;
+            $scope.mapTypeId = 'ROADMAP';
 
             updateCurrentQuestion(function(data) {
                 $scope.current_question = data;
@@ -91,9 +94,19 @@ angular.module('geolocApp')
         });
         /* Set click event on the marker */
         mctrl.click = function(event) {
+            $scope.map_zoom = 22;
+            $scope.mapTypeId = 'SATELLITE';
+            $scope.map_style = 'map-sidescreen';
             $scope.showModal = !$scope.showModal;
+
         }
 
+        /* Set click event on the Modal close */
+        $scope.closeModal = function() {
+            $scope.map_zoom = 15;
+            $scope.map_style = 'map-fullscreen';
+            $scope.mapTypeId = 'ROADMAP';
+        }
 
 
         /* Set click event on the Submit button */
@@ -132,7 +145,7 @@ angular.module('geolocApp')
                 '<div class="modal-dialog">' +
                     '<div class="modal-content">' +
                         '<div class="modal-header">' +
-                            '<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>' +
+                            '<button type="button" class="close" data-dismiss="modal" aria-hidden="true" ng-click="closeModal()">&times;</button>' +
                             '<h4 class="modal-title">{{ question_text }}</h4>' +
                         '</div>' +
                         '<div class="modal-body" ng-transclude></div>' +
@@ -141,8 +154,8 @@ angular.module('geolocApp')
             '</div>',
             restrict: 'A',
             transclude: true,
-            replace:true,
-            scope:true,
+            replace: true,
+            scope: true,
             link: function postLink(scope, element, attrs) {
                 scope.title = attrs.title;
 
