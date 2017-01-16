@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('geolocApp')
-    .controller('mapController',  function ($scope, $cookies, $http, $window, NgMap) {
+    .controller('mapController', function ($scope, $cookies, $http, $window, NgMap) {
 
         function initPage() {
 
@@ -20,7 +20,14 @@ angular.module('geolocApp')
                 $scope.question_text = $scope.current_question.question;
                 $scope.question_type = $scope.current_question.type;
                 $scope.answers = $scope.current_question.answers;
-                $scope.choices = $scope.current_question.choices;
+                if ($scope.question_type == 'multi-choice') {
+                    $scope.choices = [];
+                    for (var i = 0; i < $scope.current_question.choices.length; i++) {
+                        $scope.choices.push([$scope.current_question.choices[i], false]);
+                    }
+                } else if ($scope.question_type == 'single-choice' || $scope.question_type == 'essay') {
+                    $scope.choices = $scope.current_question.choices;
+                }
             });
 
         }
@@ -37,6 +44,10 @@ angular.module('geolocApp')
             }, function errorCallback(error) {
                 console.log("error");
                 console.log(error);
+                if (error.status == '400') {
+                    console.log('Well done, you have finished all the questions!');
+                }
+                $scope.showMap = false;
             });
 
         }
@@ -112,10 +123,10 @@ angular.module('geolocApp')
         /* Set click event on the Submit button */
         mctrl.submitAnswer = function() {
             var isCorrect = false;
+            //To add, check if question step is 5!
             switch($scope.question_type) {
                 case 'essay':
                     for (var i = 0; i < $scope.answers.length; i++) {
-                        //To add, check if question step is 5!
                         if (mctrl.userAnswer == $scope.answers[i]) {
                             updateQuestionStep(updateCookies ,initPage);
                             isCorrect = true;
@@ -124,10 +135,24 @@ angular.module('geolocApp')
                     }
                     break;
                 case 'single-choice':
-
+                    for (var i = 0; i < $scope.answers.length; i++) {
+                        if (mctrl.userAnswer == $scope.answers[i]) {
+                            updateQuestionStep(updateCookies ,initPage);
+                            isCorrect = true;
+                            break;
+                        }
+                    }
                     break;
-                case 'multi-choices':
-
+                case 'multi-choice':
+                    var nb_rightChoices = 0;
+                    for (var i = 0; i < $scope.choices.length; i++) {
+                        if ($scope.answers.includes($scope.choices[i][0]) && $scope.choices[i][1])
+                            nb_rightChoices++;
+                    }
+                    if (nb_rightChoices == $scope.answers.length) {
+                        updateQuestionStep(updateCookies ,initPage);
+                        isCorrect = true;
+                    }
                     break;
                 default:
                     console.log('Error: unknown current question type');
@@ -145,7 +170,7 @@ angular.module('geolocApp')
                 '<div class="modal-dialog">' +
                     '<div class="modal-content">' +
                         '<div class="modal-header">' +
-                            '<button type="button" class="close" data-dismiss="modal" aria-hidden="true" ng-click="closeModal()">&times;</button>' +
+                            '<button type="button" class="close" data-dismiss="modal"ng-click="closeModal()">&times;</button>' +
                             '<h4 class="modal-title">{{ question_text }}</h4>' +
                         '</div>' +
                         '<div class="modal-body" ng-transclude></div>' +
