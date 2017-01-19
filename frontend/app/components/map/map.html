@@ -7,7 +7,7 @@
 
             <!-- Modal -->
             <modal question-modal id="question-modal" visible="showModal">
-                <div class="sidenav">
+                <div ng-show="!showCommentsPanel" class="question-container w3-animate-bottom">
                         <!-- QUESTIONS  -->
                         <h5><span class="label label-success" id="oneQuestionType">{{ question_type }}</span></h5><br>
                         <br>
@@ -37,6 +37,26 @@
                             </div>
                             <md-button type="submit" class="md-raised md-primary" ng-click="mctrl.submitAnswer()">Submit</md-button>
                         </form>
+                    <!-- COMMENTS OVERVIEW -->
+                    <div class="comments-overview-container w3-container w3-content w3-animate-bottom">
+                        <h3>Comments</h3>
+                        <div ng-repeat="comment in current_question.comments" class="w3-panel w3-white w3-card-2 w3-display-container w3-hover-shadow">
+                            <p class="w3-text-blue"><b>User {{comment.user_id}}</b></p>
+                            <p>{{comment.text}}</p>
+                        </div>
+                        <button class="w3-btn-block w3-teal" ng-click="mctrl.toggleCommentsPanel()">Go to Comments Panel</button>
+                    </div>
+                </div>
+                <!-- COMMENTS PANEL -->
+                <div ng-show="showCommentsPanel" class="comments-detail-container w3-container w3-content w3-animate-zoom">
+                    <h3>Comments</h3>
+                    <span class="w3-display-topright w3-padding w3-hover-red" ng-click="mctrl.toggleCommentsPanel()">Back</span>
+                    <div ng-repeat="comment in current_question.comments" class="w3-panel w3-white w3-card-2 w3-display-container w3-hover-shadow">
+                        <p class="w3-text-blue"><b>User {{comment.user_id}}</b></p>
+                        <p>{{comment.text}}</p>
+                        <a class="w3-btn-floating w3-teal w3-display-right"><i class="glyphicon glyphicon-thumbs-up"></i></a>
+                    </div>
+                </div>
 
                         <!-- Comments -->
 <!--                        <div class="comments-area" ng-if='oneQuestion.hasComments'>
@@ -51,16 +71,14 @@
                         <hr>-->
 
                         <!-- Leave a Comment: -->
-                        <h4>Leave a Comment:</h4>
+<!--                        <h4>Leave a Comment:</h4>
                         <form role="form">
                             <div class="form-group">
                                 <textarea class="form-control" rows="3" required></textarea>
                             </div>
                             <button type="submit" class="btn btn-success">Submit</button>
-                        </form>
-                        <br><br>
+                        </form>-->
 
-                </div>
             </modal>
         </div>
     </div>
