@@ -8,6 +8,7 @@ angular.module('geolocApp')
             $scope.map_style = 'map-fullscreen';
             $scope.map_zoom = 15;
             $scope.showModal = false;
+            $scope.showCommentsPanel = false;
             $scope.tilt = 45;
             $scope.mapTypeId = 'ROADMAP';
 
@@ -160,7 +161,17 @@ angular.module('geolocApp')
             if (!isCorrect) {
                 alert("Oops, not correct, please retry!");
             }
-        }
+        };
+
+        /* Toggle boolean showCommentsPanel */
+        mctrl.toggleCommentsPanel = function () {
+            if ($scope.showCommentsPanel) {
+                $scope.showCommentsPanel = false;
+            }
+            else {
+                $scope.showCommentsPanel = true;
+            }
+        };
 
     })
     .directive('questionModal', function () {

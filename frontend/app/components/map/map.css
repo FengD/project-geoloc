@@ -7,6 +7,7 @@
 
 #playMap {
 	height: 100%;
+	margin-top: 50px;
 }
 
 #playMap-row {
@@ -30,6 +31,7 @@ ng-map {
 	width: 50%
 }
 
+
 #question-modal {
 	left: 50%;
 	width: 50%;
@@ -38,11 +40,34 @@ ng-map {
 	overflow: auto;
 }
 
+.modal {
+	height: 100%;
+	width: 100%;
+}
+
+.modal-dialog {
+	height: 100%;
+	width: 100%;
+}
+
+.modal-content {
+	top: -5%;
+	height: 100%;
+	overflow: auto;
+}
+
+.comments-overview-container {
+	overflow: auto;
+}
+
 /* On small screens*/
 @media only screen and (max-width: 1000px) {
 	.map-sidescreen {
 		height: 50%;
 		width: 100%;
+	}
+	.modal-content {
+		top: 0%;
 	}
 	#question-modal {
 		left: 0%;
