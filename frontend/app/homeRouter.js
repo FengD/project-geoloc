@@ -25,6 +25,10 @@ angular.module('geolocApp')
                 templateUrl: 'app/components/questionOverview/questionOverview.html',
                 controller: 'questionOverviewController'
             })
+            .when('/howToPlay', {
+                templateUrl: 'app/components/howToPlay/howToPlay.html',
+                controller: 'howToPlayController'
+            })
             .when('/map', {
                 templateUrl: 'app/components/map/map.html',
                 controller: 'mapController',
@@ -48,10 +52,13 @@ angular.module('geolocApp')
                 if("user".localeCompare($rootScope.userType) === 0){
                     if("app/components/login/login.html".localeCompare(next.templateUrl) === 0){
                         $location.path('/login');
-                    }
+                    } 
 // ------------------------------------------------------------------------------------------------------- YAN ADD
                     else if("app/components/map/map.html".localeCompare(next.templateUrl) === 0){
                         $location.path('/map');
+                    }
+                    else if("app/components/howToPlay/howToPlay.html".localeCompare(next.templateUrl) === 0){
+                        $location.path('/howToPlay');
                     }
 // -------------------------------------------------------------------------------------------------------- YAN ADD END
                     else{
@@ -60,15 +67,14 @@ angular.module('geolocApp')
                 }
             }else{
                 if("app/components/login/login.html".localeCompare(next.templateUrl) === 0){
-                // if(!PermissionsService.getPermission('login')) {
                     $location.path('/login');
-                    // console.log("1");
-
-                // }
 
                 }else if ("app/components/map/map.html".localeCompare(next.templateUrl) === 0) {
                     $location.path('/map');
-                }else{
+                }else if("app/components/howToPlay/howToPlay.html".localeCompare(next.templateUrl) === 0){
+                        $location.path('/howToPlay');
+                }
+                else{
                     // console.log("2");
                     $location.path('/');
                 }

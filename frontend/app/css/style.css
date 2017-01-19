@@ -133,7 +133,7 @@ div.ng-scope{
 
 
 .footer-bottom {
-    background-color: #15224f;
+    background-color: #101010;
     min-height: 30px;
     width: 100%;
 }
@@ -158,6 +158,7 @@ div.ng-scope{
 #footer{
 	margin-top: 50px;
 }
+
 
 div#mainWindow{
     padding-top: 50px;
