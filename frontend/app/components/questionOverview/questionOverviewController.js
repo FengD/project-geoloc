@@ -1,10 +1,10 @@
 'use strict';
 
 angular.module('geolocApp')
-    .controller('questionOverviewController',  function ($scope, $cookies, $http, $window, $location, $rootScope, Server) {
+    .controller('questionOverviewController',  function ($scope, $cookies, $http, $window, $location, $rootScope) {
        
     })
-    .directive('myMap', function($http) {
+    .directive('myMap', function($http,Server) {
 
         
              // directive link function

@@ -138,7 +138,7 @@ div.ng-scope{
     width: 100%;
 }
 .copyright {
-    color: #fff;
+    color: grey;
     line-height: 30px;
     min-height: 30px;
     padding: 7px 0;
@@ -150,7 +150,7 @@ div.ng-scope{
     padding: 7px 0;
     text-align: right;
 }
-.design a {
+.design p {
     color: #fff;
 }
 /*-----------------------------------------------------*/
@@ -175,7 +175,7 @@ div#mainWindow{
     background-repeat: no-repeat;
     background-attachment: fixed;
     text-align: center;
-    height:800px;
+    height:100%;
 }
 
 .container {
@@ -188,6 +188,37 @@ div#mainWindow{
 #phoneImage img{
     height :400px;
 }
+
+#buttonRowBack{
+    margin-top: 50px;
+    background-color: #DCDCDC;
+    height:100px;
+    opacity: 0.4;
+}
+
+#buttonRow{
+    margin-top: -90px;
+    height:100px;
+}
+
+#startButton:hover{
+    color:#6495ED;
+    background-color: #fff;
+    border-color: #6495ED;
+}
+
+#startButton{
+    width:400px;
+    height:80px;
+    font-size: 3em;
+    border-style: solid;
+    border-radius: 10px;
+    border-width: 2px;
+    color:#fff;
+    background-color: #6495ED;
+    border-color: #fff;
+}
+
 
 .navbar{
 	margin-bottom: 0px !important;
@@ -222,4 +253,42 @@ div#mainWindow{
 	background: rgba(255,0,0,0.4); 
 }
 
+
+@media screen and (max-width: 1350px) {
+    .jumbotron{
+    /*height :1000px;*/
+        background-image: url("../resources/images/homepage-background-medium.jpg");
+        background-size: 100% auto;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        text-align: center;
+        height:100%;
+    }
+}
+
+@media screen and (max-width: 960px) {
+    .jumbotron{
+    /*height :1000px;*/
+        background-image: url("../resources/images/homepage-background-small.jpg");
+        background-size: 100% auto;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        text-align: center;
+        height:100%;
+    }
+}
+
+@media screen and (max-width: 570px) {
+    .jumbotron{
+    /*height :1000px;*/
+        background-image: url("../resources/images/homepage-background-mini.jpg");
+        background-size: 100% auto;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        text-align: center;
+        height:100%;
+    }
+
+    
+}
 

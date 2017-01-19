@@ -48,9 +48,13 @@ angular.module('geolocApp')
                 if("user".localeCompare($rootScope.userType) === 0){
                     if("app/components/login/login.html".localeCompare(next.templateUrl) === 0){
                         $location.path('/login');
-                    }else if("app/components/map/map.html".localeCompare(next.templateUrl) === 0){
+                    }
+// ------------------------------------------------------------------------------------------------------- YAN ADD
+                    else if("app/components/map/map.html".localeCompare(next.templateUrl) === 0){
                         $location.path('/map');
-                    }else{
+                    }
+// -------------------------------------------------------------------------------------------------------- YAN ADD END
+                    else{
                         $location.path('/');
                     }
                 }
