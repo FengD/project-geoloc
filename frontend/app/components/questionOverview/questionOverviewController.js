@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('geolocApp')
-    .controller('questionOverviewController',  function ($scope, $cookies, $http, $window, $location, $rootScope) {
+    .controller('questionOverviewController',  function ($scope, $cookies, $http, $window, $location, $rootScope, Server) {
        
     })
     .directive('myMap', function($http) {
@@ -24,7 +24,7 @@ angular.module('geolocApp')
             function initMap() {
                 $http({
                     method: 'GET',
-                    url: 'http://localhost:8081/questions/allQuestion'
+                    url: Server.getUrl() + ':8081/questions/allQuestion'
                 }).then(function successCallback(success) {
                     var questions = success.data;
                     console.log(questions);

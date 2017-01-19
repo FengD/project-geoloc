@@ -17,7 +17,7 @@
                                 <span class="input-group-addon">Answer:</span>
                                 <input id="msg" type="text" ng-model="mctrl.userAnswer" class="form-control" placeholder="Write here...">
                             </div>
-                            <button type="submit" class="btn btn-success" ng-click="mctrl.submitAnswer()">Submit</button>
+                            <md-button type="submit" class="md-raised md-primary" ng-click="mctrl.submitAnswer()">Submit</md-button>
                         </form>
                         <!-- Type: single choice -->
                         <form ng-show="question_type == 'single-choice'">
@@ -26,7 +26,7 @@
                                     <label><input type="radio" ng-model="mctrl.userAnswer" ng-value="choice">{{choice}}</label>
                                 </label>
                             </div>
-                            <button type="submit" class="btn btn-success" ng-click="mctrl.submitAnswer()">Submit</button>
+                            <md-button type="submit" class="md-raised md-primary" ng-click="mctrl.submitAnswer()">Submit</md-button>
                         </form>
                         <!-- Type: multi choices -->
                         <form ng-show="question_type == 'multi-choice'">
@@ -35,7 +35,7 @@
                                     <label><input type="checkbox" ng-model="choice[1]">{{choice[0]}}</label>
                                 </label>
                             </div>
-                            <button type="submit" class="btn btn-success" ng-click="mctrl.submitAnswer()">Submit</button>
+                            <md-button type="submit" class="md-raised md-primary" ng-click="mctrl.submitAnswer()">Submit</md-button>
                         </form>
 
                         <!-- Comments -->
