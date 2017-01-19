@@ -17,6 +17,7 @@
 
 #manageUser .tableArray{
 	overflow-x: auto;
+	margin-bottom: 50px;
 }
 
 #manageUser table {
