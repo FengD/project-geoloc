@@ -1,6 +1,6 @@
 'use strict';
 angular.module('geolocApp')
-    .controller('loginController',  function ($scope, $cookies, $http, $window, $location, $rootScope) {
+    .controller('loginController',  function ($scope, $cookies, $http, $window, $location, $rootScope, Server) {
     	$scope.usericonhide = true;
     	$scope.passiconhide = true;
     	$scope.name = "";
@@ -13,16 +13,16 @@ angular.module('geolocApp')
 
     	$scope.userIconChange = function(bool){
     		$scope.usericonhide = bool;
-    	}
+    	};
 
     	$scope.passIconChange = function(bool){
     		$scope.passiconhide = bool;
-    	}
+    	};
 
     	$scope.signUp = function(){
             $http({
                 method: 'POST',
-                url: 'http://localhost:8080/users',
+                url: Server.getUrl() + ':8080/users',
                 data: {
                     name: $scope.name,
                     password: $scope.password
@@ -40,7 +40,7 @@ angular.module('geolocApp')
        $scope.login = function(){
             $http({
                 method: 'POST',
-                url: 'http://localhost:8080/users/' + $scope.name,
+                url: Server.getUrl() + ':8080/users/' + $scope.name,
                 data: {
                     password: $scope.password
                 }
@@ -72,7 +72,7 @@ angular.module('geolocApp')
         // $scope.signOut = function(){
         //     $http({
         //         method: 'POST',
-        //         url: 'http://localhost:8080/users/' + $scope.name,
+        //         url: Server.getUrl() + ':8080/users/' + $scope.name,
         //         data: {
         //             password: $scope.password
         //         }

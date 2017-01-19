@@ -1,10 +1,10 @@
 'use strict';
 
 angular.module('geolocApp')
-    .controller('mapController', function ($scope, $cookies, $http, $window, NgMap) {
+    .controller('mapController', function ($scope, $cookies, $http, $window, NgMap, Server) {
 
         function initPage() {
-
+            $scope.showMap = true;
             $scope.map_style = 'map-fullscreen';
             $scope.map_zoom = 15;
             $scope.showModal = false;
@@ -38,7 +38,7 @@ angular.module('geolocApp')
 
             $http({
                 method: 'POST',
-                url: 'http://localhost:8081/questions/' + $scope.question_step
+                url: Server.getUrl() + ':8081/questions/' + $scope.question_step
             }).then(function successCallback(success) {
                 callback(success.data);
             }, function errorCallback(error) {
@@ -55,7 +55,7 @@ angular.module('geolocApp')
         function updateCookies(cb_initPage) {
             $http({
                 method: 'POST',
-                url: 'http://localhost:8080/users/' + $cookies.get('name'),
+                url: Server.getUrl() + ':8080/users/' + $cookies.get('name'),
                 data: {
                     password: $cookies.get('password')
                 }
@@ -79,7 +79,7 @@ angular.module('geolocApp')
             var str_newStep = num_newStep.toString();
             $http({
                 method: 'POST',
-                url: 'http://localhost:8080/users/updateQuestionStep/' + $cookies.get('name'),
+                url: Server.getUrl() + ':8080/users/updateQuestionStep/' + $cookies.get('name'),
                 data: {
                     step: str_newStep
                 }
@@ -110,14 +110,14 @@ angular.module('geolocApp')
             $scope.map_style = 'map-sidescreen';
             $scope.showModal = !$scope.showModal;
 
-        }
+        };
 
         /* Set click event on the Modal close */
         $scope.closeModal = function() {
             $scope.map_zoom = 15;
             $scope.map_style = 'map-fullscreen';
             $scope.mapTypeId = 'ROADMAP';
-        }
+        };
 
 
         /* Set click event on the Submit button */

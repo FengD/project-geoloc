@@ -1,12 +1,12 @@
 'use strict';
 angular.module('geolocApp')
-    .controller('manageUserController',  function ($scope, $cookies, $http, $window, $location, $rootScope,NgTableParams) {
+    .controller('manageUserController',  function ($scope, $cookies, $http, $window, $location, $rootScope,NgTableParams, Server) {
     	$scope.allUser=[];
         $scope.isDelete = [];
     	$scope.getAllUser = function(){
             $http({
                 method: 'GET',
-                url: 'http://localhost:8080/users/allUser'
+                url: Server.getUrl() + ':8080/users/allUser'
             }).then(function successCallback(success) {
                 // console.log(success);
                 $scope.allUser = success.data;
@@ -25,7 +25,7 @@ angular.module('geolocApp')
         $scope.deleteUser = function(id){
         	$http({
                 method: 'DELETE',
-                url: 'http://localhost:8080/users/' + id
+                url: Server.getUrl() + ':8080/users/' + id
             }).then(function successCallback(success) {
                 // console.log(success);
                 $scope.getAllUser();

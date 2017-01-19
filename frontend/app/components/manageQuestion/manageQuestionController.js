@@ -1,6 +1,6 @@
 'use strict';
 angular.module('geolocApp')
-    .controller('manageQuestionController',  function (NgTableParams,$scope, $cookies, $http, $window, $location, $rootScope) {
+    .controller('manageQuestionController',  function (NgTableParams,$scope, $cookies, $http, $window, $location, $rootScope, Server) {
     	$scope.allQuestion=[];
     	$scope.questionImage=[];
         $scope.isModify = [];
@@ -9,7 +9,7 @@ angular.module('geolocApp')
     	$scope.getAllQuestion = function(){
             $http({
                 method: 'GET',
-                url: 'http://localhost:8081/questions/allQuestion'
+                url: Server.getUrl() + ':8081/questions/allQuestion'
             }).then(function successCallback(success) {
                 // console.log(success);
                 $scope.allQuestion = success.data;
@@ -29,7 +29,7 @@ angular.module('geolocApp')
         $scope.deleteQuestion = function(id){
         	$http({
                 method: 'DELETE',
-                url: 'http://localhost:8081/questions/' + id
+                url: Server.getUrl() + ':8081/questions/' + id
             }).then(function successCallback(success) {
                 // console.log(success);
                 $scope.getAllQuestion();
@@ -41,11 +41,11 @@ angular.module('geolocApp')
 
         $scope.wantModify = function(index){
             $scope.isModify[index] = true;
-        }
+        };
 
         $scope.cancelModify = function(index){
             $scope.isModify[index] = false;
-        }
+        };
 
         $scope.confirmModify = function(index){
             $scope.isModify[index] = false;

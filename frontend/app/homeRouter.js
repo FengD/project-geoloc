@@ -28,7 +28,7 @@ angular.module('geolocApp')
             .when('/map', {
                 templateUrl: 'app/components/map/map.html',
                 controller: 'mapController',
-                css: "app/components/map/map.css"
+                css: 'app/components/map/map.css'
             })
             .otherwise({
                 redirectTo: '/'
@@ -61,6 +61,9 @@ angular.module('geolocApp')
                     // console.log("1");
 
                 // }
+
+                }else if ("app/components/map/map.html".localeCompare(next.templateUrl) === 0) {
+                    $location.path('/map');
                 }else{
                     // console.log("2");
                     $location.path('/');
@@ -75,8 +78,21 @@ angular.module('geolocApp')
         };
         this.setPermission = function(permission, value) {
             permissions[permission] = value;
-        }
+        };
         this.getPermission = function(permission) {
             return permissions[permission] || false;
         }
-    }]);
+    }])
+    .factory('Server', function($http) {
+
+        var URLServer = 'http://10.212.117.220';
+
+        return {
+
+            getUrl: function() {
+                return URLServer;
+            }
+
+        };
+
+    });
