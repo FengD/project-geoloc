@@ -2,43 +2,23 @@
 
 #wrapper {
 	/* Center wrapper perfectly */
-	width: 300px;
+	width: 500px;
 	height: 400px;
 	position: absolute;
-	left: 50%;
+	left: 40%;
 	top: 50%;
 	margin-left: -150px;
 	margin-top: -200px;
 }
 
-.gradient {
-	/* Center Positioning */
-	width: 600px;
-	height: 600px;
-	position: fixed;
-	left: 50%;
-	top: 50%;
-	margin-left: -300px;
-	margin-top: -300px;
-	
-	/* Fallback */ 
-	background-image: url(../../resources/images/gradient.png); 
-	background-repeat: no-repeat; 
-	
-	/* CSS3 Gradient */
-	background-image: -webkit-gradient(radial, 0% 0%, 0% 100%, from(rgba(213,246,255,1)), to(rgba(213,246,255,0)));
-	background-image: -webkit-radial-gradient(50% 50%, 40% 40%, rgba(213,246,255,1), rgba(213,246,255,0));
-	background-image: -moz-radial-gradient(50% 50%, 50% 50%, rgba(213,246,255,1), rgba(213,246,255,0));
-	background-image: -ms-radial-gradient(50% 50%, 50% 50%, rgba(213,246,255,1), rgba(213,246,255,0));
-	background-image: -o-radial-gradient(50% 50%, 50% 50%, rgba(213,246,255,1), rgba(213,246,255,0));
-}
+
 
 /*******************
 LOGIN FORM
 *******************/
 
 .login-form {
-	width: 300px;
+	width: 500px;
 	margin: 0 auto;
 	position: relative;
 	z-index:5;
@@ -87,7 +67,7 @@ CONTENT
 
 /* Input field */
 .login-form .content .input {
-	width: 188px;
+	width: 438px;
 	padding: 15px 25px;
 	
 	font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
@@ -159,7 +139,7 @@ CONTENT
 }
 
 .animate-hide {
-  left: -47px;
+  left: -30px;
 }
 
 .animate-hide.ng-hide {
