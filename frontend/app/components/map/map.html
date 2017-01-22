@@ -7,7 +7,7 @@
 
             <!-- Modal -->
             <modal question-modal id="question-modal" visible="showModal">
-                <div ng-show="!showCommentsPanel" class="question-container w3-animate-bottom">
+                    <div ng-show="!showCommentsPanel" class="question-container">
                         <!-- QUESTIONS  -->
                         <h5><span class="label label-success" id="oneQuestionType">{{ question_type }}</span></h5><br>
                         <br>
@@ -37,47 +37,62 @@
                             </div>
                             <md-button type="submit" class="md-raised md-primary" ng-click="mctrl.submitAnswer()">Submit</md-button>
                         </form>
+                    </div>
                     <!-- COMMENTS OVERVIEW -->
-                    <div class="comments-overview-container w3-container w3-content w3-animate-bottom">
-                        <h3>Comments</h3>
+                    <div ng-show="!showCommentsPanel" class="comments-overview-container w3-container w3-content">
+                        <h3 id="title-comment-overview">Comments Overview</h3>
                         <div ng-repeat="comment in current_question.comments" class="w3-panel w3-white w3-card-2 w3-display-container w3-hover-shadow">
-                            <p class="w3-text-blue"><b>User {{comment.user_id}}</b></p>
-                            <p>{{comment.text}}</p>
+                            <span class="w3-text-blue"><b>{{comment.user_id}} : </b></span>
+                            <span>{{comment.text}}</span>
                         </div>
-                        <button class="w3-btn-block w3-teal" ng-click="mctrl.toggleCommentsPanel()">Go to Comments Panel</button>
+                        <md-button class="md-raised md-primary" style="width:100%;margin-left:auto;margin-right:auto" ng-click="mctrl.toggleCommentsPanel()"><span class="btn-inner-icon glyphicon glyphicon-option-horizontal"></span></md-button>
                     </div>
-                </div>
-                <!-- COMMENTS PANEL -->
-                <div ng-show="showCommentsPanel" class="comments-detail-container w3-container w3-content w3-animate-zoom">
-                    <h3>Comments</h3>
-                    <span class="w3-display-topright w3-padding w3-hover-red" ng-click="mctrl.toggleCommentsPanel()">Back</span>
-                    <div ng-repeat="comment in current_question.comments" class="w3-panel w3-white w3-card-2 w3-display-container w3-hover-shadow">
-                        <p class="w3-text-blue"><b>User {{comment.user_id}}</b></p>
-                        <p>{{comment.text}}</p>
-                        <a class="w3-btn-floating w3-teal w3-display-right"><i class="glyphicon glyphicon-thumbs-up"></i></a>
-                    </div>
-                </div>
-
-                        <!-- Comments -->
-<!--                        <div class="comments-area" ng-if='oneQuestion.hasComments'>
-                            <p><span class="badge">2</span> Comments:</p>
-                            <ul class="list-group">
-                                <li class="list-group-item"  ng-repeat='comments in oneQuestion.comments'>
-                                    <h4>{{comments._id}}</h4>
-                                    <p>{{comments.text}}</p>
-                                </li>
-                            </ul>
-                        </div>
-                        <hr>-->
-
-                        <!-- Leave a Comment: -->
-<!--                        <h4>Leave a Comment:</h4>
-                        <form role="form">
-                            <div class="form-group">
-                                <textarea class="form-control" rows="3" required></textarea>
+                <!-- Leave a Comment: -->
+                                        <h4>Leave a Comment:</h4>
+                                        <form role="form">
+                                            <div class="form-group">
+                                                <textarea class="form-control" rows="3" required></textarea>
+                                            </div>
+                                            <button type="submit" class="btn btn-success">Submit</button>
+                                        </form>
+                    <!-- COMMENTS PANEL -->
+                    <div ng-show="showCommentsPanel" class="comments-detail-container w3-container w3-content">
+                        <h3>Comments Panel</h3>
+                        <a class="w3-display-topright w3-btn-floating btn-floating w3-indigo" ng-click="mctrl.toggleCommentsPanel()"><span class="btn-inner-icon glyphicon glyphicon-arrow-left"></span></a>
+                        <md-card ng-repeat="comment in current_question.comments" class="w3-card-2 w3-hover-shadow"  md-theme="default" md-theme-watch="">
+                            <md-card-title>
+                                <md-card-title-text>
+                                    <span class="md-headline" style="font-size:20px;">{{comment.text}}</span>
+                                    <span class="md-subhead" style="font-size: 15px"> By {{comment.user_id}}</span>
+                                </md-card-title-text>
+                                <md-card-title-media>
+                                    <div class="md-media-md card-media"><img src="{{server_adresse}}:8082/img/comment/{{comment.photo_path}}"></div>
+                                </md-card-title-media>
+                            </md-card-title>
+                            <div>
+                                <a class="w3-btn-floating btn-floating w3-indigo" ng-click="mctrl.submitLove(comment._id)"><i class="glyphicon glyphicon-thumbs-up"></i></a>
+                                <span>Loved by </span>
+                                <span class="w3-text-blue" ng-repeat="vote in comment.votes">
+                                    {{vote}}
+                                </span>
                             </div>
-                            <button type="submit" class="btn btn-success">Submit</button>
-                        </form>-->
+                        </md-card>
+                    </div>
+
+                    <!-- Comments -->
+                    <!--                        <div class="comments-area" ng-if='oneQuestion.hasComments'>
+                                                <p><span class="badge">2</span> Comments:</p>
+                                                <ul class="list-group">
+                                                    <li class="list-group-item"  ng-repeat='comments in oneQuestion.comments'>
+                                                        <h4>{{comments._id}}</h4>
+                                                        <p>{{comments.text}}</p>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                            <hr>-->
+
+
+
 
             </modal>
         </div>

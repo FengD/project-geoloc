@@ -56,8 +56,23 @@ ng-map {
 	overflow: auto;
 }
 
-.comments-overview-container {
+.question-container {
+	height: 100%;
 	overflow: auto;
+}
+
+.comments-overview-container {
+	height: 100%;
+	overflow: auto;
+}
+
+.btn-floating {
+	margin: 5px;
+	font-weight: bold;
+}
+
+.btn-inner-icon {
+	margin-top: 7px;
 }
 
 /* On small screens*/

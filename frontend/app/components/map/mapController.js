@@ -11,6 +11,7 @@ angular.module('geolocApp')
             $scope.showCommentsPanel = false;
             $scope.tilt = 45;
             $scope.mapTypeId = 'ROADMAP';
+            $scope.server_adresse = Server.getUrl();
 
             updateCurrentQuestion(function(data) {
                 $scope.current_question = data;
@@ -30,7 +31,6 @@ angular.module('geolocApp')
                     $scope.choices = $scope.current_question.choices;
                 }
             });
-
         }
 
         function updateCurrentQuestion(callback) {
@@ -163,6 +163,26 @@ angular.module('geolocApp')
             }
         };
 
+        mctrl.submitLove = function(comment_id) {
+            console.log('Comment: '+comment_id+' User: '+$cookies.get('name')+  'question: '+$scope.current_question._id);
+            $http({
+                method: 'POST',
+                url: Server.getUrl() + ':8081/questions/vote/' + $scope.current_question._id,
+                data: {
+                    commentId: comment_id,
+                    userId: $cookies.get('name')
+                }
+            }).then(function successCallback(success) {
+                console.log(success);
+                updateCurrentQuestion(function(data) {
+                    $scope.current_question = data;
+                });
+            }, function errorCallback(error) {
+                console.log("error");
+                console.log(error);
+            });
+        };
+
         /* Toggle boolean showCommentsPanel */
         mctrl.toggleCommentsPanel = function () {
             if ($scope.showCommentsPanel) {
@@ -184,7 +204,7 @@ angular.module('geolocApp')
                             '<button type="button" class="close" data-dismiss="modal"ng-click="closeModal()">&times;</button>' +
                             '<h4 class="modal-title">{{ question_text }}</h4>' +
                         '</div>' +
-                        '<div class="modal-body" ng-transclude></div>' +
+                        '<div class="modal-body w3-animate-bottom" ng-transclude></div>' +
                     '</div>' +
                 '</div>' +
             '</div>',
