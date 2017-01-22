@@ -34,6 +34,10 @@ angular.module('geolocApp')
                 controller: 'mapController',
                 css: 'app/components/map/map.css'
             })
+            .when('/ranking', {
+                templateUrl: 'app/components/ranking/ranking.html',
+                controller: 'rankingController',
+            })
             .otherwise({
                 redirectTo: '/'
     		});
@@ -60,6 +64,9 @@ angular.module('geolocApp')
                     else if("app/components/howToPlay/howToPlay.html".localeCompare(next.templateUrl) === 0){
                         $location.path('/howToPlay');
                     }
+                    else if("app/components/ranking/ranking.html".localeCompare(next.templateUrl) === 0){
+                        $location.path('/ranking');
+                    }
 // -------------------------------------------------------------------------------------------------------- YAN ADD END
                     else{
                         $location.path('/');
@@ -74,6 +81,9 @@ angular.module('geolocApp')
                 }else if("app/components/howToPlay/howToPlay.html".localeCompare(next.templateUrl) === 0){
                         $location.path('/howToPlay');
                 }
+                else if("app/components/ranking/ranking.html".localeCompare(next.templateUrl) === 0){
+                        $location.path('/ranking');
+                    }
                 else{
                     // console.log("2");
                     $location.path('/');
@@ -95,7 +105,7 @@ angular.module('geolocApp')
     }])
     .factory('Server', function($http) {
 
-        var URLServer = 'http://10.212.117.220';
+        var URLServer = 'http://172.20.10.5';
 
         return {
 
