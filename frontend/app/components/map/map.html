@@ -1,12 +1,16 @@
 <div class="container" ng-controller="mapController as mctrl" ng-init="initPage" id="playMap">
     <div ng-show="showMap" class="row" id="playMap-row">
         <div class="col-md-12" id="playMap-container">
-            <ng-map ng-class="map_style" zoom="{{map_zoom}}" center="[{{center_lat}}, {{center_lon}}]" tilt="45" map-type-id="{{mapTypeId}}">
+            <ng-map id="game-map" ng-class="map_style" zoom="{{map_zoom}}" center="[{{center_lat}}, {{center_lon}}]">
                 <marker position="[{{marker_lat}}, {{marker_lon}}]" animation="DROP" on-click="mctrl.click()"/>
             </ng-map>
 
             <!-- Modal -->
             <modal question-modal id="question-modal" visible="showModal">
+                <div class="map-detail-container col-lg-6 col-md-6 hidden-xs hidden-sm">
+                    <ng-map id="detail-map" class="map-detail" zoom="20" center="[{{center_lat}}, {{center_lon}}]" map-type-id="SATELLITE"></ng-map>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
                     <div ng-show="!showCommentsPanel" class="question-container">
                         <!-- QUESTIONS  -->
                         <h5><span class="label label-success" id="oneQuestionType">{{ question_type }}</span></h5><br>
@@ -78,6 +82,7 @@
                             </div>
                         </md-card>
                     </div>
+                </div>
 
             </modal>
         </div>
