@@ -130,6 +130,7 @@ angular.module('geolocApp')
                     for (var i = 0; i < $scope.answers.length; i++) {
                         if (mctrl.userAnswer == $scope.answers[i]) {
                             updateQuestionStep(updateCookies ,initPage);
+                            mctrl.userAnswer = '';
                             isCorrect = true;
                             break;
                         }
@@ -164,23 +165,54 @@ angular.module('geolocApp')
         };
 
         mctrl.submitLove = function(comment_id) {
-            console.log('Comment: '+comment_id+' User: '+$cookies.get('name')+  'question: '+$scope.current_question._id);
-            $http({
-                method: 'POST',
-                url: Server.getUrl() + ':8081/questions/vote/' + $scope.current_question._id,
-                data: {
-                    commentId: comment_id,
-                    userId: $cookies.get('name')
-                }
-            }).then(function successCallback(success) {
-                console.log(success);
-                updateCurrentQuestion(function(data) {
-                    $scope.current_question = data;
+                $http({
+                    method: 'POST',
+                    url: Server.getUrl() + ':8081/questions/vote/' + $scope.current_question._id,
+                    data: {
+                        commentId: comment_id,
+                        userId: $cookies.get('name')
+                    }
+                }).then(function successCallback(success) {
+                    console.log(success);
+                    updateCurrentQuestion(function(data) {
+                        var comment_index;
+                        for (var i = 0; i < $scope.current_question.comments.length; i++) {
+                            if ($scope.current_question.comments[i]._id == comment_id) {
+                                comment_index = i;
+                            }
+                        }
+                        console.log(comment_index);
+                        $scope.current_question.comments[comment_index].votes = data.comments[comment_index].votes;
+                    });
+                }, function errorCallback(error) {
+                    console.log("error");
+                    console.log(error);
                 });
-            }, function errorCallback(error) {
-                console.log("error");
-                console.log(error);
-            });
+
+        };
+
+        mctrl.submitComment = function() {
+            if (mctrl.userComment != '' || mctrl.userComment != null) {
+                $http({
+                    method: 'POST',
+                    url: Server.getUrl() + ':8081/questions/comment/' + $scope.current_question._id,
+                    data: {
+                        text: mctrl.userComment,
+                        userId: $cookies.get('name')
+                    }
+                }).then(function successCallback(success) {
+                    console.log(success);
+                    mctrl.userComment = '';
+                    updateCurrentQuestion(function(data) {
+                        $scope.current_question.comments.push(data.comments[data.comments.length-1]);
+                    });
+                }, function errorCallback(error) {
+                    console.log("error");
+                    console.log(error);
+                });
+            } else {
+                alert('Comment that you entered is empty');
+            }
         };
 
         /* Toggle boolean showCommentsPanel */
