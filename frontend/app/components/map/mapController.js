@@ -99,17 +99,24 @@ angular.module('geolocApp')
         /* Set animations and customization on the marker */
         var marker;
         var mctrl = this;
-        NgMap.getMap().then(function(map) {
+        NgMap.getMap('game-map').then(function(map) {
             mctrl.map = map;
             marker = map.markers[0];
-            // marker.setAnimation(google.maps.Animation.BOUNCE);
         });
+
         /* Set click event on the marker */
         mctrl.click = function(event) {
-            $scope.map_zoom = 22;
-            $scope.mapTypeId = 'SATELLITE';
-            $scope.map_style = 'map-sidescreen';
+/*            $scope.map_zoom = 22;
+            $scope.mapTypeId = 'SATELLITE';*/
+            $scope.map_style = 'map-nodisplay';
             $scope.showModal = !$scope.showModal;
+            if ($scope.showModal) {
+                NgMap.getMap('detail-map').then(function(map) {
+                    window.setTimeout(function () {
+                        google.maps.event.trigger(map, 'resize');
+                    }, 500);
+                });
+            }
 
         };
 
@@ -128,7 +135,7 @@ angular.module('geolocApp')
             switch($scope.question_type) {
                 case 'essay':
                     for (var i = 0; i < $scope.answers.length; i++) {
-                        if (mctrl.userAnswer == $scope.answers[i]) {
+                        if (mctrl.userAnswer.toLowerCase() == $scope.answers[i]) {
                             updateQuestionStep(updateCookies ,initPage);
                             mctrl.userAnswer = '';
                             isCorrect = true;
@@ -236,7 +243,7 @@ angular.module('geolocApp')
                             '<button type="button" class="close" data-dismiss="modal"ng-click="closeModal()">&times;</button>' +
                             '<h4 class="modal-title">{{ question_text }}</h4>' +
                         '</div>' +
-                        '<div class="modal-body w3-animate-bottom" ng-transclude></div>' +
+                        '<div class="modal-body w3-animate-bottom row" ng-transclude></div>' +
                     '</div>' +
                 '</div>' +
             '</div>',

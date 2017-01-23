@@ -27,14 +27,13 @@ ng-map {
 	height: 100%;
 }
 
-.map-sidescreen {
-	width: 50%
+.map-nodisplay {
+	display: none;
 }
 
 
 #question-modal {
-	left: 50%;
-	width: 50%;
+	width: 100%;
 	height: 100%;
 	outline: auto;
 	overflow: auto;
@@ -54,6 +53,20 @@ ng-map {
 	top: -5%;
 	height: 100%;
 	overflow: auto;
+}
+
+.modal-body {
+	width: 100%;
+	height: 90%;
+}
+
+.map-detail-container {
+	height: 100%;
+}
+
+.map-detail {
+	width: 100%;
+	height: 100%;
 }
 
 .question-container {
@@ -77,15 +90,5 @@ ng-map {
 
 /* On small screens*/
 @media only screen and (max-width: 1000px) {
-	.map-sidescreen {
-		display: none;
-	}
-	.modal-content {
-		top: 0%;
-	}
-	#question-modal {
-		left: 0%;
-		height: 100%;
-		width: 100%;
-	}
+
 }
