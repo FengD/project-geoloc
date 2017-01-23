@@ -2,6 +2,7 @@
 angular.module('geolocApp')
     .controller('rankingController',  function ($scope, $cookies, $http, $window, $location, $rootScope,NgTableParams, Server) {
     	$scope.allUser=[];
+        $scope.currentUser = $cookies.get('name');
     	$scope.getAllUser = function(){
             $http({
                 method: 'GET',
@@ -9,7 +10,7 @@ angular.module('geolocApp')
             }).then(function successCallback(success) {
                 // console.log(success);
                 $scope.allUser = success.data;
-                $scope.manageUserTable = new NgTableParams({count: 5 ,sorting: { question_step: "desc", timeUse : "asc" }}, { data:$scope.allUser});
+                $scope.manageUserTable = new NgTableParams({count: 20 ,sorting: { question_step: "desc", timeUse : "asc" }}, { data:$scope.allUser});
                 
                 for(var i=0;i < $scope.allUser.length;i++){
                     // console.log($scope.allUser[i]);
@@ -28,7 +29,7 @@ angular.module('geolocApp')
             if(hourUse < 24){
                 return "" + hourUse + " hours";
             } else{
-                return "" + (hourUse / 24) + " days";
+                return "" + Math.round(hourUse / 24) + " days";
             }
         }
 

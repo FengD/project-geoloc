@@ -1,16 +1,21 @@
-<div id="manageUser" class="container" ng-controller="rankingController" ng-init="getAllUser()">
+<div id="rankingTable" class="container" ng-controller="rankingController" ng-init="getAllUser()">
+	<div class="row">
+		<div class="col-md-12 text-center">
+			<h1>TOP PLAYERS</h1>
+		</div>
+	</div>
 	<div class="row">
 		<div class="col-md-12 tableArray centered">
 			<table ng-table="manageUserTable" class="table table-condensed table-bordered table-striped" show-filter="true">
-					<tr ng-repeat="users in $data">
+					<tr ng-repeat="users in $data" class="rank{{$index}}" ng-class="{true: 'current', false: ''}[users.name == currentUser]">
 						<td data-title="'NAME'" sortable="'name'" filter="{name:'text'}">{{users.name}}</td>
 						
 						
-						<td data-title="'QUESTION_STEP'" sortable="'question_step'" filter="{question_step:'number'}">{{users.question_step}}</td>
+						<td data-title="'QUESTION STEP'" sortable="'question_step'" filter="{question_step:'number'}">{{users.question_step}}</td>
 						<!-- <td data-title="'CREATE_TIME'" sortable="'first_create_time'" filter="{first_create_time:'text'}">{{users.first_create_time}}</td>
 						<td data-title="'LAST_MODIFICATION_DATE'" sortable="'last_modified_time'" filter="{last_modified_time:'text'}">{{users.last_modified_time}}</td> -->
 						<td data-title="'TIME USED'" sortable="'timeUse'" filter="{timeUse:'text'}">{{users.timeUse}}</td>
-						<td data-title="'PHOTO_OVERVIEW'"><img ng-if="users.photo_path" ng-src="http://localhost:8082/img/user/{{users.photo_path}}"/></td>
+						<!-- <td data-title="'PHOTO_OVERVIEW'" class="rank{{$index}}_photo" ><img ng-if="users.photo_path" ng-src="http://localhost:8082/img/user/{{users.photo_path}}"/></td> -->
 					</tr>
 				<!-- </tbody> -->
 			</table>
