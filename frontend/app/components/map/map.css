@@ -78,15 +78,14 @@ ng-map {
 /* On small screens*/
 @media only screen and (max-width: 1000px) {
 	.map-sidescreen {
-		height: 50%;
-		width: 100%;
+		display: none;
 	}
 	.modal-content {
 		top: 0%;
 	}
 	#question-modal {
 		left: 0%;
-		top: 50%;
+		height: 100%;
 		width: 100%;
 	}
 }

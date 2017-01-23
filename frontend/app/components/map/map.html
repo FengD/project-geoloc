@@ -47,14 +47,14 @@
                         </div>
                         <md-button class="md-raised md-primary" style="width:100%;margin-left:auto;margin-right:auto" ng-click="mctrl.toggleCommentsPanel()"><span class="btn-inner-icon glyphicon glyphicon-option-horizontal"></span></md-button>
                     </div>
-                <!-- Leave a Comment: -->
-                                        <h4>Leave a Comment:</h4>
-                                        <form role="form">
-                                            <div class="form-group">
-                                                <textarea class="form-control" rows="3" required></textarea>
-                                            </div>
-                                            <button type="submit" class="btn btn-success">Submit</button>
-                                        </form>
+                    <!-- Leave a Comment: -->
+                    <div ng-show="!showCommentsPanel" class="w3-container">
+                        <h4>Leave a Comment:</h4>
+                        <div class="input-group">
+                            <textarea type="text" ng-model="mctrl.userComment" class="form-control" placeholder="Write comment here..."></textarea>
+                        </div>
+                        <md-button type="submit" class="md-raised md-primary" ng-click="mctrl.submitComment()">Comment</md-button>
+                    </div>
                     <!-- COMMENTS PANEL -->
                     <div ng-show="showCommentsPanel" class="comments-detail-container w3-container w3-content">
                         <h3>Comments Panel</h3>
@@ -78,21 +78,6 @@
                             </div>
                         </md-card>
                     </div>
-
-                    <!-- Comments -->
-                    <!--                        <div class="comments-area" ng-if='oneQuestion.hasComments'>
-                                                <p><span class="badge">2</span> Comments:</p>
-                                                <ul class="list-group">
-                                                    <li class="list-group-item"  ng-repeat='comments in oneQuestion.comments'>
-                                                        <h4>{{comments._id}}</h4>
-                                                        <p>{{comments.text}}</p>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                            <hr>-->
-
-
-
 
             </modal>
         </div>
