@@ -14,4 +14,12 @@ angular.module('geolocApp')
             
             $location.path('/');
         };
+
+        if($cookies.get('name')){
+            $rootScope.name = $cookies.get('name');
+            $rootScope.password = $cookies.get('password');
+            $rootScope.userType = $cookies.get('userType');
+            $rootScope.question_step = $cookies.get('question_step');
+            $rootScope.userPhoto = $cookies.get('photo_path');
+        }
     });

@@ -42,7 +42,7 @@ angular.module('geolocApp')
                 redirectTo: '/'
     		});
 	}]).
-    run(['$rootScope', '$location', 'PermissionsService', function($rootScope, $location, PermissionsService) {
+    run(['$rootScope', '$location', 'PermissionsService', '$cookies', function($rootScope, $location, PermissionsService, $cookies) {
         // $rootScope.edit = function() {
         //   PermissionsService.setPermission('login', false);
         //   $location.path('/edit');
@@ -52,8 +52,10 @@ angular.module('geolocApp')
             // console.log(next);
             // console.log(next.templateUrl);
             // console.log(current);
-            if ($rootScope.name) {
-                if("user".localeCompare($rootScope.userType) === 0){
+
+
+            if ($cookies.get('name')) {
+                if("user".localeCompare($cookies.get('userType')) === 0){
                     if("app/components/login/login.html".localeCompare(next.templateUrl) === 0){
                         $location.path('/login');
                     } 
@@ -61,13 +63,41 @@ angular.module('geolocApp')
                     else if("app/components/map/map.html".localeCompare(next.templateUrl) === 0){
                         $location.path('/map');
                     }
+// -------------------------------------------------------------------------------------------------------- YAN ADD END
                     else if("app/components/howToPlay/howToPlay.html".localeCompare(next.templateUrl) === 0){
                         $location.path('/howToPlay');
                     }
                     else if("app/components/ranking/ranking.html".localeCompare(next.templateUrl) === 0){
                         $location.path('/ranking');
                     }
-// -------------------------------------------------------------------------------------------------------- YAN ADD END
+                    else{
+                        $location.path('/');
+                    }
+                }else if("admin".localeCompare($cookies.get('userType')) === 0){
+                	if("app/components/login/login.html".localeCompare(next.templateUrl) === 0){
+                        $location.path('/login');
+                    } 
+                    else if("app/components/howToPlay/howToPlay.html".localeCompare(next.templateUrl) === 0){
+                        $location.path('/howToPlay');
+                    }
+                    else if("app/components/map/map.html".localeCompare(next.templateUrl) === 0){
+                        $location.path('/map');
+                    }
+                    else if("app/components/ranking/ranking.html".localeCompare(next.templateUrl) === 0){
+                        $location.path('/ranking');
+                    }
+                    else if("app/components/addQuestion/addQuestion.html".localeCompare(next.templateUrl) === 0){
+                        $location.path('/addQuestion');
+                    }
+                    else if("app/components/questionOverview/questionOverview.html".localeCompare(next.templateUrl) === 0){
+                        $location.path('/questionOverview');
+                    }
+                    else if("app/components/manageQuestion/manageQuestion.html".localeCompare(next.templateUrl) === 0){
+                        $location.path('/manageQuestion');
+                    }
+                    else if("app/components/manageUser/manageUser.html".localeCompare(next.templateUrl) === 0){
+                        $location.path('/manageUser');
+                    }
                     else{
                         $location.path('/');
                     }
@@ -76,9 +106,11 @@ angular.module('geolocApp')
                 if("app/components/login/login.html".localeCompare(next.templateUrl) === 0){
                     $location.path('/login');
 
-                }else if ("app/components/map/map.html".localeCompare(next.templateUrl) === 0) {
-                    $location.path('/map');
-                }else if("app/components/howToPlay/howToPlay.html".localeCompare(next.templateUrl) === 0){
+                }
+                // else if ("app/components/map/map.html".localeCompare(next.templateUrl) === 0) {
+                //     $location.path('/map');
+                // }
+                else if("app/components/howToPlay/howToPlay.html".localeCompare(next.templateUrl) === 0){
                         $location.path('/howToPlay');
                 }
                 else if("app/components/ranking/ranking.html".localeCompare(next.templateUrl) === 0){

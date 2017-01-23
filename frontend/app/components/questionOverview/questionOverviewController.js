@@ -44,11 +44,26 @@ angular.module('geolocApp')
             // place a marker
             function setMarker(map, position, title, content, choices, type) {
                 var marker;
+
+                var markerIconLeeds = {
+                  url: Server.getUrl() + ":8082/img/question/question" + title + ".png",
+                  size: new google.maps.Size(216, 151),
+                  origin: new google.maps.Point(0, 0),
+                  anchor: new google.maps.Point(192, 148)
+                };
+
+                var markerShapeLeeds = {
+                      coord: [18,8,208,28,200,113,162,110,190,145,128,109,6,93],
+                      type: 'poly'
+                };
                 var markerOptions = {
                     position: position,
                     map: map,
                     title: title,
-                    icon: 'app/resources/images/google-map-icon/number_' + title + ".png"
+                    icon:markerIconLeeds,
+                    shape:markerShapeLeeds
+
+                    // icon: 'app/resources/images/google-map-icon/number_' + title + ".png"
                 };
 
                 marker = new google.maps.Marker(markerOptions);
