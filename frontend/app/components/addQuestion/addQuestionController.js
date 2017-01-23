@@ -237,10 +237,11 @@ angular.module('geolocApp')
 	    // };
 
 	    $scope.uploadFile = function(element) {
+	    	// console.log(element.files);
 	    	// $scope.progressVisible = true
 	        for (var i = 0; i < element.files.length; i++) {
 	          $scope.files.push(element.files[i]);
-	          $scope.questionInfo["photoPath"]=element.files[i].name;
+	          $scope.questionInfo["photoPath"] = element.files[i].name;
 	        }
 	        var fd = new FormData();
 	        for (var i in $scope.files) {
@@ -269,6 +270,7 @@ angular.module('geolocApp')
 	    function uploadComplete(evt) {
 	        /* This event is raised when the server send back a response */
 	        alert(evt.target.responseText)
+	        $scope.files = [];
 	    }
 
 	    function uploadFailed(evt) {

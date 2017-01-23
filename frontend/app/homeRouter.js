@@ -105,7 +105,7 @@ angular.module('geolocApp')
     }])
     .factory('Server', function($http) {
 
-        var URLServer = 'http://172.20.10.5';
+        var URLServer = 'http://10.212.117.220';
 
         return {
 
