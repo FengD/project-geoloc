@@ -18,6 +18,53 @@
 	height: 100%;
 }
 
+.main-panel {
+	height: 85%;
+}
+
+.side-nav {
+	height: 85%;
+}
+
+.map-card {
+	height: 100%;
+}
+
+.map-container {
+	height: 100%;
+}
+
+.question-card {
+	height: 100%;
+}
+
+.question-container {
+	height: 100%;
+	overflow: auto;
+}
+
+.comment-card {
+	height: 100%;
+}
+
+.comments-container {
+	height: 100%;
+	overflow: auto;
+}
+
+.icon-container {
+	height: 30%;
+	width: auto;
+	margin-left: 50px;
+	margin-bottom: 5%;
+}
+
+.icon {
+	display: block;
+	height: 100%;
+	width: auto;
+}
+
 ng-map {
 	height: 100%;
 }
@@ -67,11 +114,6 @@ ng-map {
 .map-detail {
 	width: 100%;
 	height: 100%;
-}
-
-.question-container {
-	height: 100%;
-	overflow: auto;
 }
 
 .comments-overview-container {

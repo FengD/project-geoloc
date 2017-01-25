@@ -1,2 +1,2 @@
 
-angular.module('geolocApp',['ngRoute','ngCookies', 'angular-loading-bar','xeditable','ngTable','ngMap','ngMaterial']);
+angular.module('geolocApp',['ngRoute','ngCookies', 'angular-loading-bar','xeditable','ngTable','ngMap','ngMaterial','ngAnimate']);

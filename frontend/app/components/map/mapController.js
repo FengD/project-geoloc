@@ -4,8 +4,8 @@ angular.module('geolocApp')
     .controller('mapController', function ($scope, $cookies, $http, $window, NgMap, Server) {
 
         function initPage() {
-            $scope.showMap = true;
-            $scope.map_style = 'map-fullscreen';
+            $scope.current_card = 'map';
+            $scope.mapTypeId = 'ROADMAP';
             $scope.map_zoom = 15;
             $scope.showModal = false;
             $scope.showCommentsPanel = false;
@@ -93,7 +93,6 @@ angular.module('geolocApp')
             });
         }
 
-
         $scope.initPage = initPage();
 
         /* Set animations and customization on the marker */
@@ -104,29 +103,16 @@ angular.module('geolocApp')
             marker = map.markers[0];
         });
 
-        /* Set click event on the marker */
-        mctrl.click = function(event) {
-/*            $scope.map_zoom = 22;
-            $scope.mapTypeId = 'SATELLITE';*/
-            $scope.map_style = 'map-nodisplay';
-            $scope.showModal = !$scope.showModal;
-            if ($scope.showModal) {
-                NgMap.getMap('detail-map').then(function(map) {
-                    window.setTimeout(function () {
-                        google.maps.event.trigger(map, 'resize');
-                    }, 500);
-                });
+        /* Set click event on the map marker */
+        mctrl.toggleMapType = function() {
+            if ($scope.mapTypeId == 'ROADMAP') {
+                $scope.mapTypeId = 'SATELLITE';
+                $scope.map_zoom = 22;
+            } else {
+                $scope.mapTypeId = 'ROADMAP';
+                $scope.map_zoom = 15;
             }
-
         };
-
-        /* Set click event on the Modal close */
-        $scope.closeModal = function() {
-            $scope.map_zoom = 15;
-            $scope.map_style = 'map-fullscreen';
-            $scope.mapTypeId = 'ROADMAP';
-        };
-
 
         /* Set click event on the Submit button */
         mctrl.submitAnswer = function() {
@@ -222,18 +208,20 @@ angular.module('geolocApp')
             }
         };
 
-        /* Toggle boolean showCommentsPanel */
-        mctrl.toggleCommentsPanel = function () {
-            if ($scope.showCommentsPanel) {
-                $scope.showCommentsPanel = false;
-            }
-            else {
-                $scope.showCommentsPanel = true;
-            }
+        /* Toggle var current_card to switch cards */
+        mctrl.switchToMap = function () {
+            $scope.current_card = 'map';
+        };
+        mctrl.switchToQuestion = function () {
+            $scope.current_card = 'question';
+        };
+        mctrl.switchToComment = function () {
+            $scope.current_card = 'comment';
         };
 
-    })
-    .directive('questionModal', function () {
+
+    });
+    /*.directive('questionModal', function () {
         return {
             template:
             '<div class="modal fade">' +
@@ -274,4 +262,4 @@ angular.module('geolocApp')
                 });
             }
         };
-    });
+    });*/
