@@ -189,6 +189,11 @@ function clean() {
 	mongoConnection.disconnect();
 }
 
+
+// function test(callback) {
+// 	mongoConnection.getDatabase().collection(USERS_COLLECTION).findAndModify(
+// }
+
 // // Exports
 
 exports.createUser = createUser;
