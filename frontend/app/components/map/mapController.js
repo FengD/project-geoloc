@@ -198,6 +198,7 @@ angular.module('geolocApp')
                 }).then(function successCallback(success) {
                     console.log(success);
                     mctrl.userComment = '';
+                    mctrl.modalStyle = {display:'none'};
                     updateCurrentQuestion(function(data) {
                         $scope.current_question.comments.push(data.comments[data.comments.length-1]);
                     });

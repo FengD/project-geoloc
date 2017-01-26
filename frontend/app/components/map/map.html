@@ -1,5 +1,5 @@
 <div class="container" ng-controller="mapController as mctrl" ng-init="initPage" id="playMap">
-
+    <!-- Side Panel -->
     <div class="side-nav col-lg-3 col-md-3 col-sm-12 col-xs-12">
         <div class="icon-container">
             <img class="icon w3-card-2 w3-hover-shadow w3-round-xxlarge" src="app/resources/images/icons_game/Map.jpg" ng-click="mctrl.switchToMap()" alt="map">
@@ -11,8 +11,9 @@
             <img class="icon w3-card-2 w3-hover-shadow w3-round-xxlarge" src="app/resources/images/icons_game/Comments.png" ng-click="mctrl.switchToComment()" alt="comments">
         </div>
     </div>
-
+    <!-- Main Panel -->
     <div class="main-panel col-lg-9 col-md-9 col-sm-12 col-xs-12">
+        <!-- Map Card -->
         <div ng-show="current_card == 'map'" class="map-card w3-card-12">
             <div class="map-container w3-display-container w3-text-white">
                 <ng-map id="game-map" ng-class="map_style" zoom="{{map_zoom}}" center="[{{center_lat}}, {{center_lon}}]" map-type-id="{{mapTypeId}}">
@@ -20,6 +21,7 @@
                 </ng-map>
             </div>
         </div>
+        <!-- Question Card -->
         <div ng-show="current_card == 'question'" class="question-card w3-card-12">
             <div class="question-container w3-container w3-content">
                 <h4>{{ question_text }}</h4>
@@ -54,35 +56,40 @@
                 </form>
             </div>
         </div>
+        <!-- Comments card -->
         <div ng-show="current_card == 'comment'" class="comment-card w3-card-12">
             <div class="comments-container w3-container w3-content">
-                <h3>Comments Panel</h3>
-                <md-card ng-repeat="comment in current_question.comments" class="w3-card-2 w3-hover-shadow"  md-theme="default" md-theme-watch="">
-                    <md-card-title>
-                        <md-card-title-text>
-                            <span class="md-headline" style="font-size:20px;">{{comment.text}}</span>
-                            <span class="md-subhead" style="font-size: 15px"> By {{comment.user_id}}</span>
-                        </md-card-title-text>
-                        <md-card-title-media>
-                            <div class="md-media-md card-media"><img src="{{server_adresse}}:8082/img/comment/{{comment.photo_path}}"></div>
-                        </md-card-title-media>
-                    </md-card-title>
-                    <div>
-                        <a class="w3-btn-floating btn-floating w3-indigo" ng-click="mctrl.submitLove(comment._id)"><i class="glyphicon glyphicon-thumbs-up"></i></a>
-                        <span>Loved by </span>
-                        <span class="w3-text-blue" ng-repeat="vote in comment.votes">{{vote}}</span>
+                <div ng-repeat="comment in current_question.comments" class="w3-container w3-content w3-card-2 w3-hover-shadow comment-container col-lg-5 col-md-5 col-sm-12 col-xs-12">
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                        <img src="{{server_adresse}}:8082/img/comment/{{comment.photo_path}}" style="width:100%">
                     </div>
-                </md-card>
-                <div class="w3-container">
-                    <h4>Leave a Comment:</h4>
-                    <div class="input-group">
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                        <h4>{{comment.text}}</h4>
+                        <p class="w3-text-gray">By {{comment.user_id}}</p>
+                    </div>
+                    <div class="w3-container col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <img src="app/resources/images/icons_game/Love.png" class="w3-btn-floating btn-floating" ng-click="mctrl.submitLove(comment._id)" style="height:100%" alt="love">
+                        <span ng-show="comment.votes.length !== 0">Loved by </span>
+                        <span class="w3-text-blue" ng-repeat="vote in comment.votes">{{vote}} </span>
+                    </div>
+                </div>
+                <a id="comment-button" class="w3-btn-floating-large w3-display-bottomright w3-indigo" ng-click="mctrl.modalStyle={display:'block'}"><span class="glyphicon glyphicon-pencil"></span></a>
+                <!-- Add Comments Modal -->
+                <div id="leave-comment" class="w3-modal w3-animate-zoom" ng-style="mctrl.modalStyle">
+                    <div class="w3-modal-content w3-card-12">
+                        <header class="w3-container">
+                            <span ng-click="mctrl.modalStyle={display:'none'}" class="w3-closebtn">&times;</span>
+                        </header>
                         <textarea type="text" ng-model="mctrl.userComment" class="form-control" placeholder="Write comment here..."></textarea>
+                        <button class="w3-btn-block w3-indigo" ng-click="mctrl.submitComment()">Add Comment</button>
                     </div>
-                    <md-button type="submit" class="md-raised md-primary" ng-click="mctrl.submitComment()">Comment</md-button>
                 </div>
             </div>
         </div>
     </div>
+
+</div>
+
 
     <!--<div ng-show="showMap" class="row" id="playMap-row">
         <div class="col-md-12" id="playMap-container">
@@ -172,4 +179,3 @@
             </modal>
         </div>
     </div>-->
-</div>
