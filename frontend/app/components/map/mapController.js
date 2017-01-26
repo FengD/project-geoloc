@@ -154,6 +154,8 @@ angular.module('geolocApp')
             }
             if (!isCorrect) {
                 alert("Oops, not correct, please retry!");
+            } else {
+                $scope.current_card = 'map';
             }
         };
 

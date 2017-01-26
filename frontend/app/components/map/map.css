@@ -132,5 +132,20 @@ ng-map {
 
 /* On small screens*/
 @media only screen and (max-width: 1000px) {
-
+    #playMap {
+        margin-top: 15px;
+    }
+    .side-nav {
+        height: 10%;
+    }
+    .main-panel {
+        height: 75%;
+    }
+    .icon-container {
+        display: inline-block;
+        height: 80%;
+    }
+    .w3-round-xxlarge {
+        border-radius: 10px !important;
+    }
 }
