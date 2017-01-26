@@ -12,36 +12,36 @@ var assert = require('assert'),
 // 	};
 
   var zhengqin = {
-  name: "zhengqin",
-  password: "meurguez"
+  name: "admin",
+  password: "admin"
 };
 
 
 describe('user', function() {
 
-  // before(function(done) {
-  //   // runs before all tests in this block
-  //   user.init(function (error) {
-  //     logger.info(error);
-  //   });
-    // logger.info("Initializing test suite...");
-    // user.removeUser("zhengqin", function(err, result) {
-    //   // expect(result).to.not.equal(null);
-    // });
-    // user.createUser(zhengqin, function(err, result) {
-    //   // expect(result).to.not.equal(null);
-    //   assert.notEqual(result, null);
-    // });
-  //   done();
-  // });
+  before(function(done) {
+    // runs before all tests in this block
+    user.init(function (error) {
+      logger.info(error);
+    });
+    logger.info("Initializing test suite...");
+    user.removeUser("zhengqin", function(err, result) {
+      // expect(result).to.not.equal(null);
+    });
+    user.createUser(zhengqin, function(err, result) {
+      // expect(result).to.not.equal(null);
+      assert.notEqual(result, null);
+    });
+    done();
+  });
 
-  // after(function() {
-  //   // runs after all tests in this block
-  //   logger.info("End of test suite, cleaning...");
-  //   user.removeUser("zhengqin", function(err, result) {
-  //     // expect(result).to.not.equal(null);
-  //   });
-  // });
+  after(function() {
+    // runs after all tests in this block
+    logger.info("End of test suite, cleaning...");
+    user.removeUser("zhengqin", function(err, result) {
+      // expect(result).to.not.equal(null);
+    });
+  });
 
   // beforeEach(function() {
   //   // runs before each test in this block
@@ -55,7 +55,7 @@ describe('user', function() {
   describe('#createUser()', function() {
     // logger.info("test create user");
     it('user should exist', function() {
-      user.getUser("zhengqin", "meurguez", function(err, result) {
+      user.getUser("admin", "admin", function(err, result) {
         // assert.notEqual(result, null);
         logger.info("result = " + result);
       });
