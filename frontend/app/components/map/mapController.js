@@ -123,20 +123,23 @@ angular.module('geolocApp')
                     for (var i = 0; i < $scope.answers.length; i++) {
                         if (mctrl.userAnswer.toLowerCase() == $scope.answers[i]) {
                             updateQuestionStep(updateCookies ,initPage);
-                            mctrl.userAnswer = '';
                             isCorrect = true;
+                            mctrl.userAnswer = '';
                             break;
                         }
                     }
+                    mctrl.userAnswer = '';
                     break;
                 case 'single-choice':
                     for (var i = 0; i < $scope.answers.length; i++) {
                         if (mctrl.userAnswer == $scope.answers[i]) {
                             updateQuestionStep(updateCookies ,initPage);
                             isCorrect = true;
+                            mctrl.userAnswer = '';
                             break;
                         }
                     }
+                    mctrl.userAnswer = '';
                     break;
                 case 'multi-choice':
                     var nb_rightChoices = 0;
@@ -147,6 +150,10 @@ angular.module('geolocApp')
                     if (nb_rightChoices == $scope.answers.length) {
                         updateQuestionStep(updateCookies ,initPage);
                         isCorrect = true;
+                    }
+                    //Clear the check box
+                    for (var i = 0; i < $scope.choices.length; i++) {
+                        $scope.choices[i][1] = false;
                     }
                     break;
                 default:
