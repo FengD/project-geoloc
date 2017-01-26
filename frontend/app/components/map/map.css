@@ -52,6 +52,10 @@
 	overflow: auto;
 }
 
+.comment-container {
+    margin: 5px;
+}
+
 .icon-container {
 	height: 30%;
 	width: auto;
@@ -86,27 +90,6 @@ ng-map {
 	overflow: auto;
 }
 
-.modal {
-	height: 100%;
-	width: 100%;
-}
-
-.modal-dialog {
-	height: 100%;
-	width: 100%;
-}
-
-.modal-content {
-	top: -5%;
-	height: 100%;
-	overflow: auto;
-}
-
-.modal-body {
-	width: 100%;
-	height: 90%;
-}
-
 .map-detail-container {
 	height: 100%;
 }
@@ -122,12 +105,13 @@ ng-map {
 }
 
 .btn-floating {
-	margin: 5px;
-	font-weight: bold;
+	margin: 4px;
 }
 
-.btn-inner-icon {
-	margin-top: 7px;
+#comment-button {
+    margin-right: 25px;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
 /* On small screens*/

@@ -137,6 +137,7 @@ angular.module('geolocApp')
     }])
     .factory('Server', function($http) {
 
+        //10.212.117.220
         var URLServer = 'http://localhost';
 
         return {
