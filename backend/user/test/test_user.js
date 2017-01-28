@@ -34,7 +34,10 @@ suite("users", function() {
 					logger.error(err);
 					throw err;
 				}
-				assert.deepEqual(testMocha, result);
+				// console.log(result.ops);
+				// assert.deepEqual(testMocha, result);
+				assert.equal(testMocha.name,result.ops[0].name);
+				assert.equal(testMocha.password,result.ops[0].password);
 				done();
 			});
 		});
