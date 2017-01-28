@@ -25,7 +25,12 @@ echo "installing uploadImage service..."
 cd ../uploadImage
 npm install
 
+# initial all questions
+cd ../..
+mongo localhost/geoloc initialQuestions.js
+
+
 # installing frontend
-cd ../../frontend
+cd frontend
 bower install
 npm install
