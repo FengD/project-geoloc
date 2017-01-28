@@ -193,6 +193,48 @@ suite("users service", function(){
 				.expect(400, done);
 		});
 
+		test("should update the question step of testMocha to 3", function (done) {
+			request(userService)
+				.post("/users/updateQuestionStep/" + testMocha.name)
+				.send({ step: 3 })
+				.expect(200)
+				.end(function (err, res) {
+					if (err) {
+						logger.error(err);
+						throw err;
+					}
+					done();
+				});
+		});
+
+		test("should update the photo path of testMocha to test.jpg", function (done) {
+			request(userService)
+				.post("/users/updatePhotoPath/" + testMocha.name)
+				.send({ photo: "test.jpg" })
+				.expect(200)
+				.end(function (err, res) {
+					if (err) {
+						logger.error(err);
+						throw err;
+					}
+					done();
+				});
+		});
+
+		test("should update the current chance of testMocha to 4", function (done) {
+			request(userService)
+				.post("/users/updateCurrentChance/" + testMocha.name)
+				.send({ chance: 4 })
+				.expect(200)
+				.end(function (err, res) {
+					if (err) {
+						logger.error(err);
+						throw err;
+					}
+					done();
+				});
+		});
+
 		test("should get all users", function (done) {
 			request(userService)
 				.get("/users/allUser")
