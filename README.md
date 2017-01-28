@@ -1,7 +1,7 @@
 # project-geoloc
 
 ## Introduction
-Our project which name is geoloc is a game like orienteering. During your play you need to answer the questions step by step to achieve the final goal. It shows you a place on the google map and you need to go to that place to find out the answer of the question which asked by the system. If your answer is correct you could get a new question, if not you need to try to find out another response.    
+Our project which name is geoloc is a game like orienteering. During your play, you need to answer the questions step by step to achieve the final goal. It shows you a place on the google map and you need to go to that place to find out the answer of the question which asked by the system. If your answer is correct you could get a new question, if not you need to try to find out another response.    
 
 This documents gives you the instructions of how to install and to use this application.
 
@@ -71,10 +71,10 @@ To stop the application please close each service manually.
 You can run the command `mocha -u tdd` in each backend subdirectory (`backend/user`, `backend/question`, `backend/uploadImage`) in order to run each service related test suites.
 
 ## Team
- * Feng DING, database structure design, user service, question service, uploadImage service (backend)
- * Thibaut SORIANO, (backend)
- * Zhengqin YAN, Angular, login and signup (frontend)
- * Kaiwen YU, Angular, google map window, question blog (frontend)
+ * Feng DING, database structure design, user service, question service, uploadImage service (backend) all the admin functionnalities (frontend)
+ * Thibaut SORIANO, mocha test of all the services (backend)
+ * Zhengqin YAN, Angular, login and signup, google map, questions and its blog (frontend)
+ * Kaiwen YU
 
 ## Links
 [MongoDB offical website][1]
