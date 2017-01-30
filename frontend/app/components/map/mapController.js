@@ -4,33 +4,41 @@ angular.module('geolocApp')
     .controller('mapController', function ($scope, $cookies, $http, $window, NgMap, Server) {
 
         function initPage() {
+            $scope.isSuccess = false;
             $scope.current_card = 'map';
             $scope.mapTypeId = 'ROADMAP';
             $scope.map_zoom = 15;
             $scope.showModal = false;
             $scope.showCommentsPanel = false;
             $scope.tilt = 45;
-            $scope.mapTypeId = 'ROADMAP';
             $scope.server_adresse = Server.getUrl();
 
-            updateCurrentQuestion(function(data) {
-                $scope.current_question = data;
-                $scope.center_lat = $scope.current_question.position.latitude;
-                $scope.center_lon = $scope.current_question.position.longitude;
-                $scope.marker_lat = $scope.current_question.position.latitude;
-                $scope.marker_lon = $scope.current_question.position.longitude;
-                $scope.question_text = $scope.current_question.question;
-                $scope.question_type = $scope.current_question.type;
-                $scope.answers = $scope.current_question.answers;
-                if ($scope.question_type == 'multi-choice') {
-                    $scope.choices = [];
-                    for (var i = 0; i < $scope.current_question.choices.length; i++) {
-                        $scope.choices.push([$scope.current_question.choices[i], false]);
-                    }
-                } else if ($scope.question_type == 'single-choice' || $scope.question_type == 'essay') {
-                    $scope.choices = $scope.current_question.choices;
+            updateCookies(function() {
+                if ($cookies.get('current_chance') == '0') {
+                    $scope.isFail = true;
+                } else {
+                    $scope.isFail = false;
                 }
-            });
+
+                updateCurrentQuestion(function(data) {
+                    $scope.current_question = data;
+                    $scope.center_lat = $scope.current_question.position.latitude;
+                    $scope.center_lon = $scope.current_question.position.longitude;
+                    $scope.marker_lat = $scope.current_question.position.latitude;
+                    $scope.marker_lon = $scope.current_question.position.longitude;
+                    $scope.question_text = $scope.current_question.question;
+                    $scope.question_type = $scope.current_question.type;
+                    $scope.answers = $scope.current_question.answers;
+                    if ($scope.question_type == 'multi-choice') {
+                        $scope.choices = [];
+                        for (var i = 0; i < $scope.current_question.choices.length; i++) {
+                            $scope.choices.push([$scope.current_question.choices[i], false]);
+                        }
+                    } else if ($scope.question_type == 'single-choice' || $scope.question_type == 'essay') {
+                        $scope.choices = $scope.current_question.choices;
+                    }
+                });
+            })
         }
 
         function updateCurrentQuestion(callback) {
@@ -46,6 +54,7 @@ angular.module('geolocApp')
                 console.log("error");
                 console.log(error);
                 if (error.status == '400') {
+                    $scope.isSuccess = true;
                     console.log('Well done, you have finished all the questions!');
                 }
                 $scope.showMap = false;
@@ -53,7 +62,7 @@ angular.module('geolocApp')
 
         }
 
-        function updateCookies(cb_initPage) {
+        function updateCookies(cb) {
             $http({
                 method: 'POST',
                 url: Server.getUrl() + ':8080/users/' + $cookies.get('name'),
@@ -66,9 +75,25 @@ angular.module('geolocApp')
                     // this will set the expiration to 6 months
                     exp = new $window.Date(now.getFullYear(), now.getMonth() + 6, now.getDate());
                 $cookies.put('question_step', success.data.question_step, {expires: exp});
-                console.log(success.data.question_step);
-                cb_initPage();
+                $cookies.put('current_chance', success.data.current_chance, {expires: exp});
+                cb();
 
+            }, function errorCallback(error) {
+                console.log("error");
+                console.log(error);
+            });
+        }
+
+        function updateCurrentChance(current_chance, cb_updateCookies, cb2) {
+            $http({
+                method: 'POST',
+                url: Server.getUrl() + ':8080/users/updateCurrentChance/' + $cookies.get('name'),
+                data: {
+                    chance: current_chance
+                }
+            }).then(function successCallback(success) {
+                console.log(success);
+                cb_updateCookies(cb2);
             }, function errorCallback(error) {
                 console.log("error");
                 console.log(error);
@@ -160,6 +185,15 @@ angular.module('geolocApp')
                     console.log('Error: unknown current question type');
             }
             if (!isCorrect) {
+                var num_newChance = parseInt($cookies.get('current_chance')) - 1;
+                var str_newChance = num_newChance.toString();
+                updateCurrentChance(num_newChance, updateCookies, function () {
+                    if ($cookies.get('current_chance') == '0') {
+                        $scope.isFail = true;
+                    } else {
+                        $scope.isFail = false;
+                    }
+                });
                 alert("Oops, not correct, please retry!");
             } else {
                 $scope.current_card = 'map';

@@ -52,6 +52,7 @@ angular.module('geolocApp')
                 $cookies.put('name', success.data.name, {expires: exp});
                 $cookies.put('password', success.data.password, {expires: exp});
                 $cookies.put('question_step', success.data.question_step, {expires: exp});
+                $cookies.put('current_chance', success.data.current_chance, {expires: exp});
                 $cookies.put('photo_path', success.data.photo_path, {expires: exp});
                 console.log(success.data.question_step);
                 console.log(success.data.user_type);

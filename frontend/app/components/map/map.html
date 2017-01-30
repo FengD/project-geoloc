@@ -1,6 +1,6 @@
 <div class="container" ng-controller="mapController as mctrl" ng-init="initPage" id="playMap">
     <!-- Side Panel -->
-    <div class="side-nav col-lg-3 col-md-3 col-sm-12 col-xs-12">
+    <div ng-hide="isSuccess || isFail" class="side-nav col-lg-3 col-md-3 col-sm-12 col-xs-12">
         <div class="icon-container">
             <img class="icon w3-card-2 w3-hover-shadow w3-round-xxlarge" src="app/resources/images/icons_game/Map.jpg" ng-click="mctrl.switchToMap()" alt="map">
         </div>
@@ -12,7 +12,7 @@
         </div>
     </div>
     <!-- Main Panel -->
-    <div class="main-panel col-lg-9 col-md-9 col-sm-12 col-xs-12">
+    <div ng-hide="isSuccess || isFail" class="main-panel col-lg-9 col-md-9 col-sm-12 col-xs-12">
         <!-- Map Card -->
         <div ng-show="current_card == 'map'" class="map-card w3-card-12">
             <div class="map-container w3-display-container w3-text-white">
@@ -86,6 +86,14 @@
                 </div>
             </div>
         </div>
+    </div>
+
+    <div ng-show="isSuccess" class="w3-panel w3-card-2 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <p>Success!</p>
+    </div>
+
+    <div ng-show="isFail" class="w3-panel w3-card-2 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <p>Fail!</p>
     </div>
 
 </div>

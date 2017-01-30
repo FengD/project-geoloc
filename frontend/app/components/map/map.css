@@ -58,6 +58,7 @@
 
 .icon-container {
 	height: 30%;
+	min-height: 100px;
 	width: auto;
 	margin-left: 50px;
 	margin-bottom: 5%;
@@ -128,6 +129,7 @@ ng-map {
     .icon-container {
         display: inline-block;
         height: 80%;
+		max-height: 50px;
     }
     .w3-round-xxlarge {
         border-radius: 10px !important;
