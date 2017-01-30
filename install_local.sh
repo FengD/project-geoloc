@@ -27,7 +27,7 @@ npm install
 
 # initial all questions
 cd ../..
-mongo localhost/geoloc initialQuestions.js
+mongo localhost/geoloc initial.js
 
 
 # installing frontend

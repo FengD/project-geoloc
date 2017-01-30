@@ -153,9 +153,24 @@ var question6 = {
 
 }
 
+
+var admin = {
+	"_id" : "admin",
+	"name" : "admin",
+	"password" : "admin",
+	"first_create_time" : new Date(),
+	"last_modified_time" : new Date(),
+	"user_type" : "admin",
+	"question_step" : "4",
+	"photo_path" : "default.jpg",
+	"current_chance" : 5
+
+}
+
 db.questions.insert(question1);
 db.questions.insert(question2);
 db.questions.insert(question3);
 db.questions.insert(question4);
 db.questions.insert(question5);
 db.questions.insert(question6);
+db.users.insert(admin);
