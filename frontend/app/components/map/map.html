@@ -61,8 +61,14 @@
         <!-- Comments card -->
         <div ng-show="current_card == 'comment'" class="comment-card w3-card-12">
             <div class="comments-container w3-container w3-content">
+                <div ng-show="current_question.comments.length == 0">
+                    <div id="comment-smile-container">
+                        <img id="comment-smile" src="app/resources/images/icons_game/smile.svg" alt="comment-smile">
+                    </div>
+                    <h3 style="text-align: center">No comment yet, please leave the first comment</h3>
+                </div>
                 <div ng-repeat="comment in current_question.comments" class="w3-container w3-content w3-card-2 w3-hover-shadow comment-container col-lg-5 col-md-5 col-sm-12 col-xs-12">
-                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                    <div ng-hide="comment.photo_path == null" class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
                         <img src="{{server_adresse}}:8082/img/comment/{{comment.photo_path}}" style="width:100%">
                     </div>
                     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
@@ -71,7 +77,6 @@
                     </div>
                     <div class="w3-container col-lg-12 col-md-12 col-sm-12 col-xs-12">
                         <img src="app/resources/images/icons_game/Love.png" class="w3-btn-floating btn-floating" ng-click="mctrl.submitLove(comment._id)" style="height:100%" alt="love">
-                        <span ng-show="comment.votes.length !== 0">Loved by </span>
                         <span class="w3-text-blue" ng-repeat="vote in comment.votes">{{vote}} </span>
                     </div>
                 </div>

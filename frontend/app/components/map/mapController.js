@@ -212,6 +212,8 @@ angular.module('geolocApp')
             }
         };
 
+
+        /* Set submit listener on love button in comment panel */
         mctrl.submitLove = function(comment_id) {
                 $http({
                     method: 'POST',
@@ -239,6 +241,7 @@ angular.module('geolocApp')
 
         };
 
+        /* set submit listener on submit button in comment panel */
         mctrl.submitComment = function() {
             if (mctrl.userComment != '' || mctrl.userComment != null) {
                 $http({
