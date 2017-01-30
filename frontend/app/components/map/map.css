@@ -60,7 +60,6 @@
 	height: 30%;
 	min-height: 100px;
 	width: auto;
-	background-color: white;
 	margin-left: 50px;
 	margin-bottom: 5%;
 }
@@ -69,6 +68,7 @@
 	display: block;
 	height: 100%;
 	width: auto;
+	background-color: floralwhite;
 }
 
 ng-map {
@@ -138,35 +138,102 @@ ng-map {
 	max-height: 200px;
 }
 
-/* On small screens*/
-@media only screen and (max-width: 800px) {
+/* On ipad wide screen */
+@media only screen and (min-width: 992px) and  (max-width: 1025px) {
+	.side-nav {
+		left: -40px;
+	}
+}
+
+/* On screens smaller than md */
+@media only screen and (min-width: 800px) and (max-width: 992px) {
 	#playMap {
-		margin-top: 15px;
+		margin-top: 10px;
 	}
 	.side-nav {
-		height: 10%;
+		height: 15%;
+		margin-bottom: 20px;
 	}
 	.main-panel {
-		height: 90%;
+		height: 85%;
 	}
 	.icon-container {
 		display: inline-block;
 		height: 90%;
 		min-height: 50px;
-		margin-left: 120px;
-	}
-	.w3-round-xxlarge {
-		border-radius: 10px !important;
+		margin-left: 115px;
 	}
 }
 
-/* On small screens*/
-@media only screen and (max-width: 450px) {
+
+/* On ipad screen */
+@media only screen and (min-width: 700px) and (max-width: 800px) {
+	#playMap {
+		margin-top: 10px;
+	}
+	.side-nav {
+		height: 15%;
+		margin-bottom: 20px;
+	}
+	.main-panel {
+		height: 85%;
+	}
+	.icon-container {
+		display: inline-block;
+		height: 90%;
+		min-height: 50px;
+		margin-left: 90px;
+	}
+}
+
+/* On iphone 6 wide screen */
+@media only screen and (min-width: 600px) and (max-width: 700px) {
+	#playMap {
+		margin-top: 10px;
+	}
+	.side-nav {
+		height: 15%;
+		margin-bottom: 20px;
+	}
+	.main-panel {
+		height: 85%;
+	}
+	.icon-container {
+		display: inline-block;
+		height: 90%;
+		min-height: 50px;
+		margin-left: 110px;
+	}
+}
+
+/* On iphone5 wide screen */
+@media only screen and (min-width: 450px) and (max-width: 600px) {
+	#playMap {
+		margin-top: 10px;
+	}
+	.side-nav {
+		height: 15%;
+		margin-bottom: 20px;
+	}
+	.main-panel {
+		height: 85%;
+	}
+	.icon-container {
+		display: inline-block;
+		height: 90%;
+		min-height: 50px;
+		margin-left: 85px;
+	}
+}
+
+/* On iphone6 screen */
+@media only screen and (min-width: 350px) and (max-width: 450px) {
     #playMap {
-        margin-top: 15px;
+        margin-top: 10px;
     }
     .side-nav {
-        height: 10%;
+        height: 15%;
+		margin-bottom: 10px;
     }
     .main-panel {
         height: 90%;
@@ -175,31 +242,26 @@ ng-map {
         display: inline-block;
         height: 90%;
 		min-height: 30px;
-		margin-left: 45px;
-    }
-    .w3-round-xxlarge {
-        border-radius: 4px !important;
+		margin-left: 25px;
     }
 }
 
-/* On extra small screen */
+/* On iphone5 screen */
 @media only screen and (max-width: 350px) {
 	#playMap {
-		margin-top: 15px;
+		margin-top: 10px;
 	}
 	.side-nav {
-		height: 10%;
+		height: 15%;
+		margin-bottom: 10px;
 	}
 	.main-panel {
-		height: 90%;
+		height: 85%;
 	}
 	.icon-container {
 		display: inline-block;
 		height: 90%;
 		min-height: 30px;
-		margin-left: 35px;
-	}
-	.w3-round-xxlarge {
-		border-radius: 4px !important;
+		margin-left: 15px;
 	}
 }
