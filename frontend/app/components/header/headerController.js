@@ -1,6 +1,6 @@
 'use strict';
 angular.module('geolocApp')
-    .controller('headerController',  function ($scope, $rootScope, $location, $cookies) {
+    .controller('headerController',  function ($scope, $rootScope, $location, $cookies,$http, Server) {
         $scope.logout = function(){
             $rootScope.name = null;
             $rootScope.password = null;
@@ -22,4 +22,35 @@ angular.module('geolocApp')
             $rootScope.question_step = $cookies.get('question_step');
             $rootScope.userPhoto = $cookies.get('photo_path');
         }
+
+        setInterval(function(){
+            $http({
+                method: 'GET',
+                url: Server.getUrl() + ':8080/users/allUser'
+            }).then(function successCallback(success) {
+                for(var i = 0; i < success.data.length; i++){
+                    var user = success.data[i];
+                    if(user.current_chance < 5){
+                        $http({
+                            method: 'POST',
+                            url: Server.getUrl() + ':8080/users/updateCurrentChance/' + user.name,
+                            data:{
+                                chance : (user.current_chance + 1)
+                            }
+                        }).then(function successCallback(success) {
+                            console.log(success);
+                        }, function errorCallback(error) {
+                            console.log("error");
+                            console.log(error);
+                        });
+                    }
+                }               
+            }, function errorCallback(error) {
+                $location.path("/");
+                console.log("error");
+                console.log(error);
+            });
+        }, 60000);
+
+
     });
