@@ -12,6 +12,8 @@ angular.module('geolocApp')
             $scope.tilt = 45;
             $scope.mapTypeId = 'ROADMAP';
             $scope.server_adresse = Server.getUrl();
+            $scope.files = [];
+            $scope.photoPath;
 
             updateCurrentQuestion(function(data) {
                 $scope.current_question = data;
@@ -200,7 +202,8 @@ angular.module('geolocApp')
                     url: Server.getUrl() + ':8081/questions/comment/' + $scope.current_question._id,
                     data: {
                         text: mctrl.userComment,
-                        userId: $cookies.get('name')
+                        userId: $cookies.get('name'),
+                        photoPath:$scope.photoPath
                     }
                 }).then(function successCallback(success) {
                     console.log(success);
@@ -230,7 +233,61 @@ angular.module('geolocApp')
         };
 
 
+        $scope.uploadFile = function(element) {
+            // console.log(element.files);
+            $scope.photoPath = null;
+            // $scope.progressVisible = true
+            for (var i = 0; i < element.files.length; i++) {
+              $scope.files.push(element.files[i]);
+              $scope.photoPath = element.files[i].name;
+            }
+            var fd = new FormData();
+            for (var i in $scope.files) {
+                fd.append("commentPhoto", $scope.files[i])
+            }
+            var xhr = new XMLHttpRequest();
+            xhr.upload.addEventListener("progress", uploadProgress, false);
+            xhr.addEventListener("load", uploadComplete, false);
+            xhr.addEventListener("error", uploadFailed, false);
+            xhr.addEventListener("abort", uploadCanceled, false);
+            xhr.open("POST", Server.getUrl() + ":8082/img/comment");
+            // $scope.progressVisible = true
+            xhr.send(fd)
+        };
+
+        function uploadProgress(evt) {
+            $scope.$apply(function(){
+                if (evt.lengthComputable) {
+                    $scope.progress = Math.round(evt.loaded * 100 / evt.total)
+                } else {
+                    $scope.progress = 'unable to compute'
+                }
+            })
+        }
+
+        function uploadComplete(evt) {
+            /* This event is raised when the server send back a response */
+            // alert(evt.target.responseText)
+            $scope.files = [];
+        }
+
+        function uploadFailed(evt) {
+            $scope.photoPath = null;
+            alert("There was an error attempting to upload the file.")
+        }
+
+        function uploadCanceled(evt) {
+            $scope.$apply(function(){
+                $scope.progressVisible = false
+            });
+            $scope.photoPath = null;
+            alert("The upload has been canceled by the user or the browser dropped the connection.")
+        }
+
     });
+
+
+    
     /*.directive('questionModal', function () {
         return {
             template:

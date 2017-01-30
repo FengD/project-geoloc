@@ -235,7 +235,7 @@ angular.module('geolocApp')
 	    //   $scope.progressVisible = false
 	    //   });
 	    // };
-
+	    $scope.imageSrc;
 	    $scope.uploadFile = function(element) {
 	    	// console.log(element.files);
 	    	// $scope.progressVisible = true
@@ -246,6 +246,7 @@ angular.module('geolocApp')
 	        var fd = new FormData();
 	        for (var i in $scope.files) {
 	            fd.append("questionPhoto", $scope.files[i])
+	            $scope.imageSrc = $scope.files[i];
 	        }
 	        var xhr = new XMLHttpRequest();
 	        xhr.upload.addEventListener("progress", uploadProgress, false);

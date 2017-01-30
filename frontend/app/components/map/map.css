@@ -114,6 +114,11 @@ ng-map {
     margin-bottom: 10px;
 }
 
+#previewPhoto{
+	max-width: 200px;
+	max-height: 200px;
+}
+
 /* On small screens*/
 @media only screen and (max-width: 1000px) {
     #playMap {
@@ -123,7 +128,7 @@ ng-map {
         height: 10%;
     }
     .main-panel {
-        height: 75%;
+        height: 95%;
     }
     .icon-container {
         display: inline-block;
