@@ -81,6 +81,8 @@
                             <span ng-click="mctrl.modalStyle={display:'none'}" class="w3-closebtn">&times;</span>
                         </header>
                         <textarea type="text" ng-model="mctrl.userComment" class="form-control" placeholder="Write comment here..."></textarea>
+                        <img id="previewPhoto" ng-if="photoPath" ng-src="http://localhost:8082/img/comment/{{photoPath}}" />
+                        <input class="form-control" type="file" accept="image/*" ng-model-instant id="commentPhoto" onchange="angular.element(this).scope().uploadFile(this)" />
                         <button class="w3-btn-block w3-indigo" ng-click="mctrl.submitComment()">Add Comment</button>
                     </div>
                 </div>
