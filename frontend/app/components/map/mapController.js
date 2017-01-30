@@ -141,6 +141,16 @@ angular.module('geolocApp')
             }
         };
 
+        /* Check checkbox and return false if any choice is selected */
+        mctrl.noChoiceSelected = function(choices) {
+            var noChoiceSelected = true;
+            for (var i = 0; i < choices.length; i++) {
+                if (choices[i][1] == true)
+                    noChoiceSelected = false;
+            }
+            return noChoiceSelected;
+        }
+
         /* Set click event on the Submit button */
         mctrl.submitAnswer = function() {
             var isCorrect = false;
@@ -151,22 +161,22 @@ angular.module('geolocApp')
                         if (mctrl.userAnswer.toLowerCase() == $scope.answers[i]) {
                             updateQuestionStep(updateCookies ,initPage);
                             isCorrect = true;
-                            mctrl.userAnswer = '';
+                            mctrl.userAnswer = null;
                             break;
                         }
                     }
-                    mctrl.userAnswer = '';
+                    mctrl.userAnswer = null;
                     break;
                 case 'single-choice':
                     for (var i = 0; i < $scope.answers.length; i++) {
                         if (mctrl.userAnswer == $scope.answers[i]) {
                             updateQuestionStep(updateCookies ,initPage);
                             isCorrect = true;
-                            mctrl.userAnswer = '';
+                            mctrl.userAnswer = null;
                             break;
                         }
                     }
-                    mctrl.userAnswer = '';
+                    mctrl.userAnswer = null;
                     break;
                 case 'multi-choice':
                     var nb_rightChoices = 0;
@@ -319,48 +329,3 @@ angular.module('geolocApp')
         }
 
     });
-
-
-    
-    /*.directive('questionModal', function () {
-        return {
-            template:
-            '<div class="modal fade">' +
-                '<div class="modal-dialog">' +
-                    '<div class="modal-content">' +
-                        '<div class="modal-header">' +
-                            '<button type="button" class="close" data-dismiss="modal"ng-click="closeModal()">&times;</button>' +
-                            '<h4 class="modal-title">{{ question_text }}</h4>' +
-                        '</div>' +
-                        '<div class="modal-body w3-animate-bottom row" ng-transclude></div>' +
-                    '</div>' +
-                '</div>' +
-            '</div>',
-            restrict: 'A',
-            transclude: true,
-            replace: true,
-            scope: true,
-            link: function postLink(scope, element, attrs) {
-                scope.title = attrs.title;
-
-                scope.$watch(attrs.visible, function(value){
-                    if(value == true)
-                        $(element).modal('show');
-                    else
-                        $(element).modal('hide');
-                });
-
-                $(element).on('shown.bs.modal', function(){
-                    scope.$apply(function(){
-                        scope.$parent[attrs.visible] = true;
-                    });
-                });
-
-                $(element).on('hidden.bs.modal', function(){
-                    scope.$apply(function(){
-                        scope.$parent[attrs.visible] = false;
-                    });
-                });
-            }
-        };
-    });*/

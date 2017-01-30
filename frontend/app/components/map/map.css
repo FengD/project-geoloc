@@ -109,6 +109,10 @@ ng-map {
 	margin: 4px;
 }
 
+#leave-comment {
+	width: 400px;
+}
+
 #comment-button {
     margin-right: 25px;
     margin-top: 10px;
@@ -121,7 +125,29 @@ ng-map {
 }
 
 /* On small screens*/
-@media only screen and (max-width: 1000px) {
+@media only screen and (max-width: 800px) {
+	#playMap {
+		margin-top: 15px;
+	}
+	.side-nav {
+		height: 10%;
+	}
+	.main-panel {
+		height: 90%;
+	}
+	.icon-container {
+		display: inline-block;
+		height: 90%;
+		min-height: 50px;
+		margin-left: 120px;
+	}
+	.w3-round-xxlarge {
+		border-radius: 10px !important;
+	}
+}
+
+/* On small screens*/
+@media only screen and (max-width: 450px) {
     #playMap {
         margin-top: 15px;
     }
@@ -129,14 +155,37 @@ ng-map {
         height: 10%;
     }
     .main-panel {
-        height: 95%;
+        height: 90%;
     }
     .icon-container {
         display: inline-block;
-        height: 80%;
-		max-height: 50px;
+        height: 90%;
+		min-height: 30px;
+		margin-left: 45px;
     }
     .w3-round-xxlarge {
-        border-radius: 10px !important;
+        border-radius: 4px !important;
     }
+}
+
+/* On extra small screen */
+@media only screen and (max-width: 350px) {
+	#playMap {
+		margin-top: 15px;
+	}
+	.side-nav {
+		height: 10%;
+	}
+	.main-panel {
+		height: 90%;
+	}
+	.icon-container {
+		display: inline-block;
+		height: 90%;
+		min-height: 30px;
+		margin-left: 35px;
+	}
+	.w3-round-xxlarge {
+		border-radius: 4px !important;
+	}
 }
