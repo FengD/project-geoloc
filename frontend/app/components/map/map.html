@@ -17,7 +17,7 @@
         <div ng-show="current_card == 'map'" class="map-card w3-card-12">
             <div class="map-container w3-display-container w3-text-white">
                 <ng-map id="game-map" ng-class="map_style" zoom="{{map_zoom}}" center="[{{center_lat}}, {{center_lon}}]" map-type-id="{{mapTypeId}}">
-                    <marker position="[{{marker_lat}}, {{marker_lon}}]" animation="DROP" on-click="mctrl.toggleMapType()"/>
+                    <marker ng-repeat="question in questions" id="question._id" icon="{{marker_icon}}" position="[{{question.position.latitude}}, {{question.position.longitude}}]" animation="DROP" on-click="mctrl.toggleMapType()"/>
                 </ng-map>
             </div>
         </div>

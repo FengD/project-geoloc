@@ -10,10 +10,20 @@ angular.module('geolocApp')
             $scope.map_zoom = 15;
             $scope.showModal = false;
             $scope.showCommentsPanel = false;
-            $scope.tilt = 45;
             $scope.server_adresse = Server.getUrl();
             $scope.files = [];
             $scope.photoPath;
+
+            $scope.marker_icon = {
+                url: 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png',
+                size: [20, 32],
+                origin: [0,0],
+                anchor: [0, 32]
+            };
+
+            getAllQuestions(function(data) {
+                $scope.questions = data;
+            })
 
             updateCookies(function() {
                 if ($cookies.get('current_chance') == '0') {
@@ -41,6 +51,18 @@ angular.module('geolocApp')
                     }
                 });
             })
+        }
+
+        function getAllQuestions(callback) {
+            $http({
+                method: 'GET',
+                url: Server.getUrl() + ':8081/questions/allQuestion'
+            }).then(function successCallback(success) {
+                callback(success.data);
+            }, function errorCallback(error) {
+                console.log("error");
+                console.log(error);
+            });
         }
 
         function updateCurrentQuestion(callback) {
