@@ -3,19 +3,32 @@
 angular.module('geolocApp')
     .controller('mapController', function ($scope, $cookies, $http, $window, NgMap, Server) {
 
+        /* Set animations and customization on the marker */
+        var marker;
+        var mctrl = this;
+        NgMap.getMap('game-map').then(function(map) {
+            mctrl.map = map;
+            marker = map.markers[0];
+        });
+
         function initPage() {
             $scope.isSuccess = false;
             $scope.current_card = 'map';
             $scope.mapTypeId = 'ROADMAP';
-            $scope.map_zoom = 15;
+            $scope.map_zoom = 16;
             $scope.showModal = false;
             $scope.showCommentsPanel = false;
             $scope.server_adresse = Server.getUrl();
             $scope.files = [];
             $scope.photoPath;
-
-            $scope.marker_icon = {
+            $scope.normal_marker = {
                 url: 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png',
+                size: [20, 32],
+                origin: [0,0],
+                anchor: [0, 32]
+            };
+            $scope.highlight_marker = {
+                url: 'app/resources/images/icons_game/normal_marker.png',
                 size: [20, 32],
                 origin: [0,0],
                 anchor: [0, 32]
@@ -34,8 +47,6 @@ angular.module('geolocApp')
 
                 updateCurrentQuestion(function(data) {
                     $scope.current_question = data;
-                    $scope.center_lat = $scope.current_question.position.latitude;
-                    $scope.center_lon = $scope.current_question.position.longitude;
                     $scope.marker_lat = $scope.current_question.position.latitude;
                     $scope.marker_lon = $scope.current_question.position.longitude;
                     $scope.question_text = $scope.current_question.question;
@@ -144,13 +155,6 @@ angular.module('geolocApp')
 
         $scope.initPage = initPage();
 
-        /* Set animations and customization on the marker */
-        var marker;
-        var mctrl = this;
-        NgMap.getMap('game-map').then(function(map) {
-            mctrl.map = map;
-            marker = map.markers[0];
-        });
 
         /* Set click event on the map marker */
         mctrl.toggleMapType = function() {
@@ -159,7 +163,7 @@ angular.module('geolocApp')
                 $scope.map_zoom = 22;
             } else {
                 $scope.mapTypeId = 'ROADMAP';
-                $scope.map_zoom = 15;
+                $scope.map_zoom = 16;
             }
         };
 
@@ -221,7 +225,7 @@ angular.module('geolocApp')
             if (!isCorrect) {
                 var num_newChance = parseInt($cookies.get('current_chance')) - 1;
                 var str_newChance = num_newChance.toString();
-                updateCurrentChance(num_newChance, updateCookies, function () {
+                updateCurrentChance(str_newChance, updateCookies, function () {
                     if ($cookies.get('current_chance') == '0') {
                         $scope.isFail = true;
                     } else {
