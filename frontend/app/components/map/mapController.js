@@ -12,6 +12,16 @@ angular.module('geolocApp')
         });
 
         function initPage() {
+        	var mysrclat= 0;
+        	var mysrclong = 0;
+		    if (navigator.geolocation) {
+		        navigator.geolocation.getCurrentPosition(function (position) {
+			        mysrclat = position.coords.latitude; 
+			        mysrclong = position.coords.longitude;
+			        console.log(mysrclat);
+			        console.log(mysrclong);
+			    });      
+			}
             $scope.isSuccess = false;
             $scope.current_card = 'map';
             $scope.mapTypeId = 'ROADMAP';
