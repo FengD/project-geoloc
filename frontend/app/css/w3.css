@@ -213,7 +213,7 @@ input[type=checkbox].w3-check:disabled+.w3-validate,input[type=radio].w3-radio:d
 .w3-animate-bottom{position:relative;-webkit-animation:animatebottom 0.4s;animation:animatebottom 0.4s}
 @-webkit-keyframes animatebottom{from{bottom:-300px;opacity:0} to{bottom:0px;opacity:1}}
 @keyframes animatebottom{from{bottom:-300px;opacity:0} to{bottom:0;opacity:1}}
-.w3-animate-zoom {-webkit-animation:animatezoom 1.6s;animation:animatezoom 1.6s}
+.w3-animate-zoom {-webkit-animation:animatezoom 0.6s;animation:animatezoom 0.6s}
 @-webkit-keyframes animatezoom{from{-webkit-transform:scale(0)} to{-webkit-transform:scale(1)}}
 @keyframes animatezoom{from{transform:scale(0)} to{transform:scale(1)}}
 .w3-animate-input{-webkit-transition:width 0.4s ease-in-out;transition:width 0.4s ease-in-out}.w3-animate-input:focus{width:100%!important}

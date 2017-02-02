@@ -3,35 +3,76 @@
 angular.module('geolocApp')
     .controller('mapController', function ($scope, $cookies, $http, $window, NgMap, Server) {
 
+        /* Set animations and customization on the marker */
+        var marker;
+        var mctrl = this;
+        NgMap.getMap('game-map').then(function(map) {
+            mctrl.map = map;
+            marker = map.markers[0];
+        });
+
         function initPage() {
+            $scope.isSuccess = false;
             $scope.current_card = 'map';
             $scope.mapTypeId = 'ROADMAP';
-            $scope.map_zoom = 15;
+            $scope.map_zoom = 16;
             $scope.showModal = false;
             $scope.showCommentsPanel = false;
-            $scope.tilt = 45;
-            $scope.mapTypeId = 'ROADMAP';
             $scope.server_adresse = Server.getUrl();
             $scope.files = [];
             $scope.photoPath;
+            $scope.normal_marker = {
+                url: 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png',
+                size: [20, 32],
+                origin: [0,0],
+                anchor: [0, 32]
+            };
+            $scope.highlight_marker = {
+                url: 'app/resources/images/icons_game/normal_marker.png',
+                size: [20, 32],
+                origin: [0,0],
+                anchor: [0, 32]
+            };
 
-            updateCurrentQuestion(function(data) {
-                $scope.current_question = data;
-                $scope.center_lat = $scope.current_question.position.latitude;
-                $scope.center_lon = $scope.current_question.position.longitude;
-                $scope.marker_lat = $scope.current_question.position.latitude;
-                $scope.marker_lon = $scope.current_question.position.longitude;
-                $scope.question_text = $scope.current_question.question;
-                $scope.question_type = $scope.current_question.type;
-                $scope.answers = $scope.current_question.answers;
-                if ($scope.question_type == 'multi-choice') {
-                    $scope.choices = [];
-                    for (var i = 0; i < $scope.current_question.choices.length; i++) {
-                        $scope.choices.push([$scope.current_question.choices[i], false]);
-                    }
-                } else if ($scope.question_type == 'single-choice' || $scope.question_type == 'essay') {
-                    $scope.choices = $scope.current_question.choices;
+            getAllQuestions(function(data) {
+                $scope.questions = data;
+            })
+
+            updateCookies(function() {
+                if ($cookies.get('current_chance') == '0') {
+                    $scope.isFail = true;
+                } else {
+                    $scope.isFail = false;
                 }
+
+                updateCurrentQuestion(function(data) {
+                    $scope.current_question = data;
+                    $scope.marker_lat = $scope.current_question.position.latitude;
+                    $scope.marker_lon = $scope.current_question.position.longitude;
+                    $scope.question_text = $scope.current_question.question;
+                    $scope.question_type = $scope.current_question.type;
+                    $scope.answers = $scope.current_question.answers;
+                    if ($scope.question_type == 'multi-choice') {
+                        $scope.choices = [];
+                        for (var i = 0; i < $scope.current_question.choices.length; i++) {
+                            $scope.choices.push([$scope.current_question.choices[i], false]);
+                        }
+                    } else if ($scope.question_type == 'single-choice' || $scope.question_type == 'essay') {
+                        $scope.choices = $scope.current_question.choices;
+                    }
+                });
+            })
+        }
+
+        function getAllQuestions(callback) {
+            $http({
+                method: 'GET',
+                url: Server.getUrl() + ':8081/questions/allQuestion'
+            }).then(function successCallback(success) {
+                callback(success.data);
+            }, function errorCallback(error) {
+                console.log("error");
+                console.log(error);
             });
         }
 
@@ -48,6 +89,7 @@ angular.module('geolocApp')
                 console.log("error");
                 console.log(error);
                 if (error.status == '400') {
+                    $scope.isSuccess = true;
                     console.log('Well done, you have finished all the questions!');
                 }
                 $scope.showMap = false;
@@ -55,7 +97,7 @@ angular.module('geolocApp')
 
         }
 
-        function updateCookies(cb_initPage) {
+        function updateCookies(cb) {
             $http({
                 method: 'POST',
                 url: Server.getUrl() + ':8080/users/' + $cookies.get('name'),
@@ -68,9 +110,25 @@ angular.module('geolocApp')
                     // this will set the expiration to 6 months
                     exp = new $window.Date(now.getFullYear(), now.getMonth() + 6, now.getDate());
                 $cookies.put('question_step', success.data.question_step, {expires: exp});
-                console.log(success.data.question_step);
-                cb_initPage();
+                $cookies.put('current_chance', success.data.current_chance, {expires: exp});
+                cb();
 
+            }, function errorCallback(error) {
+                console.log("error");
+                console.log(error);
+            });
+        }
+
+        function updateCurrentChance(current_chance, cb_updateCookies, cb2) {
+            $http({
+                method: 'POST',
+                url: Server.getUrl() + ':8080/users/updateCurrentChance/' + $cookies.get('name'),
+                data: {
+                    chance: current_chance
+                }
+            }).then(function successCallback(success) {
+                console.log(success);
+                cb_updateCookies(cb2);
             }, function errorCallback(error) {
                 console.log("error");
                 console.log(error);
@@ -97,13 +155,6 @@ angular.module('geolocApp')
 
         $scope.initPage = initPage();
 
-        /* Set animations and customization on the marker */
-        var marker;
-        var mctrl = this;
-        NgMap.getMap('game-map').then(function(map) {
-            mctrl.map = map;
-            marker = map.markers[0];
-        });
 
         /* Set click event on the map marker */
         mctrl.toggleMapType = function() {
@@ -112,9 +163,19 @@ angular.module('geolocApp')
                 $scope.map_zoom = 22;
             } else {
                 $scope.mapTypeId = 'ROADMAP';
-                $scope.map_zoom = 15;
+                $scope.map_zoom = 16;
             }
         };
+
+        /* Check checkbox and return false if any choice is selected */
+        mctrl.noChoiceSelected = function(choices) {
+            var noChoiceSelected = true;
+            for (var i = 0; i < choices.length; i++) {
+                if (choices[i][1] == true)
+                    noChoiceSelected = false;
+            }
+            return noChoiceSelected;
+        }
 
         /* Set click event on the Submit button */
         mctrl.submitAnswer = function() {
@@ -126,22 +187,22 @@ angular.module('geolocApp')
                         if (mctrl.userAnswer.toLowerCase() == $scope.answers[i]) {
                             updateQuestionStep(updateCookies ,initPage);
                             isCorrect = true;
-                            mctrl.userAnswer = '';
+                            mctrl.userAnswer = null;
                             break;
                         }
                     }
-                    mctrl.userAnswer = '';
+                    mctrl.userAnswer = null;
                     break;
                 case 'single-choice':
                     for (var i = 0; i < $scope.answers.length; i++) {
                         if (mctrl.userAnswer == $scope.answers[i]) {
                             updateQuestionStep(updateCookies ,initPage);
                             isCorrect = true;
-                            mctrl.userAnswer = '';
+                            mctrl.userAnswer = null;
                             break;
                         }
                     }
-                    mctrl.userAnswer = '';
+                    mctrl.userAnswer = null;
                     break;
                 case 'multi-choice':
                     var nb_rightChoices = 0;
@@ -162,12 +223,23 @@ angular.module('geolocApp')
                     console.log('Error: unknown current question type');
             }
             if (!isCorrect) {
+                var num_newChance = parseInt($cookies.get('current_chance')) - 1;
+                var str_newChance = num_newChance.toString();
+                updateCurrentChance(str_newChance, updateCookies, function () {
+                    if ($cookies.get('current_chance') == '0') {
+                        $scope.isFail = true;
+                    } else {
+                        $scope.isFail = false;
+                    }
+                });
                 alert("Oops, not correct, please retry!");
             } else {
                 $scope.current_card = 'map';
             }
         };
 
+
+        /* Set submit listener on love button in comment panel */
         mctrl.submitLove = function(comment_id) {
                 $http({
                     method: 'POST',
@@ -195,6 +267,7 @@ angular.module('geolocApp')
 
         };
 
+        /* set submit listener on submit button in comment panel */
         mctrl.submitComment = function() {
             if (mctrl.userComment != '' || mctrl.userComment != null) {
                 $http({
@@ -285,48 +358,3 @@ angular.module('geolocApp')
         }
 
     });
-
-
-    
-    /*.directive('questionModal', function () {
-        return {
-            template:
-            '<div class="modal fade">' +
-                '<div class="modal-dialog">' +
-                    '<div class="modal-content">' +
-                        '<div class="modal-header">' +
-                            '<button type="button" class="close" data-dismiss="modal"ng-click="closeModal()">&times;</button>' +
-                            '<h4 class="modal-title">{{ question_text }}</h4>' +
-                        '</div>' +
-                        '<div class="modal-body w3-animate-bottom row" ng-transclude></div>' +
-                    '</div>' +
-                '</div>' +
-            '</div>',
-            restrict: 'A',
-            transclude: true,
-            replace: true,
-            scope: true,
-            link: function postLink(scope, element, attrs) {
-                scope.title = attrs.title;
-
-                scope.$watch(attrs.visible, function(value){
-                    if(value == true)
-                        $(element).modal('show');
-                    else
-                        $(element).modal('hide');
-                });
-
-                $(element).on('shown.bs.modal', function(){
-                    scope.$apply(function(){
-                        scope.$parent[attrs.visible] = true;
-                    });
-                });
-
-                $(element).on('hidden.bs.modal', function(){
-                    scope.$apply(function(){
-                        scope.$parent[attrs.visible] = false;
-                    });
-                });
-            }
-        };
-    });*/

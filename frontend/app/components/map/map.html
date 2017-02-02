@@ -1,22 +1,23 @@
 <div class="container" ng-controller="mapController as mctrl" ng-init="initPage" id="playMap">
     <!-- Side Panel -->
-    <div class="side-nav col-lg-3 col-md-3 col-sm-12 col-xs-12">
+    <div ng-hide="isSuccess || isFail" class="side-nav col-lg-3 col-md-3 col-sm-12 col-xs-12">
         <div class="icon-container">
-            <img class="icon w3-card-2 w3-hover-shadow w3-round-xxlarge" src="app/resources/images/icons_game/Map.jpg" ng-click="mctrl.switchToMap()" alt="map">
+            <img class="icon w3-card-2 w3-hover-shadow w3-round-large" src="app/resources/images/icons_game/Map.png" ng-click="mctrl.switchToMap()" alt="map">
         </div>
         <div class="icon-container">
-            <img class="icon w3-card-2 w3-hover-shadow w3-round-xxlarge" src="app/resources/images/icons_game/Q&A.png" ng-click="mctrl.switchToQuestion()" alt="question">
+            <img class="icon w3-card-2 w3-hover-shadow w3-round-large" src="app/resources/images/icons_game/Q&A.png" ng-click="mctrl.switchToQuestion()" alt="question">
         </div>
         <div class="icon-container">
-            <img class="icon w3-card-2 w3-hover-shadow w3-round-xxlarge" src="app/resources/images/icons_game/Comments.png" ng-click="mctrl.switchToComment()" alt="comments">
+            <img class="icon w3-card-2 w3-hover-shadow w3-round-large" src="app/resources/images/icons_game/Comments.png" ng-click="mctrl.switchToComment()" alt="comments">
         </div>
     </div>
     <!-- Main Panel -->
-    <div class="main-panel col-lg-9 col-md-9 col-sm-12 col-xs-12">
+    <div ng-hide="isSuccess || isFail" class="main-panel col-lg-9 col-md-9 col-sm-12 col-xs-12">
         <!-- Map Card -->
         <div ng-show="current_card == 'map'" class="map-card w3-card-12">
             <div class="map-container w3-display-container w3-text-white">
-                <ng-map id="game-map" ng-class="map_style" zoom="{{map_zoom}}" center="[{{center_lat}}, {{center_lon}}]" map-type-id="{{mapTypeId}}">
+                <ng-map id="game-map" ng-class="map_style" zoom="{{map_zoom}}" center="[{{marker_lat}}, {{marker_lon}}]" map-type-id="{{mapTypeId}}">
+                    <marker ng-repeat="question in questions" ng-if="question._id > current_question._id" icon="{{normal_marker}}" position="[{{question.position.latitude}}, {{question.position.longitude}}]"/>
                     <marker position="[{{marker_lat}}, {{marker_lon}}]" animation="DROP" on-click="mctrl.toggleMapType()"/>
                 </ng-map>
             </div>
@@ -29,155 +30,82 @@
                 <h5><span class="label label-success" id="oneQuestionType">{{ question_type }}</span></h5><br>
                 <br>
                 <!-- Type: essay -->
-                <form ng-show="question_type == 'essay'">
+                <form ng-show="question_type == 'essay'" ng-submit="mctrl.submitAnswer()">
                     <div class="input-group">
                         <span class="input-group-addon">Answer:</span>
-                        <input id="msg" type="text" ng-model="mctrl.userAnswer" class="form-control" placeholder="Write here...">
+                        <input id="msg" type="text" ng-model="mctrl.userAnswer" class="form-control" placeholder="Write here..." required>
                     </div>
-                    <md-button type="submit" class="md-raised md-primary" ng-click="mctrl.submitAnswer()">Submit</md-button>
+                    <br>
+                    <button type="submit" class="w3-btn w3-indigo">Submit</button>
                 </form>
                 <!-- Type: single choice -->
-                <form ng-show="question_type == 'single-choice'">
+                <form ng-show="question_type == 'single-choice'" ng-submit="mctrl.submitAnswer()">
                     <div>
                         <label class="radio-inline" ng-repeat="choice in choices">
-                            <label><input type="radio" ng-model="mctrl.userAnswer" ng-value="choice">{{choice}}</label>
+                            <label><input type="radio" ng-model="mctrl.userAnswer" ng-value="choice" ng-required="mctrl.userAnswer == null">{{choice}}</label>
                         </label>
                     </div>
-                    <md-button type="submit" class="md-raised md-primary" ng-click="mctrl.submitAnswer()">Submit</md-button>
+                    <button type="submit" class="w3-btn w3-indigo">Submit</button>
                 </form>
                 <!-- Type: multi choices -->
-                <form ng-show="question_type == 'multi-choice'">
+                <form ng-show="question_type == 'multi-choice'" ng-submit="mctrl.submitAnswer()">
                     <div>
                         <label class="checkbox-inline" ng-repeat="choice in choices">
-                            <label><input type="checkbox" ng-model="choice[1]">{{choice[0]}}</label>
+                            <input type="checkbox" ng-model="choice[1]" ng-required="mctrl.noChoiceSelected(choices)">{{choice[0]}}
                         </label>
                     </div>
-                    <md-button type="submit" class="md-raised md-primary" ng-click="mctrl.submitAnswer()">Submit</md-button>
+                    <br>
+                    <button type="submit" class="w3-btn w3-indigo">Submit</button>
                 </form>
             </div>
         </div>
         <!-- Comments card -->
         <div ng-show="current_card == 'comment'" class="comment-card w3-card-12">
             <div class="comments-container w3-container w3-content">
-                <div ng-repeat="comment in current_question.comments" class="w3-container w3-content w3-card-2 w3-hover-shadow comment-container col-lg-5 col-md-5 col-sm-12 col-xs-12">
-                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
-                        <img src="{{server_adresse}}:8082/img/comment/{{comment.photo_path}}" style="width:100%">
+                <div ng-show="current_question.comments.length == 0">
+                    <div id="comment-smile-container">
+                        <img id="comment-smile" src="app/resources/images/icons_game/smile.svg" alt="comment-smile">
                     </div>
-                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                    <h3 style="text-align: center">No comment yet, please leave the first comment</h3>
+                </div>
+                <div ng-repeat="comment in current_question.comments" class="comment-container w3-container w3-content w3-card-2 w3-hover-shadow col-lg-5 col-md-5 col-sm-12 col-xs-12">
+                    <div ng-hide="comment.photo_path == null" class="col-lg-6 col-md-6 col-sm-6 col-xs-6" style="height:60px">
+                        <img src="{{server_adresse}}:8082/img/comment/{{comment.photo_path}}" style="height:100%">
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6" style="height:60px">
                         <h4>{{comment.text}}</h4>
                         <p class="w3-text-gray">By {{comment.user_id}}</p>
                     </div>
                     <div class="w3-container col-lg-12 col-md-12 col-sm-12 col-xs-12">
                         <img src="app/resources/images/icons_game/Love.png" class="w3-btn-floating btn-floating" ng-click="mctrl.submitLove(comment._id)" style="height:100%" alt="love">
-                        <span ng-show="comment.votes.length !== 0">Loved by </span>
                         <span class="w3-text-blue" ng-repeat="vote in comment.votes">{{vote}} </span>
                     </div>
                 </div>
                 <a id="comment-button" class="w3-btn-floating-large w3-display-bottomright w3-indigo" ng-click="mctrl.modalStyle={display:'block'}"><span class="glyphicon glyphicon-pencil"></span></a>
                 <!-- Add Comments Modal -->
-                <div id="leave-comment" class="w3-modal w3-animate-zoom" ng-style="mctrl.modalStyle">
-                    <div class="w3-modal-content w3-card-12">
+                <div class="w3-modal w3-animate-zoom" ng-style="mctrl.modalStyle">
+                    <div id="leave-comment" class="w3-modal-content w3-card-12">
                         <header class="w3-container">
                             <span ng-click="mctrl.modalStyle={display:'none'}" class="w3-closebtn">&times;</span>
                         </header>
-                        <textarea type="text" ng-model="mctrl.userComment" class="form-control" placeholder="Write comment here..."></textarea>
-                        <img id="previewPhoto" ng-if="photoPath" ng-src="http://localhost:8082/img/comment/{{photoPath}}" />
-                        <input class="form-control" type="file" accept="image/*" ng-model-instant id="commentPhoto" onchange="angular.element(this).scope().uploadFile(this)" />
-                        <button class="w3-btn-block w3-indigo" ng-click="mctrl.submitComment()">Add Comment</button>
+                        <form ng-submit="mctrl.submitComment()">
+                            <textarea type="text" ng-model="mctrl.userComment" class="form-control" placeholder="Write comment here..." required></textarea>
+                            <img id="previewPhoto" ng-if="photoPath" ng-src="http://localhost:8082/img/comment/{{photoPath}}" />
+                            <input class="form-control" type="file" accept="image/*" ng-model-instant id="commentPhoto" onchange="angular.element(this).scope().uploadFile(this)" />
+                            <input type="submit" class="w3-btn-block w3-indigo">
+                        </form>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
+    <div ng-show="isSuccess" class="w3-panel w3-card-2 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <p>Success!</p>
+    </div>
+
+    <div ng-show="isFail" class="w3-panel w3-card-2 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <p>Fail!</p>
+    </div>
+
 </div>
-
-
-    <!--<div ng-show="showMap" class="row" id="playMap-row">
-        <div class="col-md-12" id="playMap-container">
-            <ng-map id="game-map" ng-class="map_style" zoom="{{map_zoom}}" center="[{{center_lat}}, {{center_lon}}]">
-                <marker position="[{{marker_lat}}, {{marker_lon}}]" animation="DROP" on-click="mctrl.click()"/>
-            </ng-map>
-
-            &lt;!&ndash; Modal &ndash;&gt;
-            <modal question-modal id="question-modal" visible="showModal">
-                <div class="map-detail-container col-lg-6 col-md-6 hidden-xs hidden-sm">
-                    <ng-map id="detail-map" class="map-detail" zoom="20" center="[{{center_lat}}, {{center_lon}}]" map-type-id="SATELLITE"></ng-map>
-                </div>
-                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                    <div ng-show="!showCommentsPanel" class="question-container">
-                        &lt;!&ndash; QUESTIONS  &ndash;&gt;
-                        <h5><span class="label label-success" id="oneQuestionType">{{ question_type }}</span></h5><br>
-                        <br>
-                        &lt;!&ndash; Type: essay &ndash;&gt;
-                        <form ng-show="question_type == 'essay'">
-                            <div class="input-group">
-                                <span class="input-group-addon">Answer:</span>
-                                <input id="msg" type="text" ng-model="mctrl.userAnswer" class="form-control" placeholder="Write here...">
-                            </div>
-                            <md-button type="submit" class="md-raised md-primary" ng-click="mctrl.submitAnswer()">Submit</md-button>
-                        </form>
-                        &lt;!&ndash; Type: single choice &ndash;&gt;
-                        <form ng-show="question_type == 'single-choice'">
-                            <div>
-                                <label class="radio-inline" ng-repeat="choice in choices">
-                                    <label><input type="radio" ng-model="mctrl.userAnswer" ng-value="choice">{{choice}}</label>
-                                </label>
-                            </div>
-                            <md-button type="submit" class="md-raised md-primary" ng-click="mctrl.submitAnswer()">Submit</md-button>
-                        </form>
-                        &lt;!&ndash; Type: multi choices &ndash;&gt;
-                        <form ng-show="question_type == 'multi-choice'">
-                            <div>
-                                <label class="checkbox-inline" ng-repeat="choice in choices">
-                                    <label><input type="checkbox" ng-model="choice[1]">{{choice[0]}}</label>
-                                </label>
-                            </div>
-                            <md-button type="submit" class="md-raised md-primary" ng-click="mctrl.submitAnswer()">Submit</md-button>
-                        </form>
-                    </div>
-                    &lt;!&ndash; COMMENTS OVERVIEW &ndash;&gt;
-                    <div ng-show="!showCommentsPanel" class="comments-overview-container w3-container w3-content">
-                        <h3 id="title-comment-overview">Comments Overview</h3>
-                        <div ng-repeat="comment in current_question.comments" class="w3-panel w3-white w3-card-2 w3-display-container w3-hover-shadow">
-                            <span class="w3-text-blue"><b>{{comment.user_id}} : </b></span>
-                            <span>{{comment.text}}</span>
-                        </div>
-                        <md-button class="md-raised md-primary" style="width:100%;margin-left:auto;margin-right:auto" ng-click="mctrl.toggleCommentsPanel()"><span class="btn-inner-icon glyphicon glyphicon-option-horizontal"></span></md-button>
-                    </div>
-                    &lt;!&ndash; Leave a Comment: &ndash;&gt;
-                    <div ng-show="!showCommentsPanel" class="w3-container">
-                        <h4>Leave a Comment:</h4>
-                        <div class="input-group">
-                            <textarea type="text" ng-model="mctrl.userComment" class="form-control" placeholder="Write comment here..."></textarea>
-                        </div>
-                        <md-button type="submit" class="md-raised md-primary" ng-click="mctrl.submitComment()">Comment</md-button>
-                    </div>
-                    &lt;!&ndash; COMMENTS PANEL &ndash;&gt;
-                    <div ng-show="showCommentsPanel" class="comments-detail-container w3-container w3-content">
-                        <h3>Comments Panel</h3>
-                        <a class="w3-display-topright w3-btn-floating btn-floating w3-indigo" ng-click="mctrl.toggleCommentsPanel()"><span class="btn-inner-icon glyphicon glyphicon-arrow-left"></span></a>
-                        <md-card ng-repeat="comment in current_question.comments" class="w3-card-2 w3-hover-shadow"  md-theme="default" md-theme-watch="">
-                            <md-card-title>
-                                <md-card-title-text>
-                                    <span class="md-headline" style="font-size:20px;">{{comment.text}}</span>
-                                    <span class="md-subhead" style="font-size: 15px"> By {{comment.user_id}}</span>
-                                </md-card-title-text>
-                                <md-card-title-media>
-                                    <div class="md-media-md card-media"><img src="{{server_adresse}}:8082/img/comment/{{comment.photo_path}}"></div>
-                                </md-card-title-media>
-                            </md-card-title>
-                            <div>
-                                <a class="w3-btn-floating btn-floating w3-indigo" ng-click="mctrl.submitLove(comment._id)"><i class="glyphicon glyphicon-thumbs-up"></i></a>
-                                <span>Loved by </span>
-                                <span class="w3-text-blue" ng-repeat="vote in comment.votes">
-                                    {{vote}}
-                                </span>
-                            </div>
-                        </md-card>
-                    </div>
-                </div>
-
-            </modal>
-        </div>
-    </div>-->
