@@ -17,8 +17,18 @@
         <div ng-show="current_card == 'map'" class="map-card w3-card-12">
             <div class="map-container w3-display-container w3-text-white">
                 <ng-map id="game-map" ng-class="map_style" zoom="{{map_zoom}}" center="[{{marker_lat}}, {{marker_lon}}]" map-type-id="{{mapTypeId}}">
-                    <marker ng-repeat="question in questions" ng-if="question._id < current_question._id" icon="{{markers[question._id]}}" position="[{{question.position.latitude}}, {{question.position.longitude}}]"/>
-                    <marker position="[{{marker_lat}}, {{marker_lon}}]" icon="{{highlight_marker}}" animation="DROP" on-click="mctrl.toggleMapType()"/>
+                    <div ng-if="!questions.isEmpty()">
+                        <marker ng-repeat="question in questions" icon="{{markers[$index]}}" position="[{{question.position.latitude}}, {{question.position.longitude}}]"/>
+                    </div>
+                    <marker position="[{{marker_lat}}, {{marker_lon}}]" icon="{{highlight_marker}}" animation="DROP" on-click="mctrl.toggleNavigation()"/>
+                    <directions
+                            ng-if="navigation"
+                            draggable="true"
+                            panel="directions-panel"
+                            travel-mode="WALKING"
+                            origin="[{{userlat}},{{userlon}}]"
+                            destination="[{{marker_lat}},{{marker_lon}}]">
+                    </directions>
                 </ng-map>
             </div>
         </div>
@@ -69,10 +79,10 @@
                     <h3 style="text-align: center">No comment yet, please leave the first comment</h3>
                 </div>
                 <div ng-repeat="comment in current_question.comments" class="comment-container w3-container w3-content w3-card-2 w3-hover-shadow col-lg-5 col-md-5 col-sm-12 col-xs-12">
-                    <div ng-hide="comment.photo_path == null" class="col-lg-6 col-md-6 col-sm-6 col-xs-6" style="height:60px">
+                    <div ng-hide="comment.photo_path == null" class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="height:60px">
                         <img src="{{server_adresse}}:8082/img/comment/{{comment.photo_path}}" style="height:100%">
                     </div>
-                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6" style="height:60px">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="height:60px">
                         <h4>{{comment.text}}</h4>
                         <p class="w3-text-gray">By {{comment.user_id}}</p>
                     </div>

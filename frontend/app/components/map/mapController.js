@@ -12,17 +12,18 @@ angular.module('geolocApp')
 
         function initPage() {
         	var mysrclat= 0;
-        	var mysrclong = 0;
+        	var mysrclong =0;
 		    if (navigator.geolocation) {
 		        navigator.geolocation.getCurrentPosition(function (position) {
-			        mysrclat = position.coords.latitude; 
+			        mysrclat = position.coords.latitude;
 			        mysrclong = position.coords.longitude;
-			        console.log(mysrclat);
-			        console.log(mysrclong);
+			        $scope.userlat = mysrclat;
+                    $scope.userlon = mysrclong;
 			    });      
 			}
             $scope.isSuccess = false;
             $scope.current_card = 'map';
+            $scope.navigation = false;
             $scope.mapTypeId = 'ROADMAP';
             $scope.map_zoom = 16;
             $scope.showModal = false;
@@ -30,26 +31,6 @@ angular.module('geolocApp')
             $scope.server_adresse = Server.getUrl();
             $scope.files = [];
             $scope.photoPath;
-
-            getAllQuestions(function(data) {
-                $scope.questions = data;
-                var markers = [];
-                var marker_zero = {url: 'app/resources/images/google-map-icon/number_0.png',
-                    size: [30, 35],
-                    origin: [0,0],
-                    anchor: [0, 32]
-                };
-                markers.push(marker_zero);
-                for (var i = 0; i < data.length; i++) {
-                    var marker = {url: 'app/resources/images/google-map-icon/number_' + data[i]._id + '.png',
-                        size: [30, 35],
-                        origin: [0,0],
-                        anchor: [0, 32]
-                    };
-                    markers.push(marker);
-                }
-                $scope.markers = markers;
-            })
 
             $scope.highlight_marker = {
                 url: 'app/resources/images/icons_game/highlight_marker.png',
@@ -80,6 +61,29 @@ angular.module('geolocApp')
                     } else if ($scope.question_type == 'single-choice' || $scope.question_type == 'essay') {
                         $scope.choices = $scope.current_question.choices;
                     }
+
+                    getAllQuestions(function(data) {
+                        $scope.questions = [];
+                        var markers = [];
+/*                        var marker_zero = {url: 'app/resources/images/google-map-icon/number_0.png',
+                            size: [30, 35],
+                            origin: [0,0],
+                            anchor: [0, 32]
+                        };
+                        markers.push(marker_zero);*/
+                        for (var i = 0; i < data.length; i++) {
+                            if (data[i]._id < $scope.current_question._id) {
+                                $scope.questions.push(data[i]);
+                                var marker = {url: 'app/resources/images/google-map-icon/number_' + data[i]._id + '.png',
+                                    size: [30, 35],
+                                    origin: [0,0],
+                                    anchor: [0, 32]
+                                };
+                                markers.push(marker);
+                            }
+                        }
+                        $scope.markers = markers;
+                    })
                 });
             })
         }
@@ -187,13 +191,11 @@ angular.module('geolocApp')
         }
 
         /* Set click event on the map marker */
-        mctrl.toggleMapType = function() {
-            if ($scope.mapTypeId == 'ROADMAP') {
-                $scope.mapTypeId = 'SATELLITE';
-                $scope.map_zoom = 16;
+        mctrl.toggleNavigation = function() {
+            if ($scope.navigation == true) {
+                $scope.navigation = false;
             } else {
-                $scope.mapTypeId = 'ROADMAP';
-                $scope.map_zoom = 16;
+                $scope.navigation = true;
             }
         };
 
@@ -309,15 +311,19 @@ angular.module('geolocApp')
                         photoPath:$scope.photoPath
                     }
                 }).then(function successCallback(success) {
+
+                    angular.element("input[type='file']").val(null);
                     console.log(success);
                     mctrl.userComment = '';
                     mctrl.modalStyle = {display:'none'};
                     updateCurrentQuestion(function(data) {
                         $scope.current_question.comments.push(data.comments[data.comments.length-1]);
                     });
+                    $scope.photoPath = null;
                 }, function errorCallback(error) {
                     console.log("error");
                     console.log(error);
+                    $scope.photoPath = null;
                 });
             } else {
                 alert('Comment that you entered is empty');
