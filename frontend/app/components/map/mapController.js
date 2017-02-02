@@ -8,7 +8,6 @@ angular.module('geolocApp')
         var mctrl = this;
         NgMap.getMap('game-map').then(function(map) {
             mctrl.map = map;
-            marker = map.markers[0];
         });
 
         function initPage() {
@@ -31,22 +30,33 @@ angular.module('geolocApp')
             $scope.server_adresse = Server.getUrl();
             $scope.files = [];
             $scope.photoPath;
-            $scope.normal_marker = {
-                url: 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png',
-                size: [20, 32],
-                origin: [0,0],
-                anchor: [0, 32]
-            };
-            $scope.highlight_marker = {
-                url: 'app/resources/images/icons_game/normal_marker.png',
-                size: [20, 32],
-                origin: [0,0],
-                anchor: [0, 32]
-            };
 
             getAllQuestions(function(data) {
                 $scope.questions = data;
+                var markers = [];
+                var marker_zero = {url: 'app/resources/images/google-map-icon/number_0.png',
+                    size: [30, 35],
+                    origin: [0,0],
+                    anchor: [0, 32]
+                };
+                markers.push(marker_zero);
+                for (var i = 0; i < data.length; i++) {
+                    var marker = {url: 'app/resources/images/google-map-icon/number_' + data[i]._id + '.png',
+                        size: [30, 35],
+                        origin: [0,0],
+                        anchor: [0, 32]
+                    };
+                    markers.push(marker);
+                }
+                $scope.markers = markers;
             })
+
+            $scope.highlight_marker = {
+                url: 'app/resources/images/icons_game/highlight_marker.png',
+                size: [40, 32],
+                origin: [0,0],
+                anchor: [0, 32]
+            };
 
             updateCookies(function() {
                 if ($cookies.get('current_chance') == '0') {
@@ -166,11 +176,21 @@ angular.module('geolocApp')
         $scope.initPage = initPage();
 
 
+        mctrl.returnMarker = function () {
+            var normal_marker = {
+                url: 'app/resources/images/icons_game/smile.svg',
+                size: [20, 32],
+                origin: [0,0],
+                anchor: [0, 32]
+            };
+            return normal_marker;
+        }
+
         /* Set click event on the map marker */
         mctrl.toggleMapType = function() {
             if ($scope.mapTypeId == 'ROADMAP') {
                 $scope.mapTypeId = 'SATELLITE';
-                $scope.map_zoom = 22;
+                $scope.map_zoom = 16;
             } else {
                 $scope.mapTypeId = 'ROADMAP';
                 $scope.map_zoom = 16;
