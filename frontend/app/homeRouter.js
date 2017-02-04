@@ -148,4 +148,12 @@ angular.module('geolocApp')
 
         };
 
+    }).
+    factory('socket', function (socketFactory) {
+        var myIoSocket = io.connect('http://localhost:8083');
+
+        socket = socketFactory({
+            ioSocket: myIoSocket
+        });
+        return socket;
     });

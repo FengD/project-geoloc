@@ -64,7 +64,9 @@
 	        	</ul>
 	      	</li>
 	    </ul>
-    	
+
+	    
+    	<md-button ng-show="name" class="md-primary md-raised" ng-click="showAdvanced($event)">Chart</md-button>
     	<ul class="nav navbar-nav navbar-right">
       		<li ng-show="name" class="dropdown">
 	        	<a class="dropdown-toggle" data-toggle="dropdown">{{name}} <b class="caret"></b></a>
@@ -76,6 +78,8 @@
 	          		<li><a ng-click="logout()"><span class="glyphicon glyphicon-log-out"></span>Logout </a></li>
 	        	</ul>
 	      	</li>
+
+    		
       		<li ng-hide="name"><a href="/#!/login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
     	</ul>
   	</div>

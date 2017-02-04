@@ -2,7 +2,7 @@
   "name": "project-geoloc",
   "version": "0.0.1",
   "description": "",
-  "main": "question_app.js",
+  "main": "uploadImage.js",
   "scripts": {
     "test": "mocha"
   },
