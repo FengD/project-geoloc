@@ -18,6 +18,8 @@ angular.module('geolocApp')
 
 
         $scope.allChart = [];
+        $scope.newMessage = 0;
+        $scope.message = "";
 
         if($cookies.get('name')){
             $rootScope.name = $cookies.get('name');
@@ -34,13 +36,23 @@ angular.module('geolocApp')
                         lat = position.coords.latitude;
                         long = position.coords.longitude;
                         socket.emit('adduser', $cookies.get('name'), $cookies.get('question_step'),"("+lat + "," + long + ")",date);
+                        socket.emit('toAdminInfo', $cookies.get('name'), $cookies.get('question_step'),"("+lat + "," + long + ")",date);
                     });      
                 }
                 // call the server-side function 'adduser' and send one parameter (value of prompt)
                
                 socket.on('updatechat', function (username, data, position, date) {
-                    console.log(username + ":" + data + "position:" + position + "date:" + date);
-                    $scope.allChart.push(username + ":" + data + "position:" + position + "date:" + date);
+                    // console.log(username + ":" + data + "position:" + position + "date:" + date);
+                    var messageInfo = {
+                        "username" : username,
+                        "message" : data,
+                        "position" : position,
+                        "date" : date
+                    };
+                    $scope.allChart.push(messageInfo);
+                    if(username != $cookies.get('name')){
+                        $scope.newMessage = $scope.newMessage + 1;
+                    }
                 });
             });
         }
@@ -74,61 +86,29 @@ angular.module('geolocApp')
             });
         }, 60000);
 
-          $scope.showAdvanced = function(ev) {
-            // Appending dialog to document.body to cover sidenav in docs app
-            var confirm = $mdDialog.prompt()
-              // .title('Chart')
-              // .textContent('What do you want to say?')
-              // .textContent('What do you want to say?')
-              // .textContent('What do you want to say?')
-              // .textContent('What do you want to say?')
-              .placeholder('Send message to your frinds.')
-              // .ariaLabel('Dog name')
-              .targetEvent(ev)
-              .ok('SEND')
-              .cancel('CANCEL');
-
-            
-
-            $mdDialog.show(
-                {
-                    parent: angular.element(document.body),
-                    clickOutsideToClose:true,
-                    template:
-                    '<md-dialog md-theme="mytheme">' +
-                    '  <md-dialog-content>'+
-                         "<div><div><p><span>2</span></p><ul class=\"chartMessage\"><li ng-repeat='chart in allChart'><p>{{chart}}</p></li></ul></div><h4>Leave a Comment:</h4><form><div><textarea></textarea></div><button >Submit</button></form></div>"+
-                    '        <md-button ng-click="closeDialog();">CANCEL</md-button>'+
-                    '        <md-button ng-click=";">SEND</md-button>'+
-                      '  </md-dialog-content>' +
-                      '</md-dialog>',
-                    locals: {
-                    
-                    },
-                    controller: DialogController
-                  }
-
-                ).then(function(result) {
-                var lat = 0,long = 0;
+        $scope.sendMessage = function(){
+             var lat = 0,long = 0;
                 var date = new Date();
                 if (navigator.geolocation) {
                     navigator.geolocation.getCurrentPosition(function (position) {
                         lat = position.coords.latitude;
                         long = position.coords.longitude;
-                        socket.emit('sendchat', result,"("+lat + "," + long + ")",date);
+                        socket.emit('sendchat', $scope.message,"("+lat + "," + long + ")",date);
+                        // socket.emit('toAdminInfo', $cookies.get('name'), $cookies.get('question_step'),"("+lat + "," + long + ")",date);
+                        // $scope.message = "";
                     });      
                 }
-                
-            }, function() {
-                
-            });
+        }
 
-            function DialogController($scope, $mdDialog) {
-                $scope.closeDialog = function() {
-                  $mdDialog.hide();
-                };
-            };
+        $scope.showChart = function(){
+            $scope.modalStyle = 'block';
+            $scope.newMessage = 0;
+        }
 
-        };
+        $scope.modalStyleFunction = function() {
+            return {
+                display  : $scope.modalStyle
+            }
+        }
 
     });

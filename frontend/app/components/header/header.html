@@ -8,7 +8,7 @@
 </ul>
 -->
 
-<nav class="navbar navbar-inverse" role="navigation" ng-controller="headerController">
+<nav id="headerNav" class="navbar navbar-inverse" role="navigation" ng-controller="headerController">
 
 	<div class="navbar-header">
 	    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#header-geoloc">
@@ -61,12 +61,53 @@
 	          		<li><a>Users</a></li>
 	          		<li class="divider"></li>
 	          		<li><a href="/#!/manageUser">Users Management</a></li>
+	          		<li><a href="/#!/usersPosition">Users Position</a></li>
 	        	</ul>
 	      	</li>
 	    </ul>
 
 	    
-    	<md-button ng-show="name" class="md-primary md-raised" ng-click="showAdvanced($event)">Chart</md-button>
+    	<md-button ng-show="name" class="md-primary md-raised" ng-click="showChart();">Chart({{newMessage}})</md-button>
+    	
+		<!-- Chart Modal -->
+		<div class="w3-modal w3-animate-zoom" ng-style="modalStyleFunction()">
+		    <div id="chat-content" class="w3-modal-content w3-card-12">
+		        <header class="w3-container">
+		            <span ng-click="modalStyle={display:'none'}" class="w3-closebtn">&times;</span>
+		        </header>
+		        <div flex-gt-sm="100" flex="" id ="chatArea" >
+				    <md-content>
+				      <md-list flex="">
+				        <md-divider></md-divider>
+				        <md-subheader class="md-no-sticky">Chart Messages</md-subheader>
+				        <md-list-item class="md-3-line md-long-text" ng-repeat="message in allChart">
+				          <img ng-src="app/resources/images/head.jpg" class="md-avatar">
+				          <div class="md-list-item-text">
+				            <h3>{{message.username}}</h3>
+				            <h6 class="md-secondary">{{message.date}}</h6>
+				            <p>
+				              {{message.message}}
+				            </p>
+				          </div>
+				        </md-list-item>
+				        <md-divider></md-divider>
+				        
+				      </md-list>
+				    </md-content>
+				  </div>
+		        <!-- <div>
+		        	<ul>
+		        		<li ng-repeat="message in allChart">
+		        			{{message.username}} : {{message.message}}
+		        		</li>
+		        	</ul>
+		        </div> -->
+		        <form ng-submit="sendMessage();">
+			        <textarea maxlength="250" type="text" ng-model="message" class="form-control" placeholder="Write your message here..." required></textarea>
+			        <input type="submit" class="float button" value="SEND"></button>
+		        </form>
+		    </div>
+		</div>
     	<ul class="nav navbar-nav navbar-right">
       		<li ng-show="name" class="dropdown">
 	        	<a class="dropdown-toggle" data-toggle="dropdown">{{name}} <b class="caret"></b></a>
@@ -84,3 +125,4 @@
     	</ul>
   	</div>
 </nav>
+

@@ -58,23 +58,30 @@ var initChartServer = function(questionNB){
 			// echo to room 1 that a person has connected to their room
 			socket.broadcast.to('question'+questionStep).emit('updatechat', 'ADMIN', username + ' is now answering this question. He is at (' + position + ")  "+date);
 			socket.emit('updaterooms', chartGroups, 'question'+questionStep);
+			// socket.emit('toAdmin',username,questionStep,position,date);
 		});
 		
 		// when the client emits 'sendchat', this listens and executes
 		socket.on('sendchat', function (data,position,date) {
 			// we tell the client to execute 'updatechat' with 2 parameters
-			io.sockets.in(socket.question).emit('updatechat', socket.username, data,position, date);
+			io.sockets.in(socket.question).emit('updatechat', socket.username, data,position, date);		
+		});
+
+		// when the client emits 'sendchat', this listens and executes
+		socket.on('toAdminInfo', function (username,questionStep,position,date) {
+			// we tell the client to execute 'updatechat' with 2 parameters
+			socket.emit('toAdmin',username,questionStep,position,date);		
 		});
 		
 		socket.on('switchRoom', function(newQuestion, position,date){
 			socket.leave(socket.question);
 			socket.join(newQuestion);
-			socket.emit('updatechat', 'ADMIN', 'you are now answering '+ newQuestion+"He is at (" + position +  ")  "+date);
+			socket.emit('updatechat', 'ADMIN', 'you are now answering '+ newQuestion+".", position, new Date());
 			// sent message to OLD room
-			socket.broadcast.to(socket.question).emit('updatechat', 'ADMIN', socket.username+' passed this question correctly.');
+			socket.broadcast.to(socket.question).emit('updatechat', 'ADMIN', socket.username+' passed this question correctly.',"",new Date());
 			// update socket session room title
 			socket.question = newQuestion;
-			socket.broadcast.to(newQuestion).emit('updatechat', 'ADMIN', socket.username+' is now answering this question.');
+			socket.broadcast.to(newQuestion).emit('updatechat', 'ADMIN', socket.username+' is now answering this question.',"",new Date());
 			socket.emit('updaterooms', chartGroups, newQuestion);
 		});
 		
@@ -86,7 +93,7 @@ var initChartServer = function(questionNB){
 			// update list of users in chat, client-side
 			io.sockets.emit('updateusers', users);
 			// echo globally that this client has left
-			socket.broadcast.emit('updatechat', 'ADMIN', socket.username + ' has disconnected.');
+			socket.broadcast.emit('updatechat', 'ADMIN', socket.username + ' has disconnected.',"",new Date());
 			socket.leave(socket.question);
 		});
 	});

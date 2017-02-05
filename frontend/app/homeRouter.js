@@ -38,6 +38,10 @@ angular.module('geolocApp')
                 templateUrl: 'app/components/ranking/ranking.html',
                 controller: 'rankingController',
             })
+            .when('/usersPosition', {
+                templateUrl: 'app/components/usersPosition/usersPosition.html',
+                controller: 'usersPositionController',
+            })
             .otherwise({
                 redirectTo: '/'
     		});
@@ -97,6 +101,9 @@ angular.module('geolocApp')
                     }
                     else if("app/components/manageUser/manageUser.html".localeCompare(next.templateUrl) === 0){
                         $location.path('/manageUser');
+                    }
+                    else if("app/components/usersPosition/usersPosition.html".localeCompare(next.templateUrl) === 0){
+                        $location.path('/usersPosition');
                     }
                     else{
                         $location.path('/');
