@@ -24,6 +24,9 @@ npm install
 echo "installing uploadImage service..."
 cd ../uploadImage
 npm install
+echo "installing chart service..."
+cd ../chart
+npm install
 
 # initial all questions
 cd ../..
