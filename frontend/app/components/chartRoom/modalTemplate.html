@@ -1,0 +1,17 @@
+<md-button ng-show="name" class="md-primary md-raised" ng-click="modalStyle={display:'block'}">Chart</md-button>
+
+<!-- Chart Modal -->
+<div class="w3-modal w3-animate-zoom" ng-style="modalStyle">
+    <div id="chat-content" class="w3-modal-content w3-card-12">
+        <header class="w3-container">
+            <span ng-click="modalStyle={display:'none'}" class="w3-closebtn">&times;</span>
+        </header>
+        Nianiania
+        <!--				<form ng-submit="mctrl.submitComment()">
+                            <textarea type="text" ng-model="mctrl.userComment" class="form-control" placeholder="Write comment here..." required></textarea>
+                            <img id="previewPhoto" ng-if="photoPath" ng-src="http://localhost:8082/img/comment/{{photoPath}}" />
+                            <input class="form-control" type="file" accept="image/*" ng-model-instant id="commentPhoto" onchange="angular.element(this).scope().uploadFile(this)" />
+                            <input type="submit" class="w3-btn-block w3-indigo">
+                        </form>-->
+    </div>
+</div>
