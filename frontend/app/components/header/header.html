@@ -67,7 +67,7 @@
 	    </ul>
 
 	    
-    	<md-button ng-show="name" class="md-primary md-raised" ng-click="showChart();">Chart({{newMessage}})</md-button>
+    	<md-button ng-show="name" class="md-primary md-raised" ng-click="showChart();">Chat({{newMessage}})</md-button>
     	
 		<!-- Chart Modal -->
 		<div class="w3-modal w3-animate-zoom" ng-style="modalStyleFunction()">
@@ -79,7 +79,7 @@
 				    <md-content>
 				      <md-list flex="">
 				        <md-divider></md-divider>
-				        <md-subheader class="md-no-sticky">Chart Messages</md-subheader>
+				        <md-subheader class="md-no-sticky">Chat Messages</md-subheader>
 				        <md-list-item class="md-3-line md-long-text" ng-repeat="message in allChart">
 				          <img ng-src="app/resources/images/head.jpg" class="md-avatar">
 				          <div class="md-list-item-text">

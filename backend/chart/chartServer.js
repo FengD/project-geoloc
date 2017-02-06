@@ -44,7 +44,7 @@ var initChartServer = function(questionNB){
 		logger.info("Connected");
 		
 		// when the client emits 'adduser', this listens and executes
-		socket.on('adduser', function(username, questionStep, position, date){
+		socket.on('adduser', function(username, questionStep, position){
 			// store the username in the socket session for this client
 			socket.username = username;
 			// store the room name in the socket session for this client
@@ -56,32 +56,32 @@ var initChartServer = function(questionNB){
 			// echo to client they've connected
 			// socket.emit('updatechat', 'SERVER', 'you have connected to room'+questionStep);
 			// echo to room 1 that a person has connected to their room
-			socket.broadcast.to('question'+questionStep).emit('updatechat', 'ADMIN', username + ' is now answering this question. He is at (' + position + ")  "+date);
+			socket.broadcast.to('question'+questionStep).emit('updatechat', 'ADMIN', username + ' is now answering this question.');
 			socket.emit('updaterooms', chartGroups, 'question'+questionStep);
 			// socket.emit('toAdmin',username,questionStep,position,date);
 		});
 		
 		// when the client emits 'sendchat', this listens and executes
-		socket.on('sendchat', function (data,position,date) {
+		socket.on('sendchat', function (username,data) {
 			// we tell the client to execute 'updatechat' with 2 parameters
-			io.sockets.in(socket.question).emit('updatechat', socket.username, data,position, date);		
+			io.sockets.in(socket.question).emit('updatechat', username, data, new Date());		
 		});
 
 		// when the client emits 'sendchat', this listens and executes
-		socket.on('toAdminInfo', function (username,questionStep,position,date) {
-			// we tell the client to execute 'updatechat' with 2 parameters
-			socket.emit('toAdmin',username,questionStep,position,date);		
-		});
+		// socket.on('toAdminInfo', function (username,questionStep,position,date) {
+		// 	// we tell the client to execute 'updatechat' with 2 parameters
+		// 	socket.emit('toAdmin',username,questionStep,position,date);		
+		// });
 		
-		socket.on('switchRoom', function(newQuestion, position,date){
+		socket.on('switchRoom', function(newQuestion,date){
 			socket.leave(socket.question);
 			socket.join(newQuestion);
-			socket.emit('updatechat', 'ADMIN', 'you are now answering '+ newQuestion+".", position, new Date());
+			socket.emit('updatechat', 'ADMIN', 'you are now answering '+ newQuestion+".", new Date());
 			// sent message to OLD room
-			socket.broadcast.to(socket.question).emit('updatechat', 'ADMIN', socket.username+' passed this question correctly.',"",new Date());
+			socket.broadcast.to(socket.question).emit('updatechat', 'ADMIN', socket.username+' passed this question correctly.',new Date());
 			// update socket session room title
 			socket.question = newQuestion;
-			socket.broadcast.to(newQuestion).emit('updatechat', 'ADMIN', socket.username+' is now answering this question.',"",new Date());
+			socket.broadcast.to(newQuestion).emit('updatechat', 'ADMIN', socket.username+' is now answering this question.',new Date());
 			socket.emit('updaterooms', chartGroups, newQuestion);
 		});
 		

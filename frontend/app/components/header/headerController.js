@@ -29,24 +29,23 @@ angular.module('geolocApp')
             $rootScope.userPhoto = $cookies.get('photo_path');
             
             socket.on('connect', function(){
-                var lat = 0,long = 0;
-                var date = new Date();
-                if (navigator.geolocation) {
-                    navigator.geolocation.getCurrentPosition(function (position) {
-                        lat = position.coords.latitude;
-                        long = position.coords.longitude;
-                        socket.emit('adduser', $cookies.get('name'), $cookies.get('question_step'),"("+lat + "," + long + ")",date);
-                        socket.emit('toAdminInfo', $cookies.get('name'), $cookies.get('question_step'),"("+lat + "," + long + ")",date);
-                    });      
-                }
+                // var lat = 0,long = 0;
+                // if (navigator.geolocation) {
+                //     navigator.geolocation.getCurrentPosition(function (position) {
+                //         lat = position.coords.latitude;
+                //         long = position.coords.longitude;
+                        socket.emit('adduser', $cookies.get('name'), $cookies.get('question_step'));
+                        // socket.emit('toAdminInfo', $cookies.get('name'), $cookies.get('question_step'),"("+lat + "," + long + ")",date);
+                //     });      
+                // }
+                console.log( $cookies.get('name'));
                 // call the server-side function 'adduser' and send one parameter (value of prompt)
                
-                socket.on('updatechat', function (username, data, position, date) {
+                socket.on('updatechat', function (username, data, date) {
                     // console.log(username + ":" + data + "position:" + position + "date:" + date);
                     var messageInfo = {
                         "username" : username,
                         "message" : data,
-                        "position" : position,
                         "date" : date
                     };
                     $scope.allChart.push(messageInfo);
@@ -87,17 +86,16 @@ angular.module('geolocApp')
         }, 60000);
 
         $scope.sendMessage = function(){
-             var lat = 0,long = 0;
-                var date = new Date();
-                if (navigator.geolocation) {
-                    navigator.geolocation.getCurrentPosition(function (position) {
-                        lat = position.coords.latitude;
-                        long = position.coords.longitude;
-                        socket.emit('sendchat', $scope.message,"("+lat + "," + long + ")",date);
+                // var lat = 0,long = 0;
+                // if (navigator.geolocation) {
+                //     navigator.geolocation.getCurrentPosition(function (position) {
+                //         lat = position.coords.latitude;
+                //         long = position.coords.longitude;
+                        socket.emit('sendchat',$cookies.get('name'), $scope.message);
                         // socket.emit('toAdminInfo', $cookies.get('name'), $cookies.get('question_step'),"("+lat + "," + long + ")",date);
                         // $scope.message = "";
-                    });      
-                }
+                //     });      
+                // }
         }
 
         $scope.showChart = function(){

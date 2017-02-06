@@ -145,7 +145,7 @@ angular.module('geolocApp')
     .factory('Server', function($http) {
 
         //10.212.117.220
-        var URLServer = 'http://localhost';
+        var URLServer = 'http://10.212.117.220';
 
         return {
 
@@ -156,8 +156,8 @@ angular.module('geolocApp')
         };
 
     }).
-    factory('socket', function (socketFactory) {
-        var myIoSocket = io.connect('http://localhost:8083');
+    factory('socket', function (socketFactory,Server) {
+        var myIoSocket = io.connect('10.212.117.220:8083');
 
         socket = socketFactory({
             ioSocket: myIoSocket
