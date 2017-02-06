@@ -152,7 +152,7 @@
 #rankingTable tr.rank0 td:first-child::before{
   content:url('../../resources/images/gold_medal_s.png'); /* with class ModalCarrot ??*/
   position:relative; /*or absolute*/
-  z-index:100000; /*a number that's more than the modal box*/
+  z-index:2; /*a number that's more than the modal box*/
   /*width:10px;*/
   /*height:auto;*/
   /*right:-10px;*/
@@ -166,7 +166,7 @@
 #rankingTable tr.rank1 td:first-child::before{
   content:url('../../resources/images/silver_medal_s.png'); /* with class ModalCarrot ??*/
   position:relative; /*or absolute*/
-  z-index:100000; /*a number that's more than the modal box*/
+  z-index:2; /*a number that's more than the modal box*/
   /*width:10px;*/
   /*height:auto;*/
   /*right:-10px;*/
@@ -180,7 +180,7 @@
 #rankingTable tr.rank2 td:first-child::before{
   content:url('../../resources/images/bronze_medal_s.png'); /* with class ModalCarrot ??*/
   position:relative; /*or absolute*/
-  z-index:100000; /*a number that's more than the modal box*/
+  z-index:2; /*a number that's more than the modal box*/
   /*width:10px;*/
   /*height:auto;*/
   /*right:-10px;*/
@@ -194,7 +194,7 @@
 #rankingTable tr.current td:first-child::before{
   content:url('../../resources/images/here_s.png'); /* with class ModalCarrot ??*/
   position:relative; /*or absolute*/
-  z-index:100000; /*a number that's more than the modal box*/
+  z-index:2; /*a number that's more than the modal box*/
   /*width:10px;*/
   /*height:auto;*/
   /*right:-10px;*/

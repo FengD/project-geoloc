@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('geolocApp')
-    .controller('mapController', function ($scope, $cookies, $http, $window, NgMap, Server) {
+    .controller('mapController', function ($scope, $cookies, $http, $window, NgMap, Server, socket) {
 
         /* Set animations and customization on the marker */
         var marker;
@@ -135,6 +135,7 @@ angular.module('geolocApp')
                     exp = new $window.Date(now.getFullYear(), now.getMonth() + 6, now.getDate());
                 $cookies.put('question_step', success.data.question_step, {expires: exp});
                 $cookies.put('current_chance', success.data.current_chance, {expires: exp});
+                socket.emit('switchQuestion', $cookies.get('question_step'),new Date());
                 cb();
 
             }, function errorCallback(error) {
@@ -267,6 +268,7 @@ angular.module('geolocApp')
                 alert("Oops, not correct, please retry!");
             } else {
                 $scope.current_card = 'map';
+
             }
         };
 

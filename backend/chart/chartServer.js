@@ -57,7 +57,7 @@ var initChartServer = function(questionNB){
 			// socket.emit('updatechat', 'SERVER', 'you have connected to room'+questionStep);
 			// echo to room 1 that a person has connected to their room
 			socket.broadcast.to('question'+questionStep).emit('updatechat', 'ADMIN', username + ' is now answering this question.');
-			socket.emit('updaterooms', chartGroups, 'question'+questionStep);
+			// socket.emit('updaterooms', chartGroups, 'question'+questionStep);
 			// socket.emit('toAdmin',username,questionStep,position,date);
 		});
 		
@@ -73,16 +73,16 @@ var initChartServer = function(questionNB){
 		// 	socket.emit('toAdmin',username,questionStep,position,date);		
 		// });
 		
-		socket.on('switchRoom', function(newQuestion,date){
+		socket.on('switchQuestion', function(newQuestion,date){
 			socket.leave(socket.question);
-			socket.join(newQuestion);
-			socket.emit('updatechat', 'ADMIN', 'you are now answering '+ newQuestion+".", new Date());
+			socket.join("question"+newQuestion);
+			socket.emit('updatechat', 'ADMIN', 'you are now answering '+ "question"+newQuestion+".", new Date());
 			// sent message to OLD room
 			socket.broadcast.to(socket.question).emit('updatechat', 'ADMIN', socket.username+' passed this question correctly.',new Date());
 			// update socket session room title
-			socket.question = newQuestion;
-			socket.broadcast.to(newQuestion).emit('updatechat', 'ADMIN', socket.username+' is now answering this question.',new Date());
-			socket.emit('updaterooms', chartGroups, newQuestion);
+			socket.question = "question"+newQuestion;
+			socket.broadcast.to("question"+newQuestion).emit('updatechat', 'ADMIN', socket.username+' is now answering this question.',new Date());
+			socket.emit('updaterooms', chartGroups, "question"+newQuestion);
 		});
 		
 

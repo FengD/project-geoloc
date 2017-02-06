@@ -73,13 +73,15 @@
 		<div class="w3-modal w3-animate-zoom" ng-style="modalStyleFunction()">
 		    <div id="chat-content" class="w3-modal-content w3-card-12">
 		        <header class="w3-container">
+
 		            <span ng-click="modalStyle={display:'none'}" class="w3-closebtn">&times;</span>
+		            <h2>Chat Messages of Question {{question_step}}</h2>
 		        </header>
 		        <div flex-gt-sm="100" flex="" id ="chatArea" >
 				    <md-content>
 				      <md-list flex="">
 				        <md-divider></md-divider>
-				        <md-subheader class="md-no-sticky">Chat Messages</md-subheader>
+				        <md-subheader class="md-no-sticky"></md-subheader>
 				        <md-list-item class="md-3-line md-long-text" ng-repeat="message in allChart">
 				          <img ng-src="app/resources/images/head.jpg" class="md-avatar">
 				          <div class="md-list-item-text">

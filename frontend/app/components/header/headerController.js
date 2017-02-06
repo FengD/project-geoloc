@@ -96,6 +96,7 @@ angular.module('geolocApp')
                         // $scope.message = "";
                 //     });      
                 // }
+                $scope.message = "";
         }
 
         $scope.showChart = function(){
