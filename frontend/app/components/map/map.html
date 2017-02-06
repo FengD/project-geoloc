@@ -110,8 +110,11 @@
         </div>
     </div>
 
-    <div ng-show="isSuccess" class="w3-panel w3-card-2 col-lg-12 col-md-12 col-sm-12 col-xs-12">
-        <p>Success!</p>
+    <div ng-show="isSuccess" class="w3-panel col-lg-12 col-md-12 col-sm-12 col-xs-12" style="height:100%">
+        <div id="success-smile-container" style="height:60%">
+            <img id="success-smile" src="app/resources/images/icons_game/smile.svg" style="display:block;height:100%;width:75%;margin-left:auto;margin-right:auto" alt="success-smile">
+        </div>
+        <h2 align="center" style="font-weight:bold;color:orange">Felicitation, all questions finished!</h2>
     </div>
 
     <div ng-show="isFail" class="w3-panel w3-card-2 col-lg-12 col-md-12 col-sm-12 col-xs-12">
