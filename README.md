@@ -80,6 +80,20 @@ If you want to use it in your server or you want to use a computer use a server 
 ### Testing
 ##### Ubuntu
 You can run the command `mocha -u tdd` in each backend subdirectory (`backend/user`, `backend/question`, `backend/uploadImage`) in order to run each service related test suites.
+We did two test files for each service (a service corresponds to a subdirectory) :
+- unit testing calling js file functions, in order to make sure this functions work fine by their own. This tests allow us to know if a problem is coming from the function.
+- integration testing, calling function by sending HTTP request to urls. This tests allow us to know if a problem is coming from the communication (can't reach url for instance).
+
+We did tests only for our two main services (users and questions), it was the most needed for this ones, because they are the biggest and we wrote it from scratch. The two others are small, and upload image uses an API, so we did not test it.
+
+With Mocha testing, each test file has the same structure :
+- before starting test suite, we create all variables we need for the tests
+- then we open test suite for a service ("question" for example)
+- we have two default functions, suiteStartup and suiteTeardown, which are respectively executed at beginning / end of the test suite, we use it to initialize and clean variables
+- to test a function, we open a suite("#functionName()")
+- in this suite, we can use as many test() functions as we need
+
+If all test pass (integration + unit), it means that no problems comes from the communication (all url are correct) and no problem comes from the functions itselves, so we can trust our system.
 
 ## Team
  * Feng DING, database structure design, user service, question service, chart service, uploadImage service (backend) all the admin functionnalities (frontend)
