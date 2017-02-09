@@ -1,4 +1,5 @@
-# project-geoloc
+# project-geoloc [Video Demo][11]
+
 
 ## Introduction
 Our project which name is geoloc is a game like orienteering. During your play, you need to answer the questions step by step to achieve the final goal. It shows you a place on the google map and you need to go to that place to find out the answer of the question which asked by the system. If your answer is correct you could get a new question, if not you need to try to find out another response.    
@@ -36,8 +37,13 @@ Open the `cmd` and go to the folder of the geoloc.
     `cd backend/question` then `npm install`
  * 3. Install upload image service.
     `cd backend/uploadImage` then `npm install`
- * 4. Install the frontend
+ * 4. Install chart service 
+    `cd backend/chart` then `npm install`
+ * 5. Install the frontend
     `cd frontend/` then `npm install` then `bower install`
+ * 6. Initial all questions and an admin user
+    `in the root folder` then `mongo localhost/geoloc initial.js`
+    
 
 ### Running
 ##### Ubuntu
@@ -60,21 +66,26 @@ It could be a little bit complex to run our application on windows because you n
     `cd backend/question` then `node question_app.js`
  * 3. Run upload image service.
     `cd backend/uploadImage` then `node uploadImage.js`
- * 4. Run the frontend
+ * 4. Run chart service.
+    `cd backend/chart` then `node chartServer.js`
+ * 5. Run the frontend
     `cd frontend/` then `node server.js`
 After all the services were run correctly, you could open the [localhost:3000][9] from the broswer to start to use our application on local.
 
 To stop the application please close each service manually.
+
+##### Remark
+If you want to use it in your server or you want to use a computer use a server do not forget to change the address IP (`var URLServer = 'http://localhost';`) in the file `frontend/app/homeRouter.js` to the address IP of your computer or your server.
 
 ### Testing
 ##### Ubuntu
 You can run the command `mocha -u tdd` in each backend subdirectory (`backend/user`, `backend/question`, `backend/uploadImage`) in order to run each service related test suites.
 
 ## Team
- * Feng DING, database structure design, user service, question service, uploadImage service (backend) all the admin functionnalities (frontend)
+ * Feng DING, database structure design, user service, question service, chart service, uploadImage service (backend) all the admin functionnalities (frontend)
  * Thibaut SORIANO, mocha test of all the services (backend)
  * Zhengqin YAN, Angular, login and signup, google map, questions and its blog (frontend)
- * Kaiwen YU
+ * Kaiwen YU, display user position (frontend)
 
 ## Links
 [MongoDB offical website][1]
@@ -94,3 +105,4 @@ You can run the command `mocha -u tdd` in each backend subdirectory (`backend/us
 [8]: https://bower.io/
 [9]: http://localhost:3000
 [10]: http://localhost:27017
+[11]: https://www.youtube.com/watch?v=YAV987vaAEE
