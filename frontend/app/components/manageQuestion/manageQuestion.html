@@ -120,7 +120,7 @@
 							<span ng-if="!isModify[$index]">{{questions.photo_path}}</span>
 							<input type="text" class="form-control" ng-model="questions.photo_path" ng-if="isModify[$index]" ng-readonly="true" required>
 						</td>
-						<td data-title="'PHOTO_OVERVIEW'"><img ng-if="questions.photo_path" ng-src="http://localhost:8082/img/question/{{questions.photo_path}}"/></td>
+						<td data-title="'PHOTO_OVERVIEW'"><img ng-if="questions.photo_path" ng-src="{{serverUrl}}:8082/img/question/{{questions.photo_path}}"/></td>
 						<td data-title="'NEXT_QUESTION'" sortable="'next_question'" filter="{next_question: 'number'}">
 							<span ng-if="!isModify[$index]">{{questions.next_question}}</span>
 							<input type="text" class="form-control" ng-model="questions.next_question" ng-if="isModify[$index]" required>

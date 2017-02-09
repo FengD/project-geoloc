@@ -3,6 +3,7 @@ angular.module('geolocApp')
     .controller('manageUserController',  function ($scope, $cookies, $http, $window, $location, $rootScope,NgTableParams, Server) {
     	$scope.allUser=[];
         $scope.isDelete = [];
+        $scope.serverUrl = Server.getUrl();
     	$scope.getAllUser = function(){
             $http({
                 method: 'GET',

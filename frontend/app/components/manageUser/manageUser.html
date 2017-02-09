@@ -37,7 +37,7 @@
 						<td data-title="'PASSWORD'" sortable="'password'" filter="{password:'text'}">{{users.password}}</td>
 						<td data-title="'USER_TYPE'" sortable="'user_type'" filter="{user_type:'text'}">{{users.user_type}}</td>
 						<td data-title="'PHOTO_PATH'" sortable="'photo_path'" filter="{photo_path:'text'}">{{users.photo_path}}</td>
-						<td data-title="'PHOTO_OVERVIEW'"><img ng-if="users.photo_path" ng-src="http://localhost:8082/img/user/{{users.photo_path}}"/></td>
+						<td data-title="'PHOTO_OVERVIEW'"><img ng-if="users.photo_path" ng-src="{{serverUrl}}:8082/img/user/{{users.photo_path}}"/></td>
 						<td data-title="'QUESTION_STEP'" sortable="'question_step'" filter="{question_step:'text'}">{{users.question_step}}</td>
 						<td data-title="'CREATE_TIME'" sortable="'first_create_time'" filter="{first_create_time:'text'}">{{users.first_create_time}}</td>
 						<td data-title="'LAST_MODIFICATION_DATE'" sortable="'last_modified_time'" filter="{last_modified_time:'text'}">{{users.last_modified_time}}</td>

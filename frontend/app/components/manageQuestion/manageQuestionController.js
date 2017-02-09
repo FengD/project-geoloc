@@ -5,6 +5,7 @@ angular.module('geolocApp')
     	$scope.questionImage=[];
         $scope.isModify = [];
         $scope.isDelete = [];
+        $scope.serverUrl = Server.getUrl();
 
     	$scope.getAllQuestion = function(){
             $http({
