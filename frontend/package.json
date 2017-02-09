@@ -12,6 +12,7 @@
     "angular-material": "^1.1.1",
     "ejs": "^2.5.5",
     "express": "^4.14.0",
-    "ng-table": "^3.0.1"
+    "ng-table": "^3.0.1",
+    "angular-animate":"^1.6.1"
   }
 }
