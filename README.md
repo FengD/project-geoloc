@@ -79,7 +79,7 @@ If you want to use it in your server or you want to use a computer use a server 
 
 ### Testing
 ##### Ubuntu
-You can run the command `mocha -u tdd` in each backend subdirectory (`backend/user`, `backend/question`, `backend/uploadImage`) in order to run each service related test suites.
+You can run the command `mocha -u tdd` in each backend subdirectory (`backend/user`, `backend/question`, `backend/uploadImage`) in order to run each service related test suites. Before running it, you must launch services by using ./run_local.sh in root directory.
 We did two test files for each service (a service corresponds to a subdirectory) :
 - unit testing calling js file functions, in order to make sure this functions work fine by their own. This tests allow us to know if a problem is coming from the function.
 - integration testing, calling function by sending HTTP request to urls. This tests allow us to know if a problem is coming from the communication (can't reach url for instance).
