@@ -84,7 +84,7 @@ We did two test files for each service (a service corresponds to a subdirectory)
 - unit testing calling js file functions, in order to make sure this functions work fine by their own. This tests allow us to know if a problem is coming from the function.
 - integration testing, calling function by sending HTTP request to urls. This tests allow us to know if a problem is coming from the communication (can't reach url for instance).
 
-We did tests only for our two main services (users and questions), it was the most needed for this ones, because they are the biggest and we wrote it from scratch. The two others are small, and upload image uses an API, so we did not test it.
+We did tests only for our two main services (users and questions), it was mostly needed for this ones, because they are the biggest and we wrote it from scratch, so we can show we know how it works. The two others are small, and upload image uses an API, so we did not test it.
 
 With Mocha testing, each test file has the same structure :
 - before starting test suite, we create all variables we need for the tests
