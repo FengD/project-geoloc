@@ -110,31 +110,42 @@ If all test pass (integration + unit), it means that no problems comes from the 
 ### Homepage
 ![alt tag](readmePicture/1.png)
 ### Login and register
+Before start, you need to create your own account. You just need to give a nickname and a password.
 ![alt tag](readmePicture/2.png)
 ![alt tag](readmePicture/3.png)
 ### How to Play
+In this page, we present a video which show you how to use our system.
 ![alt tag](readmePicture/4.png)
 ### Ranking
+You could also see a ranking of all the players.
 ![alt tag](readmePicture/5.png)
 ### Admin Mode
 #### Add a Question
+As an admin, you could also add new questions to extend your game.
 ![alt tag](readmePicture/6.png)
 #### Question Management
+You could also modify or delete the questions exist.
 ![alt tag](readmePicture/7.png)
 ### Question Overview
+In this page you could use all the questions added from a google map.
 ![alt tag](readmePicture/8.png)
 ### User Management
 ![alt tag](readmePicture/9.png)
 ### Chat
+You could also chat with the palyers who are now answering the same question.
 ![alt tag](readmePicture/10.png)
 ### Player Mode
 #### Question Location
+This page show you the position of your current question and also the questions that you passed.
 ![alt tag](readmePicture/11.png)
 #### Question & Answer
+If you find the place, you could answer the question at this page. You just have 5 chance to answer a choice question. If you use up your chance, you need to wait util you obtain new chance. (60 minute + 1 chance, 5 chance max)
 ![alt tag](readmePicture/12.png)
 #### Question Blog
+You could also leave your comment here, also with your pictures. Or send your love to other comment.
 ![alt tag](readmePicture/13.png)
 #### Question Navigation
+If you have difficult to find the location of a question, you could click on the question mark to start a navigation.
 ![alt tag](readmePicture/14.png)
 
 
