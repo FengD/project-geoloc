@@ -33,6 +33,9 @@ The [NodeJS][7] is also required to compile the [ECMAScript 6][6]. The version t
 #### Bower
 The [Bower][8] is also useful to install the module, such as angular, bootstrap, of the frontend. The latest version is `1.8.0`. 
 
+#### Socket.io
+Allow users to chat on real time.
+
 #### Ubuntu or Windows
 After all the preparation above were ready, you could begin to install our application on your ubuntu or windows system.
 
