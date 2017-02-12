@@ -1,5 +1,16 @@
 # project-geoloc [Video Demo][11]
 
+## Members
+ * Feng DING, database structure design, user service, question service, chart service, uploadImage service (backend) all the admin functionnalities (frontend)
+ * Thibaut SORIANO, mocha test of all the services (backend)
+ * Zhengqin YAN, Angular, login and signup, google map, questions and its blog (frontend)
+ * Kaiwen YU, display user position, display blog content (frontend)
+ 
+## Contacts
+- Feng DING <feng.ding@etu.unice.fr>
+- Thibaut SORIANO <thibaut.soriano@etu.unice.fr>
+- Zhengqin YAN <zhengqin.yan@etu.unice.fr>
+- Kaiwen YU <kaiwen.yu@etu.unice.fr>
 
 ## Introduction
 Our project which name is geoloc is a game like orienteering. During your play, you need to answer the questions step by step to achieve the final goal. It shows you a place on the google map and you need to go to that place to find out the answer of the question which asked by the system. If your answer is correct you could get a new question, if not you need to try to find out another response.    
@@ -95,11 +106,37 @@ With Mocha testing, each test file has the same structure :
 
 If all test pass (integration + unit), it means that no problems comes from the communication (all url are correct) and no problem comes from the functions itselves, so we can trust our system.
 
-## Team
- * Feng DING, database structure design, user service, question service, chart service, uploadImage service (backend) all the admin functionnalities (frontend)
- * Thibaut SORIANO, mocha test of all the services (backend)
- * Zhengqin YAN, Angular, login and signup, google map, questions and its blog (frontend)
- * Kaiwen YU, display user position (frontend)
+## How to Use
+### Homepage
+![alt tag](readmePicture/1.png)
+### Login and register
+![alt tag](readmePicture/2.png)
+![alt tag](readmePicture/3.png)
+### How to Play
+![alt tag](readmePicture/4.png)
+### Ranking
+![alt tag](readmePicture/5.png)
+### Admin Mode
+#### Add a Question
+![alt tag](readmePicture/6.png)
+#### Question Management
+![alt tag](readmePicture/7.png)
+### Question Overview
+![alt tag](readmePicture/8.png)
+### User Management
+![alt tag](readmePicture/9.png)
+### Chat
+![alt tag](readmePicture/10.png)
+### Player Mode
+#### Question Location
+![alt tag](readmePicture/11.png)
+#### Question & Answer
+![alt tag](readmePicture/12.png)
+#### Question Blog
+![alt tag](readmePicture/13.png)
+#### Question Navigation
+![alt tag](readmePicture/14.png)
+
 
 ## Links
 [MongoDB offical website][1]
