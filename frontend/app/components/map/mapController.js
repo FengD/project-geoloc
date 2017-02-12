@@ -314,7 +314,7 @@ angular.module('geolocApp')
                     }
                 }).then(function successCallback(success) {
 
-                    angular.element("input[type='file']").val(null);
+                    // angular.element("input[type='file']").val(null);
                     console.log(success);
                     mctrl.userComment = '';
                     mctrl.modalStyle = {display:'none'};
